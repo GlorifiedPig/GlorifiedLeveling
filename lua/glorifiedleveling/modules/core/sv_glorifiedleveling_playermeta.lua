@@ -57,3 +57,24 @@ function GlorifiedLeveling.GetPlayerMaxXP( ply )
     local level = GlorifiedLeveling.GetPlayerLevel( ply )
     return ( 100 + ( level * ( level + 1 ) * 75 ) ) * GlorifiedLeveling.Config.XP_MULTIPLIER
 end
+
+function GlorifiedLeveling.AddPlayerXP( ply, xp )
+    local plyLevel = GlorifiedBanking.GetPlayerLevel( ply )
+    local plyXP = GlorifiedBanking.GetPlayerXP( ply )
+    local totalXP = plyXP + xp
+    local carryOver = not ( plyLevel <= GlorifiedLeveling.Config.MAX_LEVEL or not GlorifiedLeveling.Config.CARRY_OVER_XP )
+
+    if totalXP >= GlorifiedLeveling.GetPlayerMaxXP( ply ) then
+        plyLevel = plyLevel + 1
+        local remainingXP = totalXP - GlorifiedLeveling.GetPlayerMaxXP( ply )
+        GlorifiedLeveling.SetPlayerXP( ply, 0 )
+        GlorifiedLeveling.SetPlayerLevel( ply, plyLevel )
+        if carryOver and remainingXP > 0 then
+            return GlorifiedLeveling.AddPlayerXP( ply, remainingXP )
+        end
+    else
+        GlorifiedLeveling.SetPlayerXP( ply, totalXP )
+    end
+
+    return xp or 0
+end
