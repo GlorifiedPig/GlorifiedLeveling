@@ -1,6 +1,6 @@
 
 --[[ SQL Configuration ]]--
-    GlorifiedLeveling.Config.SQL_TYPE = "sqlite" -- 'sqlite' or 'mysqloo'
+    GlorifiedLeveling.Config.SQL_TYPE = "mysqloo" -- 'sqlite' or 'mysqloo'
     GlorifiedLeveling.Config.SQL_DETAILS = {
         [ "host" ] = "localhost",
         [ "user" ] = "root",

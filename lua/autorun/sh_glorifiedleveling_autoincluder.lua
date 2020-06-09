@@ -99,9 +99,9 @@ end
 ]]--
 local function gbIncludeFile( fileName ) GlorifiedInclude.IncludeFile( fileName, nil, nil, nil, "GlorifiedLeveling" ) end
 local function gbIncludeFolder( folderName ) GlorifiedInclude.IncludeFolder( folderName, nil, nil, nil, "GlorifiedLeveling" ) end
-gbIncludeFile( "glorifiedleveling/sh_glorifiedbanking_compatibility.lua" )
+gbIncludeFile( "glorifiedleveling/sh_glorifiedleveling_compatibility.lua" )
 local function IncludeGBFiles()
-    gbIncludeFile( "glorifiedleveling/sv_glorifiedbanking_config.lua" )
+    gbIncludeFile( "glorifiedleveling/sv_glorifiedleveling_config.lua" )
     gbIncludeFolder( "glorifiedleveling/libraries/" )
     gbIncludeFolder( "glorifiedleveling/localization/" )
     gbIncludeFolder( "glorifiedleveling/modules/sql/" )
