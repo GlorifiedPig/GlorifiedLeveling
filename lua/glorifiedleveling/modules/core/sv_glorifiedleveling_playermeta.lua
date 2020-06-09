@@ -19,7 +19,7 @@ function GlorifiedLeveling.SetPlayerLevel( ply, level )
     if not ValidationChecks( ply, level ) then return end
     level = tonumber( level )
     level = math.Round( level )
-    level = minClamp( level, 1 )
+    level = math.Clamp( level, 1, GlorifiedLeveling.Config.MAX_LEVEL )
     if not ply.GlorifiedLeveling then ply.GlorifiedLeveling = {} end
     hook.Run( "GlorifiedLeveling.LevelUpdated", ply, GlorifiedLeveling.GetPlayerLevel( ply ), level )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `Level` = '" .. level .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )

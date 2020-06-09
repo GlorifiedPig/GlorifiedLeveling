@@ -10,4 +10,7 @@
     }
 --[[ End SQL Configuration ]]--
 
-GlorifiedLeveling.Config.XP_MULTIPLIER = 1
+--[[ Leveling Configuration ]]--
+    GlorifiedLeveling.Config.XP_MULTIPLIER = 1
+    GlorifiedLeveling.Config.MAX_LEVEL = 100
+--[[ Leveling Configuration ]]--
