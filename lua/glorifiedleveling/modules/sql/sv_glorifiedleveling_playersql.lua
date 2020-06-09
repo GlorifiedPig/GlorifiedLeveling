@@ -14,8 +14,8 @@ hook.Add( "PlayerInitialSpawn", "GlorifiedLeveling.SQLPlayer.PlayerInitialSpawn"
             ply:SetNW2Int( "GlorifiedLeveling.XP", plyXP )
             GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `LastName` = '" .. GlorifiedLeveling.SQL.EscapeString( ply:Nick() ) .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
         else
-            ply.GlorifiedBanking.Level = 1
-            ply.GlorifiedBanking.XP = 0
+            ply.GlorifiedLeveling.Level = 1
+            ply.GlorifiedLeveling.XP = 0
             ply:SetNW2Int( "GlorifiedLeveling.Level", 1 )
             ply:SetNW2Int( "GlorifiedLeveling.XP", 0 )
             GlorifiedLeveling.SQL.Query( "INSERT INTO `gl_players` ( `SteamID64`, `Level`, `XP`, `LastName` ) VALUES ( '" .. ply:SteamID64() .. "', '1', '0', '" .. GlorifiedLeveling.SQL.EscapeString( ply:Nick() ) .. "' )" )
