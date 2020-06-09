@@ -38,9 +38,9 @@ function GlorifiedLeveling.SetPlayerXP( ply, xp )
     xp = math.Round( xp )
     xp = minClamp( xp, 0 )
     if not ply.GlorifiedLeveling then ply.GlorifiedLeveling = {} end
-    hook.Run( "GlorifiedLeveling.LevelUpdated", ply, GlorifiedLeveling.GetPlayerXP( ply ), level )
+    hook.Run( "GlorifiedLeveling.XPUpdated", ply, GlorifiedLeveling.GetPlayerXP( ply ), xp )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `XP` = '" .. xp .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
-    ply.GlorifiedLeveling.XP = level
+    ply.GlorifiedLeveling.XP = xp
     ply:SetNW2Int( "GlorifiedLeveling.XP", xp )
 end
 
