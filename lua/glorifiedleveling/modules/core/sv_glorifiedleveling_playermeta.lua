@@ -32,6 +32,10 @@ function GlorifiedLeveling.GetPlayerLevel( ply )
     return tonumber( ply.GlorifiedLeveling.Level ) or 1
 end
 
+function GlorifiedLeveling.PlayerHasLevel( ply, level )
+    return GlorifiedBanking.GetPlayerLevel( ply ) >= level
+end
+
 function GlorifiedLeveling.SetPlayerXP( ply, xp )
     if not ValidationChecks( ply, xp ) then return end
     xp = tonumber( xp )
