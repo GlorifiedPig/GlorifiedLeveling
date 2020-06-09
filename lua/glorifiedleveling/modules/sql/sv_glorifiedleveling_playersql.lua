@@ -1,5 +1,5 @@
 
-GlorifiedLeveling.SQL.Query( "CREATE TABLE IF NOT EXISTS `gl_players`( `SteamID64` VARCHAR(32) NOT NULL, `Level` BIGINT(64) NOT NULL, `XP` BIGINT(64) NOT NULL, `LastName` VARCHAR(64) DEFAULT '', PRIMARY KEY( `SteamID` ) )" )
+GlorifiedLeveling.SQL.Query( "CREATE TABLE IF NOT EXISTS `gl_players`( `SteamID64` VARCHAR(32) NOT NULL, `Level` BIGINT(64) NOT NULL, `XP` BIGINT(64) NOT NULL, `LastName` VARCHAR(64) DEFAULT '', PRIMARY KEY( `SteamID64` ) )" )
 
 hook.Add( "PlayerInitialSpawn", "GlorifiedLeveling.SQLPlayer.PlayerInitialSpawn", function( ply )
     if ply:IsBot() then return end
