@@ -13,6 +13,8 @@
 local language = GetConVar( "gmod_language" )
 local registeredPhrases = {}
 
+GlorifiedLeveling.i18n = {}
+
 function GlorifiedLeveling.i18n.RegisterPhrase( languageIdentifier, phraseId, text )
     if not registeredPhrases[languageIdentifier] then registeredPhrases[languageIdentifier] = {} end
     registeredPhrases[languageIdentifier][phraseId] = text
