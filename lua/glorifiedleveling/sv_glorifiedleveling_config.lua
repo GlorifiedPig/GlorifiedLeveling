@@ -9,3 +9,5 @@
         [ "port" ] = 3306
     }
 --[[ End SQL Configuration ]]--
+
+GlorifiedLeveling.Config.XP_MULTIPLIER = 1

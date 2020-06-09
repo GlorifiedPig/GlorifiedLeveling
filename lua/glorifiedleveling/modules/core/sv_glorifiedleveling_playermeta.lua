@@ -27,7 +27,7 @@ function GlorifiedLeveling.SetPlayerLevel( ply, level )
     ply:SetNW2Int( "GlorifiedLeveling.Level", level )
 end
 
-function GlorifiedBanking.GetPlayerLevel( ply )
+function GlorifiedLeveling.GetPlayerLevel( ply )
     if not ply.GlorifiedLeveling then ply.GlorifiedLeveling = {} end
     return tonumber( ply.GlorifiedLeveling.Level ) or 1
 end
@@ -44,7 +44,12 @@ function GlorifiedLeveling.SetPlayerXP( ply, xp )
     ply:SetNW2Int( "GlorifiedLeveling.XP", xp )
 end
 
-function GlorifiedBanking.GetPlayerXP( ply )
+function GlorifiedLeveling.GetPlayerXP( ply )
     if not ply.GlorifiedLeveling then ply.GlorifiedLeveling = {} end
     return tonumber( ply.GlorifiedLeveling.XP ) or 0
+end
+
+function GlorifiedLeveling.GetPlayerMaxXP( ply )
+    local level = GlorifiedLeveling.GetPlayerLevel( ply )
+    return ( 100 + ( level * ( level + 1 ) * 75 ) ) * GlorifiedLeveling.Config.XP_MULTIPLIER
 end
