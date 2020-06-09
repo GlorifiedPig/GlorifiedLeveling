@@ -85,3 +85,38 @@ function GlorifiedLeveling.AddPlayerXP( ply, xp )
 
     return xp or 0
 end
+
+local plyMeta = FindMetaTable( "Player" )
+plyMeta.GlorifiedLeveling = {}
+
+function plyMeta.GlorifiedLeveling:SetLevel( level )
+    GlorifiedLeveling.SetPlayerLevel( self, level )
+end
+
+function plyMeta.GlorifiedLeveling:GetLevel()
+    return GlorifiedLeveling.GetPlayerLevel( self )
+end
+
+function plyMeta.GlorifiedLeveling:HasLevel( level )
+    return GlorifiedLeveling.PlayerHasLevel( self, level )
+end
+
+function plyMeta.GlorifiedLeveling:SetXP( xp )
+    GlorifiedLeveling.SetPlayerXP( self, xp )
+end
+
+function plyMeta.GlorifiedLeveling:GetXP()
+    return GlorifiedLeveling.GetPlayerXP( self )
+end
+
+function plyMeta.GlorifiedLeveling:GetMaxXP()
+    return GlorifiedLeveling.GetPlayerMaxXP( self )
+end
+
+function plyMeta.GlorifiedLeveling:AddLevels( levels )
+    GlorifiedLeveling.AddPlayerLevels( self, levels )
+end
+
+function plyMeta.GlorifiedLeveling:AddXP( xp )
+    return GlorifiedLeveling.AddPlayerXP( self, xp )
+end
