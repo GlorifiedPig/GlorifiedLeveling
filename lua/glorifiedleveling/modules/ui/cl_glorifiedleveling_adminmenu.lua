@@ -5,7 +5,7 @@ function PANEL:Init()
     self:SetSize( ScrH() * 0.746, ScrH() * 0.8 )
     self:Center()
     self:MakePopup()
-    self.Theme = GlorifiedBanking.Themes.GetCurrent()
+    self.Theme = GlorifiedLeveling.Themes.GetCurrent()
     self:SetAlpha( 0 )
     self:AlphaTo( 255, 0.3 )
 end
