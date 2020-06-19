@@ -71,7 +71,7 @@ function PANEL:AddItem( name, dockType, onClick )
     self.Buttons[btnID] = button
 end
 
-function PANEL:SelectTab(id)
+function PANEL:SelectTab( id )
     if self.SelectedTab == id then return true end
     if not self.Buttons[id] then return true end
     if self.Buttons[id].Text == "LOCK" then return false end

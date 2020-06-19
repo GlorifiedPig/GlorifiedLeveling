@@ -13,18 +13,18 @@ function PANEL:Init()
         draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glPlayersOnline", #self.Players ), "GlorifiedLeveling.AdminMenu.TransactionTypeSelect", w * 0.024, h * 0.46, self.Theme.Data.Colors.logsMenuTransactionTypeTextCol, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
     end
 
-    self.ScrollPanel = vgui.Create("GlorifiedLeveling.ScrollPanel", self)
+    self.ScrollPanel = vgui.Create( "GlorifiedLeveling.ScrollPanel", self )
 
     self.Players = {}
 end
 
-function PANEL:AddPlayer(ply, balance)
+function PANEL:AddPlayer( ply, level )
     local playerid = #self.Players + 1
 
-    self.Players[playerid] = vgui.Create("GlorifiedLeveling.Player", self.ScrollPanel)
+    self.Players[playerid] = vgui.Create( "GlorifiedLeveling.Player", self.ScrollPanel )
     self.Players[playerid].Theme = self.Theme
     self.Players[playerid].CanEditPlayers = self.CanEditPlayers
-    self.Players[playerid]:AddPlayer(ply, balance)
+    self.Players[playerid]:AddPlayer( ply, level )
 end
 
 function PANEL:ResetPlayers()
@@ -52,17 +52,15 @@ end
 vgui.Register( "GlorifiedLeveling.Players", PANEL, "Panel" )
 
 net.Receive( "GlorifiedLeveling.AdminPanel.PlayerListOpened.SendInfo", function()
-    local playersBals = util.JSONToTable( net.ReadLargeString() )
-    if not playersBals then return end
+    local playersLevels = util.JSONToTable( net.ReadLargeString() )
+    if not playersLevels then return end
 
     local panel = GlorifiedLeveling.UI.AdminMenu.Page
     if not panel.ResetPlayers then return end
 
-    local players = player.GetAll()
-
     panel:ResetPlayers()
 
-    for k,v in ipairs(players) do
-        panel:AddPlayer(v, playersBals[v:SteamID()] or -1)
+    for k,v in ipairs( player.GetAll() ) do
+        panel:AddPlayer( v, playersLevels[v:SteamID()] or -1 )
     end
 end )
