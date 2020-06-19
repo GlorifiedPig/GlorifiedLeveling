@@ -6,5 +6,6 @@ GlorifiedLeveling.i18n.RegisterPhrases( "en", {
     glLevelX = "Level %s",
 
     glAdminMenuLockdown = "LOCKDOWN",
-    glAdminMenuPlayers = "Players"
+    glAdminMenuPlayers = "Players",
+    glPlayersOnline = "Players Online"
 } )

@@ -40,6 +40,12 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
             weight = 500,
             antialias = true
         },
+        ["AdminMenu.TransactionTypeSelect"] = {
+            font = "Montserrat",
+            size = function() return ScrH() * .021 end,
+            weight = 500,
+            antialias = true
+        },
     },
     Materials = {
         logoSmall = Material( "glorifiedleveling/logo_small.png", "noclamp smooth" ),

@@ -40,7 +40,7 @@ function PANEL:Init()
     end )
 
     self.Navbar:AddItem( "X", RIGHT, function( s )
-        self:AlphaTo(0, 0.3, 0, function( anim, panel )
+        self:AlphaTo( 0, 0.3, 0, function( anim, panel )
             panel:Remove()
         end)
     end )
