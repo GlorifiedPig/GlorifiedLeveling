@@ -117,7 +117,7 @@ end
 hook.Add( GlorifiedLeveling.HookRunName, "GlorifiedLeveling.AutoIncluder.IncludeGBFiles", IncludeGBFiles )
 
 hook.Add( "libgmodstore_init", "GlorifiedLeveling.AutoIncluder.InitializeLibGModStore",function()
-    libgmodstore:InitScript( 0000, "GlorifiedLeveling",{
+    libgmodstore:InitScript( 7254, "GlorifiedLeveling",{
         version = "{{ script_version_name }}",
         licensee = "{{ user_id }}"
     } )
