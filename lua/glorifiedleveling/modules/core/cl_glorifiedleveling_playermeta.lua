@@ -17,5 +17,5 @@ end
 
 function GlorifiedLeveling.GetPlayerMaxXP()
     local level = GlorifiedLeveling.GetPlayerLevel()
-    return ( 100 + ( level * ( level + 1 ) * 75 ) ) * GlorifiedLeveling.Config.XP_MULTIPLIER
+    return ( 100 + ( level * ( level + 1 ) * 75 ) ) * GlorifiedLeveling.Config.BASE_XP_MULTIPLIER
 end

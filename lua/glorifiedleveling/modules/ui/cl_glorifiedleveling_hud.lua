@@ -48,11 +48,13 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
 
     draw.SimpleText( playerLevel, "GlorifiedLeveling.HUD.Level", ScrW() / 2 - xpBarWidth / 2 - 16, 28, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
-    surface.SetDrawColor( themeData.Colors.xpBarMultiplierDrawColor )
-    draw.NoTexture()
-    drawCircle( ScrW() / 2 + xpBarWidth / 2 + 20, 26, 16, 180 )
+    if GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) > 1 then
+        surface.SetDrawColor( themeData.Colors.xpBarMultiplierDrawColor )
+        draw.NoTexture()
+        drawCircle( ScrW() / 2 + xpBarWidth / 2 + 20, 26, 16, 180 )
 
-    draw.SimpleText( "x3", "GlorifiedLeveling.HUD.Multiplier", ScrW() / 2 + xpBarWidth / 2 + 19, 26, themeData.Colors.xpBarMultiplierTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+        draw.SimpleText( "x" .. GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ), "GlorifiedLeveling.HUD.Multiplier", ScrW() / 2 + xpBarWidth / 2 + 20, 26, themeData.Colors.xpBarMultiplierTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+    end
 
     if xpDivided > 0.3 then
         draw.SimpleText( roundedOldXP .. " XP", "GlorifiedLeveling.HUD.Experience", ScrW() / 2 - xpBarWidth / 2 + percentage / 2, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )

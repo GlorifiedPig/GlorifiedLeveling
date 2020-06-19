@@ -55,7 +55,7 @@ end
 
 function GlorifiedLeveling.GetPlayerMaxXP( ply )
     local level = GlorifiedLeveling.GetPlayerLevel( ply )
-    return ( 100 + ( level * ( level + 1 ) * 75 ) ) * GlorifiedLeveling.Config.XP_MULTIPLIER
+    return ( 100 + ( level * ( level + 1 ) * 75 ) ) * GlorifiedLeveling.Config.MAX_XP_MULTIPLIER
 end
 
 function GlorifiedLeveling.AddPlayerLevels( ply, levels )
@@ -66,6 +66,7 @@ function GlorifiedLeveling.AddPlayerLevels( ply, levels )
 end
 
 function GlorifiedLeveling.AddPlayerXP( ply, xp, showNotification, notificationOverride )
+    xp = xp * GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply )
     local plyLevel = GlorifiedLeveling.GetPlayerLevel( ply )
     local plyXP = GlorifiedLeveling.GetPlayerXP( ply )
     local totalXP = plyXP + xp

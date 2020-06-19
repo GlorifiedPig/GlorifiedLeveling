@@ -18,7 +18,7 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
         },
         ["HUD.Experience"] = {
             font = "Arial",
-            size = 18,
+            size = 16,
             weight = 750,
             antialias = true
         },
