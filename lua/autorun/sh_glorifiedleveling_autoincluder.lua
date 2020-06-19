@@ -102,6 +102,7 @@ local function gbIncludeFolder( folderName ) GlorifiedInclude.IncludeFolder( fol
 gbIncludeFile( "glorifiedleveling/sh_glorifiedleveling_compatibility.lua" )
 local function IncludeGBFiles()
     gbIncludeFile( "glorifiedleveling/sv_glorifiedleveling_config.lua" )
+    gbIncludeFile( "glorifiedleveling/sh_glorifiedleveling_config.lua" )
     gbIncludeFolder( "glorifiedleveling/libraries/" )
     gbIncludeFolder( "glorifiedleveling/localization/" )
     gbIncludeFolder( "glorifiedleveling/modules/sql/" )
