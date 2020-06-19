@@ -48,11 +48,11 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
 
     draw.SimpleText( playerLevel, "GlorifiedLeveling.HUD.Level", ScrW() / 2 - xpBarWidth / 2 - 16, 28, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
-    --[[surface.SetDrawColor( Color( 255, 121, 5 ) )
+    surface.SetDrawColor( themeData.Colors.xpBarMultiplierDrawColor )
     draw.NoTexture()
     drawCircle( ScrW() / 2 + xpBarWidth / 2 + 20, 26, 16, 180 )
 
-    draw.SimpleText( "x3", "GlorifiedLeveling.HUD.Multiplier", ScrW() / 2 + xpBarWidth / 2 + 20, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )]]--
+    draw.SimpleText( "x3", "GlorifiedLeveling.HUD.Multiplier", ScrW() / 2 + xpBarWidth / 2 + 19, 26, themeData.Colors.xpBarMultiplierTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
     if xpDivided > 0.3 then
         draw.SimpleText( roundedOldXP .. " XP", "GlorifiedLeveling.HUD.Experience", ScrW() / 2 - xpBarWidth / 2 + percentage / 2, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
