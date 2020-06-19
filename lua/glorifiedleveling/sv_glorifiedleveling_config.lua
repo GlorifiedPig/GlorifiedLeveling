@@ -15,3 +15,24 @@
     GlorifiedLeveling.Config.BACKUPS_FOLDER_NAME = "glorifiedleveling_backups" -- What's the name of the folder in the data folder to store?
     GlorifiedLeveling.Config.BACKUP_FREQUENCY = 2 -- How often in hours should the system backup?
 --[[ Backup System Configuration End ]]--
+
+--[[ CAMI Permissions Settings ]]--
+    GlorifiedLeveling.Config.CAMI_PERMISSION_DEFAULTS = {
+        ["glorifiedleveling_openadminpanel"] = {
+            MinAccess = "admin",
+            Description = "Determines whether or not the player can open the GlorifiedLeveling admin panel."
+        },
+        ["glorifiedleveling_manipulateplayerlevel"] = {
+            MinAccess = "admin",
+            Description = "Permission for which usergroups are able to manipulate player's level data (XP & Level)."
+        },
+        ["glorifiedbanking_togglelockdown"] = {
+            MinAccess = "superadmin",
+            Description = "Permission for whether or not the player can toggle lockdown."
+        },
+        ["glorifiedbanking_restorebackups"] = {
+            MinAccess = "superadmin",
+            Description = "Permission for which usergroups are able to restore to a previous backup."
+        },
+    }
+--[[ CAMI Permissions Settings End ]]--
