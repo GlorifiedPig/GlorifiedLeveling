@@ -8,18 +8,24 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
         adminMenuBackgroundCol = Color( 69, 69, 69 )
     },
     Fonts = {
-        ["HUDLevel"] = {
+        ["HUD.Level"] = {
             font = "Roboto",
             size = 24,
             weight = 0,
             antialias = true
         },
-        ["HUDExperience"] = {
+        ["HUD.Experience"] = {
             font = "Arial",
             size = 20,
             weight = 1000,
             antialias = true
-        }
+        },
+        ["HUD.Multiplier"] = {
+            font = "Roboto",
+            size = 20,
+            weight = 1000,
+            antialias = true
+        },
     }
 } )
 GlorifiedLeveling.Themes.GenerateFonts()
