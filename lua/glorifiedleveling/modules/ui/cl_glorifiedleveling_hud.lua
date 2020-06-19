@@ -35,7 +35,9 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
     local playerMaxXP = GlorifiedLeveling.GetPlayerMaxXP()
 
     oldXP = Lerp( FrameTime() * 4, oldXP, playerXP )
-    local percentage = ( oldXP / playerMaxXP ) * ( xpBarWidth - 15 )
+    local roundedOldXP = math.Round( oldXP )
+    local xpDivided = oldXP / playerMaxXP
+    local percentage = xpDivided * ( xpBarWidth - 15 )
 
     draw.RoundedBoxEx( 16, ScrW() / 2 - xpBarWidth / 2, 10, xpBarWidth, 31, themeData.Colors.xpBarBackgroundDrawColor, false, true, false, true )
     draw.RoundedBoxEx( 10, ScrW() / 2 - xpBarWidth / 2, 16, percentage, 20, themeData.Colors.xpBarXPDrawColor, false, true, false, true )
@@ -46,13 +48,13 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
 
     draw.SimpleText( playerLevel, "GlorifiedLeveling.HUDLevel", ScrW() / 2 - xpBarWidth / 2 - 16, 28, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
-    if oldXP / playerMaxXP > 0.3 then
-        draw.SimpleText( playerXP .. " XP", "GlorifiedLeveling.HUDExperience", ScrW() / 2 - xpBarWidth / 2 + percentage / 2, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+    if xpDivided > 0.3 then
+        draw.SimpleText( roundedOldXP .. " XP", "GlorifiedLeveling.HUDExperience", ScrW() / 2 - xpBarWidth / 2 + percentage / 2, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
     else
-        if oldXP / playerMaxXP > 0.05 then
-            draw.SimpleText( playerXP .. " XP", "GlorifiedLeveling.HUDExperience", ScrW() / 2 - xpBarWidth / 2 + percentage + 5, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
+        if xpDivided > 0.05 then
+            draw.SimpleText( roundedOldXP .. " XP", "GlorifiedLeveling.HUDExperience", ScrW() / 2 - xpBarWidth / 2 + percentage + 8, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
         else
-            draw.SimpleText( playerXP .. " XP", "GlorifiedLeveling.HUDExperience", ScrW() / 2 - 10, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+            draw.SimpleText( roundedOldXP .. " XP", "GlorifiedLeveling.HUDExperience", ScrW() / 2 - 10, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
         end
     end
 end )
