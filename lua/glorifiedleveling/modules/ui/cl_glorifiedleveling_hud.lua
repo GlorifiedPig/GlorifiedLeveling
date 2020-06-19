@@ -37,29 +37,22 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
     oldXP = Lerp( FrameTime() * 4, oldXP, playerXP )
     local percentage = ( oldXP / playerMaxXP ) * ( xpBarWidth - 15 )
 
-    draw.RoundedBox( 16, ScrW() / 2 - xpBarWidth / 2, 10, xpBarWidth, 31, Color( 31, 31, 31, 245 ) )
+    draw.RoundedBoxEx( 16, ScrW() / 2 - xpBarWidth / 2, 10, xpBarWidth, 31, themeData.Colors.xpBarBackgroundDrawColor, false, true, false, true )
+    draw.RoundedBoxEx( 10, ScrW() / 2 - xpBarWidth / 2, 16, percentage, 20, themeData.Colors.xpBarXPDrawColor, false, true, false, true )
 
-    draw.RoundedBox( 10, ScrW() / 2 - ( xpBarWidth - 15 ) / 2, 16, percentage, 20, Color( 233, 5, 60 ) )
-
-    surface.SetDrawColor( 31, 31, 31 )
+    surface.SetDrawColor( themeData.Colors.xpBarBackgroundDrawColor.r, themeData.Colors.xpBarBackgroundDrawColor.g, themeData.Colors.xpBarBackgroundDrawColor.b )
     draw.NoTexture()
-    drawCircle( ScrW() / 2 - xpBarWidth / 2, 27, 22, 180 )
+    drawCircle( ScrW() / 2 - xpBarWidth / 2 - 15, 27, 22, 180 )
 
-    draw.SimpleText( playerLevel, "GlorifiedLeveling.HUDLevel", ScrW() / 2 - xpBarWidth / 2 - 1, 28, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+    draw.SimpleText( playerLevel, "GlorifiedLeveling.HUDLevel", ScrW() / 2 - xpBarWidth / 2 - 16, 28, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
     if oldXP / playerMaxXP > 0.3 then
-        draw.SimpleText( playerXP .. " XP", "GlorifiedLeveling.HUDExperience", ScrW() / 2 - xpBarWidth / 2 + percentage / 2, 25, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+        draw.SimpleText( playerXP .. " XP", "GlorifiedLeveling.HUDExperience", ScrW() / 2 - xpBarWidth / 2 + percentage / 2, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
     else
-        draw.SimpleText( playerXP .. " XP", "GlorifiedLeveling.HUDExperience", ScrW() / 2 - xpBarWidth / 2 + percentage + 12, 25, Color( 255, 255, 255 ), TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
+        if oldXP / playerMaxXP > 0.05 then
+            draw.SimpleText( playerXP .. " XP", "GlorifiedLeveling.HUDExperience", ScrW() / 2 - xpBarWidth / 2 + percentage + 5, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
+        else
+            draw.SimpleText( playerXP .. " XP", "GlorifiedLeveling.HUDExperience", ScrW() / 2 - 10, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+        end
     end
-
-    --[[surface.SetDrawColor( themeData.Colors.xpBarBackgroundDrawColor )
-    surface.DrawRect( ScrW() / 2 - 347, 7, 748, 26 )
-
-    surface.SetDrawColor( themeData.Colors.xpBarXPDrawColor )
-    surface.DrawRect( ScrW() / 2 - 347, 7, percentage, 26 )
-
-    surface.SetMaterial( xpBarMat )
-    surface.SetDrawColor( 255, 255, 255, 255 )
-    surface.DrawTexturedRect( ScrW() / 2 - 450, 0, 900, 40 )]]--
 end )

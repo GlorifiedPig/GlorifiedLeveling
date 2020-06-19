@@ -1,8 +1,9 @@
 
 GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "glDarkTheme" ), {
     Colors = {
-        xpBarBackgroundDrawColor = Color( 0, 0, 0, 155 ),
-        xpBarXPDrawColor = Color( 150, 0, 0, 255 ),
+        xpBarBackgroundDrawColor = Color( 31, 31, 31, 245 ),
+        xpBarXPDrawColor = Color( 233, 5, 60 ),
+        xpBarTextDrawColor = Color( 255, 255, 255 ),
 
         adminMenuBackgroundCol = Color( 69, 69, 69 )
     },
