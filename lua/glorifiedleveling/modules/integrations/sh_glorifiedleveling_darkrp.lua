@@ -1,4 +1,6 @@
 
+if not GlorifiedLeveling.Config.SUPPORT_DARKRP then return end
+
 if SERVER then
     local function levelCheck( ply, ent )
         local entLevel = ent.level or ent.Level or ent.GlorifiedLeveling_Level

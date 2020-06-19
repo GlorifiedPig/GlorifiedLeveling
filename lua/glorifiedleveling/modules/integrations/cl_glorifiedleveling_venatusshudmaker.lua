@@ -1,4 +1,6 @@
 
+if not GlorifiedLeveling.Config.SUPPORT_VENATUSS_HUD_MAKER then return end
+
 local HUD_MAKER = UI_MAKER.HUD_MAKER or {}
 
 UI_MAKER.FunctionsGamemodes["GlorifiedLeveling"] = {
