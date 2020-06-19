@@ -6,7 +6,9 @@
 ]]--
 
 GlorifiedLeveling = GlorifiedLeveling or {
-    Config = {},
+    Config = {
+        XPGain = {}
+    },
     Version = "1.0.0"
 }
 
@@ -107,6 +109,8 @@ local function IncludeGBFiles()
     gbIncludeFolder( "glorifiedleveling/localization/" )
     gbIncludeFolder( "glorifiedleveling/modules/sql/" )
     gbIncludeFolder( "glorifiedleveling/modules/" )
+    gbIncludeFile( "glorifiedleveling/sh_glorifiedleveling_xpgain_config.lua" )
+    gbIncludeFolder( "glorifiedleveling/integrations/" )
     hook.Run( "GlorifiedLeveling.FinishedLoading" )
 end
 
