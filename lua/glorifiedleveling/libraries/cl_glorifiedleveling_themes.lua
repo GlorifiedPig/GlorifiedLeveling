@@ -35,12 +35,15 @@ function GlorifiedLeveling.Themes.GetByName( name )
 end
 
 function GlorifiedLeveling.Themes.GenerateFonts()
-    for k, v in pairs( GlorifiedLeveling.Themes.GetCurrent().Data.Fonts ) do
-        if isfunction(v.size) then
-            v.size = v.size()
-        end
+    local fontsTable = GlorifiedLeveling.Themes.GetCurrent().Data.Fonts
+    if fontsTable then
+        for k, v in pairs( fontsTable ) do
+            if isfunction(v.size) then
+                v.size = v.size()
+            end
 
-        surface.CreateFont( "GlorifiedLeveling." .. k, v )
+            surface.CreateFont( "GlorifiedLeveling." .. k, v )
+        end
     end
 end
 
