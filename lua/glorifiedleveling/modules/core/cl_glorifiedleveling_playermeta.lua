@@ -6,6 +6,10 @@ function GlorifiedLeveling.GetPlayerLevel()
     return ply:GetNW2Int( "GlorifiedLeveling.Level" )
 end
 
+function GlorifiedLeveling.PlayerHasLevel( level )
+    return GlorifiedLeveling.GetPlayerLevel() >= level
+end
+
 function GlorifiedLeveling.GetPlayerXP()
     if not ply then ply = LocalPlayer() end
     return ply:GetNW2Int( "GlorifiedLeveling.XP" )
