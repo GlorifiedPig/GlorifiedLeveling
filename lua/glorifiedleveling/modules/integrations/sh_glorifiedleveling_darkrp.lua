@@ -3,7 +3,7 @@ if SERVER then
     local function levelCheck( ply, ent )
         local entLevel = ent.level or ent.Level or ent.GlorifiedLeveling_Level
         if entLevel and not GlorifiedLeveling.HasLevel( entLevel ) then
-            return false, "You are not a high enough level for that."
+            return false, GlorifiedLeveling.i18n.GetPhrase( "glLevelNotHighEnough" )
         end
     end
 
@@ -18,7 +18,7 @@ if SERVER then
         local jobLevel = jobFromNumber.level or jobFromNumber.Level or jobFromNumber.GlorifiedLeveling_Level
 
         if jobLevel and not GlorifiedLeveling.HasLevel( jobLevel ) then
-            return false, "You are not a high enough level for that."
+            return false, GlorifiedLeveling.i18n.GetPhrase( "glLevelNotHighEnough" )
         end
     end )
 end
