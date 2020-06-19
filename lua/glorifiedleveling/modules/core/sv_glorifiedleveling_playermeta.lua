@@ -71,7 +71,7 @@ function GlorifiedLeveling.AddPlayerXP( ply, xp, showNotification, notificationO
     local totalXP = plyXP + xp
     local carryOver = not ( plyLevel <= GlorifiedLeveling.Config.MAX_LEVEL or not GlorifiedLeveling.Config.CARRY_OVER_XP )
 
-    if showNotification then
+    if showNotification or showNotification == nil then
         GlorifiedLeveling.Notify( ply, NOTIFY_GENERIC, 5, GlorifiedLeveling.i18n.GetPhrase( "glYouReceivedXP", xp ) )
     elseif notificationOverride then
         GlorifiedLeveling.Notify( ply, NOTIFY_GENERIC, 5, notificationOverride )
