@@ -38,7 +38,7 @@ function GlorifiedLeveling.Themes.GenerateFonts()
     local fontsTable = GlorifiedLeveling.Themes.GetCurrent().Data.Fonts
     if fontsTable then
         for k, v in pairs( fontsTable ) do
-            if isfunction(v.size) then
+            if isfunction( v.size ) then
                 v.size = v.size()
             end
 
