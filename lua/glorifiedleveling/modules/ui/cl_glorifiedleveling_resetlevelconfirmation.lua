@@ -1,9 +1,8 @@
 
-
 local PANEL = {}
 
 function PANEL:Init()
-    self:SetSize( ScrH() * 0.4, ScrH() * 0.18 )
+    self:SetSize( ScrH() * 0.5, ScrH() * 0.2 )
     self:Center()
     self:MakePopup()
 
