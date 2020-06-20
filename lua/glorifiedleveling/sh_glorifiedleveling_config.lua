@@ -12,7 +12,12 @@
 --[[ Integrations Config End ]]--
 
 --[[ UI Config ]]--
+    GlorifiedLeveling.Config.XP_BAR_ENABLED = true -- Set to false to disable the HUD XP bar.
     GlorifiedLeveling.Config.LEVEL_UP_ON_TOP = false -- Should the "Level up!" text be displayed above the bar?
+
+    GlorifiedLeveling.Config.MAX_LEVEL_RAINBOW_XP_BAR = true -- Set to true to make the XP bar a rainbow when the player hits the max level.
+    GlorifiedLeveling.Config.MAX_LEVEL_RAINBOW_LEVEL_TEXT = true -- Set to true to make the XP bar a rainbow when the player hits the max level.
+
     GlorifiedLeveling.Config.XP_BAR_WIDTH = function()
         return ScrH() * 0.7
     end
