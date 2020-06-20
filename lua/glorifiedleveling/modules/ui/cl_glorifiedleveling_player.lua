@@ -33,10 +33,10 @@ function PANEL:AddPlayer( ply, level )
         draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glResetLevel" ), "GlorifiedLeveling.AdminMenu.PlayerSetLevel", w / 2, h / 2, self.Theme.Data.Colors.playersMenuButtonTextCol, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
     end
     self.ResetLevel.DoClick = function( s )
-        if IsValid( GlorifiedLeveling.UI.ConfirmationPopup ) then return end
+        if IsValid( GlorifiedLeveling.UI.ResetLevelConfirmation ) then return end
 
-        GlorifiedLeveling.UI.ConfirmationPopup = vgui.Create( "GlorifiedLeveling.ConfirmationPopup" )
-        GlorifiedLeveling.UI.ConfirmationPopup.SteamID = self.Player:SteamID()
+        GlorifiedLeveling.UI.ResetLevelConfirmation = vgui.Create( "GlorifiedLeveling.ResetLevelConfirmation" )
+        GlorifiedLeveling.UI.ResetLevelConfirmation.SteamID = self.Player:SteamID()
     end
 
     self.AddXP = vgui.Create( "DButton", self )

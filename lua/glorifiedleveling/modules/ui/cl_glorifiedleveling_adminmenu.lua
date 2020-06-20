@@ -8,7 +8,7 @@ function PANEL:Init()
 
     self.Theme = GlorifiedLeveling.Themes.GetCurrent()
 
-    self.Navbar = vgui.Create("GlorifiedBanking.AdminNavbar", self)
+    self.Navbar = vgui.Create( "GlorifiedBanking.AdminNavbar", self )
 
     local function changePage( page )
         if not IsValid( self.Page ) then

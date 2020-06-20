@@ -1,12 +1,21 @@
 
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.OpenAdminPanel" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.SetLockdownStatus" )
+util.AddNetworkString( "GlorifiedLeveling.AdminPanel.ResetPlayerLevel" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.PlayerListOpened" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.PlayerListOpened.SendInfo" )
 
 net.Receive( "GlorifiedLeveling.AdminPanel.SetLockdownStatus", function( len, ply )
     if GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_togglelockdown" ) then
         GlorifiedLeveling.SetLockdownEnabled( net.ReadBool() )
+    end
+end )
+
+net.Receive( "GlorifiedLeveling.AdminPanel.ResetPlayerLevel", function( len, ply )
+    if GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_manipulateplayerlevel" ) then
+        local plyFromSteamID = player.GetBySteamID( net.ReadString() )
+        GlorifiedLeveling.SetPlayerXP( plyFromSteamID, 0 )
+        GlorifiedLeveling.SetPlayerLevel( plyFromSteamID, 1 )
     end
 end )
 

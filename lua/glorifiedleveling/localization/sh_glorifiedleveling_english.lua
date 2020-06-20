@@ -10,5 +10,9 @@ GlorifiedLeveling.i18n.RegisterPhrases( "en", {
     glPlayersOnline = "Players Online: %s",
     glSetLevel = "Set Level",
     glResetLevel = "Reset Level",
-    glAddXP = "Add XP"
+    glAddXP = "Add XP",
+    glConfirmation = "Confirmation",
+    glYes = "Yes",
+    glNo = "No",
+    glConfirmationResetLevel = "Do you want to reset that player's level?"
 } )
