@@ -32,10 +32,10 @@ function PANEL:Init()
 
     self.Yes.Color = Color(255, 255, 255)
     self.Yes.Paint = function(s, w, h)
-        s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 10, s.Color, s:IsHovered() and self.Theme.Data.Colors.resetBalanceYesButtonBackgroundHoverCol or self.Theme.Data.Colors.resetBalanceYesButtonBackgroundCol )
+        s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 10, s.Color, s:IsHovered() and self.Theme.Data.Colors.resetLevelYesButtonBackgroundHoverCol or self.Theme.Data.Colors.resetLevelYesButtonBackgroundCol )
 
         draw.RoundedBox( h * 0.1, 0, 0, w, h, s.Color )
-        draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glYes" ), "GlorifiedLeveling.AdminMenu.SetLevelButton", w / 2, h * .43, self.Theme.Data.Colors.setBalanceButtonTextCol, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+        draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glYes" ), "GlorifiedLeveling.AdminMenu.SetLevelButton", w / 2, h * .43, self.Theme.Data.Colors.setLevelButtonTextCol, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
     end
 
     self.Yes.DoClick = function(s)
@@ -56,10 +56,10 @@ function PANEL:Init()
 
     self.No.Color = Color( 255, 255, 255 )
     self.No.Paint = function( s, w, h )
-        s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 10, s.Color, s:IsHovered() and self.Theme.Data.Colors.resetBalanceNoButtonBackgroundHoverCol or self.Theme.Data.Colors.resetBalanceNoButtonBackgroundCol )
+        s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 10, s.Color, s:IsHovered() and self.Theme.Data.Colors.resetLevelNoButtonBackgroundHoverCol or self.Theme.Data.Colors.resetLevelNoButtonBackgroundCol )
 
         draw.RoundedBox( h * .1, 0, 0, w, h, s.Color )
-        draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glNo" ), "GlorifiedLeveling.AdminMenu.SetLevelButton", w / 2, h * .43, self.Theme.Data.Colors.setBalanceButtonTextCol, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+        draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glNo" ), "GlorifiedLeveling.AdminMenu.SetLevelButton", w / 2, h * .43, self.Theme.Data.Colors.setLevelButtonTextCol, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
     end
 
     self.No.DoClick = function(s)

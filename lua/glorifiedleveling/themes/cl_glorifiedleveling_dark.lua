@@ -18,40 +18,30 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
         scrollBarCol = Color( 105, 105, 105 ),
         scrollBarHoverCol = Color( 85, 85, 85 ),
 
-        dropdownBackgroundCol = Color( 33, 33, 33 ),
-        dropdownBackgroundHoverCol = Color( 45, 45, 45 ),
-        dropdownSelectedTextCol = Color( 255, 255, 255 ),
-
-        logsMenuTransactionTypeTextCol = Color( 255, 255, 255 ),
-        logsMenuTransactionTypeSelectCol = Color( 33, 33, 33 ),
-
-        logsMenuLogBackgroundCol = Color( 33, 33, 33 ),
-        logsMenuLogInfoTextCol = Color( 255, 255, 255 ),
-        logsMenuLogPlayerNameTextCol = Color( 255, 255, 255 ),
-        logsMenuLogPlayerSteamIDTextCol = Color( 160, 160, 160 ),
-        logsMenuLogMoneyPositiveTextCol = Color( 87, 168, 50 ),
-        logsMenuLogMoneyNegativeTextCol = Color( 205, 57, 57 ),
-        logsMenuBackButtonCol = Color( 255, 255, 255 ),
-        logsMenuBackButtonHoverCol = Color( 160, 160, 160 ),
+        playerTopBarColor = Color( 255, 255, 255 ),
+        playerBackgroundCol = Color( 33, 33, 33 ),
+        playerInfoTextCol = Color( 255, 255, 255 ),
+        playerNameTextCol = Color( 255, 255, 255 ),
+        playerSteamIDTextCol = Color( 160, 160, 160 ),
 
         playersMenuSetButtonBackgroundCol = Color( 26, 134, 177 ),
         playersMenuSetButtonBackgroundHoverCol = Color( 31, 168, 223 ),
         playersMenuResetButtonBackgroundCol = Color( 205, 57, 57 ),
         playersMenuResetButtonBackgroundHoverCol = Color( 158, 41, 41 ),
-        playersMenuTransactionsButtonBackgroundCol = Color( 74, 74, 74 ),
-        playersMenuTransactionsButtonBackgroundHoverCol = Color( 50, 50, 50 ),
+        playersMenuAddButtonBackgroundCol = Color( 74, 74, 74 ),
+        playersMenuAddButtonBackgroundHoverCol = Color( 50, 50, 50 ),
         playersMenuButtonTextCol = Color( 255, 255, 255 ),
 
-        setBalanceButtonBackgroundCol = Color( 87, 168, 50 ),
-        setBalanceButtonBackgroundHoverCol = Color( 62, 123, 32 ),
-        setBalanceButtonTextCol = Color( 255, 255, 255 ),
-        setBalanceEntryTextCol = Color( 74, 74, 74 ),
-        setBalanceEntryBackgroundCol = Color( 255, 255, 255 ),
+        setLevelButtonBackgroundCol = Color( 87, 168, 50 ),
+        setLevelButtonBackgroundHoverCol = Color( 62, 123, 32 ),
+        setLevelButtonTextCol = Color( 255, 255, 255 ),
+        setLevelEntryTextCol = Color( 74, 74, 74 ),
+        setLevelEntryBackgroundCol = Color( 255, 255, 255 ),
 
-        resetBalanceYesButtonBackgroundCol = Color( 87, 168, 50 ),
-        resetBalanceYesButtonBackgroundHoverCol = Color( 62, 123, 32 ),
-        resetBalanceNoButtonBackgroundCol = Color( 205, 57, 57 ),
-        resetBalanceNoButtonBackgroundHoverCol = Color( 158, 41, 41 )
+        resetLevelYesButtonBackgroundCol = Color( 87, 168, 50 ),
+        resetLevelYesButtonBackgroundHoverCol = Color( 62, 123, 32 ),
+        resetLevelNoButtonBackgroundCol = Color( 205, 57, 57 ),
+        resetLevelNoButtonBackgroundHoverCol = Color( 158, 41, 41 )
     },
     Fonts = {
         ["HUD.Level"] = {
@@ -78,31 +68,19 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
             weight = 500,
             antialias = true
         },
-        ["AdminMenu.TransactionTypeSelect"] = {
+        ["AdminMenu.PlayersOnline"] = {
             font = "Montserrat",
             size = function() return ScrH() * .021 end,
             weight = 500,
             antialias = true
         },
-        ["AdminMenu.LogPlayerInfo"] = {
+        ["AdminMenu.PlayerInfo"] = {
             font = "Montserrat",
             size = function() return ScrH() * .0175 end,
             weight = 500,
             antialias = true
         },
-        ["AdminMenu.LogInfo"] = {
-            font = "Montserrat",
-            size = function() return ScrH() * .016 end,
-            weight = 500,
-            antialias = true
-        },
-        ["AdminMenu.LogInfoBold"] = {
-            font = "Montserrat",
-            size = function() return ScrH() * .016 end,
-            weight = 700,
-            antialias = true
-        },
-        ["AdminMenu.LogLevel"] = {
+        ["AdminMenu.PlayerLevel"] = {
             font = "Montserrat",
             size = function() return ScrH() * .024 end,
             weight = 500,
@@ -140,23 +118,7 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
         },
     },
     Materials = {
-        logoSmall = Material( "glorifiedleveling/logo_small.png", "noclamp smooth" ),
-        back = Material( "glorifiedleveling/back.png", "noclamp smooth" ),
-        exit = Material( "glorifiedleveling/exit.png", "noclamp smooth" ),
-        lockdown = Material( "glorifiedleveling/lockdown.png", "noclamp smooth" ),
-        warning = Material( "glorifiedleveling/warning.png", "noclamp smooth" ),
-        transfer = Material( "glorifiedleveling/transfer.png", "noclamp smooth" ),
-        transaction = Material( "glorifiedleveling/transaction.png", "noclamp smooth" ),
-        money = Material( "glorifiedleveling/money.png", "noclamp smooth" ),
-        user = Material( "glorifiedleveling/user.png", "noclamp smooth" ),
-        player = Material( "glorifiedleveling/player.png", "noclamp smooth" ),
-        check = Material( "glorifiedleveling/check.png", "noclamp smooth" ),
-        chevron = Material( "glorifiedleveling/chevron.png", "noclamp smooth" ),
-        circle = Material( "glorifiedleveling/circle.png", "noclamp smooth" ),
         close = Material( "glorifiedleveling/close.png", "noclamp smooth" ),
-        loading = Material( "glorifiedleveling/loading_spinner.png", "noclamp smooth" ),
-        cursor = Material( "glorifiedleveling/cursor.png", "noclamp smooth" ),
-        cursorHover = Material( "glorifiedleveling/cursor_hover.png", "noclamp smooth" ),
     }
 } )
 GlorifiedLeveling.Themes.GenerateFonts()

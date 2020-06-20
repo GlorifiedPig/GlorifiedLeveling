@@ -65,8 +65,8 @@ function GlorifiedLeveling.AddPlayerLevels( ply, levels )
     GlorifiedLeveling.SetPlayerXP( ply, 0 )
 end
 
-function GlorifiedLeveling.AddPlayerXP( ply, xp, showNotification, notificationOverride )
-    xp = xp * GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply )
+function GlorifiedLeveling.AddPlayerXP( ply, xp, ignoreMultiplier, showNotification, notificationOverride )
+    if not ignoreMultiplier then xp = xp * GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) end
     local plyLevel = GlorifiedLeveling.GetPlayerLevel( ply )
     local plyXP = GlorifiedLeveling.GetPlayerXP( ply )
     local totalXP = plyXP + xp
@@ -84,7 +84,7 @@ function GlorifiedLeveling.AddPlayerXP( ply, xp, showNotification, notificationO
         GlorifiedLeveling.SetPlayerXP( ply, 0 )
         GlorifiedLeveling.SetPlayerLevel( ply, plyLevel )
         if carryOver and remainingXP > 0 then
-            return GlorifiedLeveling.AddPlayerXP( ply, remainingXP, false )
+            return GlorifiedLeveling.AddPlayerXP( ply, remainingXP, nil, false )
         end
     else
         GlorifiedLeveling.SetPlayerXP( ply, totalXP )

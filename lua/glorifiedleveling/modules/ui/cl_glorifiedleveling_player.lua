@@ -17,10 +17,10 @@ function PANEL:AddPlayer( ply, level )
         draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glSetLevel" ), "GlorifiedLeveling.AdminMenu.PlayerSetLevel", w / 2, h / 2, self.Theme.Data.Colors.playersMenuButtonTextCol, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
     end
     self.SetLevel.DoClick = function( s )
-        if IsValid( GlorifiedLeveling.UI.SetLevelPopup ) then return end
+        if IsValid( GlorifiedLeveling.UI.SetLevelConfirmation ) then return end
 
-        GlorifiedLeveling.UI.SetLevelPopup = vgui.Create( "GlorifiedLeveling.SetLevelPopup" )
-        GlorifiedLeveling.UI.SetLevelPopup.SteamID = self.Player:SteamID()
+        GlorifiedLeveling.UI.SetLevelConfirmation = vgui.Create( "GlorifiedLeveling.SetLevelConfirmation" )
+        GlorifiedLeveling.UI.SetLevelConfirmation.SteamID = self.Player:SteamID()
     end
 
     self.ResetLevel = vgui.Create( "DButton", self )
@@ -43,32 +43,32 @@ function PANEL:AddPlayer( ply, level )
     self.AddXP:SetText( "" )
     self.AddXP.Color = Color( 255, 255, 255 )
     self.AddXP.Paint = function( s, w, h )
-        s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 10, s.Color, s:IsHovered() and self.Theme.Data.Colors.playersMenuTransactionsButtonBackgroundHoverCol or self.Theme.Data.Colors.playersMenuTransactionsButtonBackgroundCol )
+        s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 10, s.Color, s:IsHovered() and self.Theme.Data.Colors.playersMenuAddButtonBackgroundCol or self.Theme.Data.Colors.playersMenuAddButtonBackgroundHoverCol )
 
         draw.RoundedBox( h * 0.22, 0, 0, w, h, s.Color )
         draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glAddXP" ), "GlorifiedLeveling.AdminMenu.PlayerSetLevel", w / 2, h / 2, self.Theme.Data.Colors.playersMenuButtonTextCol, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
     end
     self.AddXP.DoClick = function(s)
-        if IsValid( GlorifiedLeveling.UI.AddXPPopup ) then return end
+        if IsValid( GlorifiedLeveling.UI.AddXPConfirmation ) then return end
 
-        GlorifiedLeveling.UI.AddXPPopup = vgui.Create( "GlorifiedLeveling.AddXPPopup" )
-        GlorifiedLeveling.UI.AddXPPopup.SteamID = self.Player:SteamID()
+        GlorifiedLeveling.UI.AddXPConfirmation = vgui.Create( "GlorifiedLeveling.AddXPConfirmation" )
+        GlorifiedLeveling.UI.AddXPConfirmation.SteamID = self.Player:SteamID()
     end
 
     local function drawPlayerInfo( playerno, x, containerh, align )
         local centerh = containerh / 2
         local spacing = containerh * .1
 
-        draw.SimpleText( self.Player:Name(), "GlorifiedLeveling.AdminMenu.LogPlayerInfo", x, centerh - spacing, self.Theme.Data.Colors.logsMenuLogPlayerNameTextCol, align, TEXT_ALIGN_CENTER )
-        draw.SimpleText( self.Player:SteamID(), "GlorifiedLeveling.AdminMenu.LogPlayerInfo", x, centerh + spacing, self.Theme.Data.Colors.logsMenuLogPlayerSteamIDTextCol, align, TEXT_ALIGN_CENTER )
+        draw.SimpleText( self.Player:Name(), "GlorifiedLeveling.AdminMenu.PlayerInfo", x, centerh - spacing, self.Theme.Data.Colors.playerNameTextCol, align, TEXT_ALIGN_CENTER )
+        draw.SimpleText( self.Player:SteamID(), "GlorifiedLeveling.AdminMenu.PlayerInfo", x, centerh + spacing, self.Theme.Data.Colors.playerSteamIDTextCol, align, TEXT_ALIGN_CENTER )
     end
 
     function self:Paint( w, h )
-        draw.RoundedBox( h * 0.1, 0, 0, w, h, self.Theme.Data.Colors.logsMenuLogBackgroundCol )
+        draw.RoundedBox( h * 0.1, 0, 0, w, h, self.Theme.Data.Colors.playerBackgroundCol )
 
         drawPlayerInfo( 1, h * 0.77, h, TEXT_ALIGN_LEFT )
 
-        draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glLevelX", self.Level ), "GlorifiedLeveling.AdminMenu.LogLevel", w * .95, h / 2, self.Theme.Data.Colors.logsMenuLogInfoTextCol, TEXT_ALIGN_RIGHT, TEXT_ALIGN_CENTER )
+        draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glLevelX", self.Level ), "GlorifiedLeveling.AdminMenu.PlayerLevel", w * .95, h / 2, self.Theme.Data.Colors.playerInfoTextCol, TEXT_ALIGN_RIGHT, TEXT_ALIGN_CENTER )
     end
 end
 

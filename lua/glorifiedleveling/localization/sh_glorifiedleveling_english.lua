@@ -14,5 +14,8 @@ GlorifiedLeveling.i18n.RegisterPhrases( "en", {
     glConfirmation = "Confirmation",
     glYes = "Yes",
     glNo = "No",
-    glConfirmationResetLevel = "Do you want to reset that player's level?"
+    glConfirmationResetLevel = "Do you want to reset that player's level?",
+    glEnterLevel = "Enter the player's new level below.",
+    glEnterXP = "Enter how much XP you want to add.",
+    glEnter = "Enter",
 } )
