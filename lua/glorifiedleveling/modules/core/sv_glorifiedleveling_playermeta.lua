@@ -15,6 +15,17 @@ local function ValidationChecks( ply, level )
     or not ply:IsConnected() )
 end
 
+local function spawnConfettiParticles( ply )
+    local effectData = EffectData()
+    effectData:SetOrigin( ply:GetPos() )
+    util.Effect( "glorifiedleveling_confetti", effectData )
+end
+
+local function levelUpEffects( ply )
+    ply:EmitSound( GlorifiedLeveling.Config.LEVEL_UP_SOUND, 65, math.random( 95, 105 ), 0.8 )
+    timer.Simple( GlorifiedLeveling.Config.CONFETTI_SHOOT_TIMER, function() spawnConfettiParticles( ply ) end )
+end
+
 function GlorifiedLeveling.SetPlayerLevel( ply, level )
     if not ValidationChecks( ply, level ) then return end
     level = tonumber( level )
@@ -84,6 +95,7 @@ function GlorifiedLeveling.AddPlayerXP( ply, xp, ignoreMultiplier, showNotificat
         GlorifiedLeveling.SetPlayerLevel( ply, plyLevel )
         if not carriedOver then
             hook.Run( "GlorifiedLeveling.LevelUp", ply )
+            levelUpEffects( ply )
         end
         if carryOver and remainingXP > 0 then
             return GlorifiedLeveling.AddPlayerXP( ply, remainingXP, true, false, nil, true )

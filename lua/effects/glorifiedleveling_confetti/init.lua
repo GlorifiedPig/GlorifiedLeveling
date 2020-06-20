@@ -11,12 +11,12 @@ function EFFECT:Init( data )
     local emitter = ParticleEmitter( vOrigin, true )
 
     for i = 0, particleCount do
-        local Pos = VectorRand()
-        local particle = emitter:Add( self.Mat, vOrigin + Pos )
+        local randomPos = VectorRand()
+        local particle = emitter:Add( self.Mat, vOrigin + randomPos )
 
         if particle then
             local vel = math.Rand( 10, confettiSpread )
-            particle:SetVelocity( Pos * vel )
+            particle:SetVelocity( randomPos * vel )
 
             particle:SetLifeTime( 0 )
             particle:SetDieTime( confettiLife )
