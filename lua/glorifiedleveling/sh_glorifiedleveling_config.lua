@@ -15,6 +15,9 @@
     GlorifiedLeveling.Config.XP_BAR_ENABLED = true -- Set to false to disable the HUD XP bar.
     GlorifiedLeveling.Config.LEVEL_UP_ON_TOP = false -- Should the "Level up!" text be displayed above the bar?
 
+    GlorifiedLeveling.Config.LEVEL_UP_SOUND = "glorifiedleveling/level_up.wav" -- What is the sound for when the player levels up?
+    GlorifiedLeveling.Config.CONFETTI_SHOOT_TIMER = 2.13 -- How many seconds after the sound plays must the confetti shoot?
+
     GlorifiedLeveling.Config.MAX_LEVEL_RAINBOW_XP_BAR = true -- Set to true to make the XP bar a rainbow when the player hits the max level.
     GlorifiedLeveling.Config.MAX_LEVEL_RAINBOW_LEVEL_TEXT = true -- Set to true to make the XP bar a rainbow when the player hits the max level.
 

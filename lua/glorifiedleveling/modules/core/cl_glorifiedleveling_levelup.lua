@@ -6,8 +6,8 @@ local function spawnConfettiParticles()
 end
 
 local function levelUpClient()
-    surface.PlaySound( "glorifiedleveling/level_up.wav" )
-    timer.Simple( 2.13, spawnConfettiParticles )
+    surface.PlaySound( GlorifiedLeveling.Config.LEVEL_UP_SOUND )
+    timer.Simple( GlorifiedLeveling.Config.CONFETTI_SHOOT_TIMER, spawnConfettiParticles )
 end
 
 net.Receive( "GlorifiedLeveling.PlayerLeveledUp", function()

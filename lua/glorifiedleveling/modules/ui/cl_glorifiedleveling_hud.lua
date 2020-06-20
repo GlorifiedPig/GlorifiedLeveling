@@ -128,10 +128,10 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
         draw.RoundedBoxEx( 15, barOffsetWidth - xpBarWidth / 2, barOffsetHeight + 10, xpBarWidth, xpBarHeight, themeData.Colors.xpBarBackgroundDrawColor, false, true, false, true )
         if glConfig.MAX_LEVEL_RAINBOW_XP_BAR then
             draw.RoundedBoxEx( 10, barOffsetWidth - xpBarWidth / 2, barOffsetHeight + 16, xpBarWidth - 8, 20, rainbowColor( 15 ), false, true, false, true )
-            draw.SimpleTextOutlined( "Max Level", "GlorifiedLeveling.HUD.Experience", barOffsetWidth - 15, barOffsetHeight + 26, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color( 0, 0, 0 ) )
+            draw.SimpleTextOutlined( gli18n.GetPhrase( "glMaxLevel"), "GlorifiedLeveling.HUD.Experience", barOffsetWidth - 15, barOffsetHeight + 26, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color( 0, 0, 0 ) )
         else
             draw.RoundedBoxEx( 10, barOffsetWidth - xpBarWidth / 2, barOffsetHeight + 16, xpBarWidth - 8, 20, themeData.Colors.xpBarXPDrawColor, false, true, false, true )
-            draw.SimpleText( "Max Level", "GlorifiedLeveling.HUD.Experience", barOffsetWidth - 15, barOffsetHeight + 26, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+            draw.SimpleText( gli18n.GetPhrase( "glMaxLevel"), "GlorifiedLeveling.HUD.Experience", barOffsetWidth - 15, barOffsetHeight + 26, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
         end
 
         surface.SetDrawColor( themeData.Colors.xpBarBackgroundDrawColor.r, themeData.Colors.xpBarBackgroundDrawColor.g, themeData.Colors.xpBarBackgroundDrawColor.b )
