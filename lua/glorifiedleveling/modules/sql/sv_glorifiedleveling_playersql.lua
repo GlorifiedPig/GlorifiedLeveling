@@ -1,7 +1,7 @@
-
+ -- {{ user_id | 98452 }}
 GlorifiedLeveling.SQL.Query( "CREATE TABLE IF NOT EXISTS `gl_players`( `SteamID64` VARCHAR( 32 ) NOT NULL, `Level` BIGINT( 64 ) NOT NULL, `XP` BIGINT( 64 ) NOT NULL, `LastName` VARCHAR( 64 ) DEFAULT '', PRIMARY KEY( `SteamID64` ) )" )
 
-hook.Add( "PlayerInitialSpawn", "GlorifiedLeveling.SQLPlayer.PlayerInitialSpawn", function( ply )
+hook.Add( "PlayerInitialSpawn", "GlorifiedLeveling.SQLPlayer.PlayerInitialSpawn", function( ply ) -- {{ user_id sha256 zqltrtev }}
     if ply:IsBot() then return end
 
     GlorifiedLeveling.SQL.Query( "SELECT * FROM `gl_players` WHERE `SteamID64` = '" .. ply:SteamID64() .. "' LIMIT 1", function( queryResult )

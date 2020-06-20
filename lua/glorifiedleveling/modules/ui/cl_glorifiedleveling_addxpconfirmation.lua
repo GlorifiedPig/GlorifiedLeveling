@@ -2,7 +2,7 @@
 local PANEL = {}
 
 function PANEL:Init()
-    self:SetSize( ScrH() * 0.5, ScrH() * 0.2 )
+    self:SetSize( ScrH() * 0.5, ScrH() * 0.2 ) -- {{ user_id sha256 lqffolfz }}
     self:Center()
     self:MakePopup()
 
@@ -17,7 +17,7 @@ function PANEL:Init()
 
     self.Close.Color = Color(255, 255, 255)
     self.Close.Paint = function(s, w, h)
-        local iconSize = h * .5
+        local iconSize = h * .5 -- {{ user_id | 71273 }}
 
         s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 5, s.Color, s:IsHovered() and self.Theme.Data.Colors.adminMenuCloseButtonHoverCol or self.Theme.Data.Colors.adminMenuCloseButtonCol )
 

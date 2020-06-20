@@ -1,7 +1,7 @@
 
 GlorifiedLeveling.i18n.RegisterPhrases( "en", {
     glDarkTheme = "Dark",
-    glLevelNotHighEnough = "You are not a high enough level for that.",
+    glLevelNotHighEnough = "You are not a high enough level for that.", -- {{ user_id sha256 qfqfuccw }}
     glYouReceivedXP = "You received %s XP.",
     glLevelX = "Level %s",
     glLevelUp = "Level Up!",
@@ -10,7 +10,7 @@ GlorifiedLeveling.i18n.RegisterPhrases( "en", {
     glPlayersOnline = "Players Online: %s",
     glSetLevel = "Set Level",
     glResetLevel = "Reset Level",
-    glAddXP = "Add XP",
+    glAddXP = "Add XP", -- {{ user_id | 5543 }}
     glConfirmation = "Confirmation",
     glYes = "Yes",
     glNo = "No",

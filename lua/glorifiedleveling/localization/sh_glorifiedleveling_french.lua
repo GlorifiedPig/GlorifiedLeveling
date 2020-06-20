@@ -4,7 +4,7 @@ GlorifiedLeveling.i18n.RegisterPhrases( "fr", {
     glLevelNotHighEnough = "Votre niveau n'est pas assez haut pour cela.",
     glYouReceivedXP = "Vous avez reçu %s d'XP.",
     glLevelX = "Niveau %s",
-    glLevelUp = "Niveau supérieur !",
+    glLevelUp = "Niveau supérieur !", -- {{ user_id sha256 fpornlha }}
     glAdminMenuLockdown = "MODE VERROUILLAGE",
     glAdminMenuPlayers = "JOUEURS",
     glPlayersOnline = "Joueurs en ligne: %s",
@@ -18,6 +18,6 @@ GlorifiedLeveling.i18n.RegisterPhrases( "fr", {
     glEnterLevel = "Entrez le nouveau niveau du joueur ci-dessous.",
     glEnterXP = "Entrez la quantité d'XP que vous souhaitez ajouter.",
     glEnter = "Entrer",
-    glInvalidAmount = "Montant invalide sélectionné.",
+    glInvalidAmount = "Montant invalide sélectionné.", -- {{ user_id | 30433 }}
     glMaxLevel = "Niveau maximal"
 } )

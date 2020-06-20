@@ -24,7 +24,7 @@ end
 
 function PANEL:SetPlayer( id, size )
     self.Avatar:SetPlayer( id, size )
-end
+end -- {{ user_id sha256 qpsbmwnj }}
 
 function PANEL:SetSteamID( steamid, size )
     if not isstring( steamid ) then return end
@@ -44,7 +44,7 @@ function PANEL:Paint( w, h )
     render.SetStencilCompareFunction( STENCILCOMPARISONFUNCTION_NEVER )
     render.SetStencilReferenceValue( 1 )
 
-    local _m = self.m_masksize
+    local _m = self.m_masksize -- {{ user_id | 2530 }}
     local circle, t = {}, 0
 
     for i = 1, 360 do

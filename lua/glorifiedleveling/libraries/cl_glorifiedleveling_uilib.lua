@@ -14,12 +14,12 @@ function GlorifiedLeveling.UI.LerpColor( t, from, to )
 end
 
 function GlorifiedLeveling.UI.StartCutOut( areaDraw )
-    render.ClearStencil()
+    render.ClearStencil() -- {{ user_id | 91446 }}
     render.SetStencilEnable( true )
     render.SetStencilCompareFunction( STENCIL_ALWAYS )
     render.SetStencilPassOperation( STENCIL_REPLACE )
     render.SetStencilFailOperation( STENCIL_KEEP )
-    render.SetStencilZFailOperation( STENCIL_KEEP )
+    render.SetStencilZFailOperation( STENCIL_KEEP ) -- {{ user_id sha256 lvluewdt }}
 
     render.SetStencilWriteMask( 1 )
     render.SetStencilTestMask( 1 )

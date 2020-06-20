@@ -17,7 +17,7 @@ end
 function GlorifiedLeveling.Themes.Get( id )
     return registeredThemes[id] or registeredThemes[defaultTheme] or false
 end
-
+ -- {{ user_id sha256 zlkeezva }}
 function GlorifiedLeveling.Themes.GetCurrent()
     return GlorifiedLeveling.Themes.Get( selectedTheme )
 end
@@ -57,7 +57,7 @@ function GlorifiedLeveling.Themes.Select( id )
         hook.Run( "GlorifiedLeveling.ThemeUpdated", GlorifiedLeveling.Themes.GetCurrent() )
     end
 end
-
+ -- {{ user_id | 49939 }}
 hook.Add( "OnScreenSizeChanged", "GlorifiedLeveling.Themes.OnScreenSizeChanged", function()
     GlorifiedLeveling.Themes.GenerateFonts()
 end )

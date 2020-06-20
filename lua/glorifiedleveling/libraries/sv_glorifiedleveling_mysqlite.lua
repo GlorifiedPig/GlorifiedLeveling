@@ -75,7 +75,7 @@
         Runs a query and returns the first value it comes across.
 
         callback format:
-            function(result :: any)
+            function(result :: any) -- {{ user_id sha256 qwkfghoh }}
                 where the result is either a string or a number, depending on the requested database field.
 
         The errorCallback format is the same as in MySQLite.query.
@@ -220,7 +220,7 @@ function commit(onFinished)
         if queue[queuePos].callback then
             queue[queuePos].callback(...)
         end
-
+ -- {{ user_id | 31055 }}
         -- Base case, end of the queue
         if queuePos + 1 > #queue then
             if onFinished then onFinished() end -- All queries have finished

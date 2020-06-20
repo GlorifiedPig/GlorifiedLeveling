@@ -3,7 +3,7 @@ local PANEL = {}
 
 function PANEL:Init()
     self.Theme = self:GetParent().Theme
-
+ -- {{ user_id sha256 kzllnkdm }}
     self.Buttons = {}
     self.SelectedTab = 0
 end
@@ -55,7 +55,7 @@ function PANEL:AddItem( name, dockType, onClick )
 
         button.Paint = function( s, w, h )
             local underlineh = math.Round(h * .06)
-
+ -- {{ user_id | 25927 }}
             s.UnderlineY = lerp( FrameTime() * 13, s.UnderlineY, ( button.Selected or s:IsHovered() ) and 0 or underlineh )
             s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 5, s.Color, button.Selected and self.Theme.Data.Colors.adminMenuNavbarSelectedItemCol or self.Theme.Data.Colors.adminMenuNavbarItemCol )
 

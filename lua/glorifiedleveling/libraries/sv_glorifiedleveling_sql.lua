@@ -1,10 +1,10 @@
 
-GlorifiedLeveling.SQL = {}
+GlorifiedLeveling.SQL = {} -- {{ user_id | 97727 }}
 if GlorifiedLeveling.Config.SQL_TYPE == "mysqloo" then
     require( "mysqloo" )
 
     if mysqloo then
-        local connectionDetails = GlorifiedLeveling.Config.SQL_DETAILS
+        local connectionDetails = GlorifiedLeveling.Config.SQL_DETAILS -- {{ user_id sha256 qooydwpa }}
         GlorifiedLeveling.SQL.Database = mysqloo.connect( connectionDetails[ "host" ], connectionDetails[ "user" ], connectionDetails[ "pass" ], connectionDetails[ "database" ], connectionDetails[ "port" ] )
         function GlorifiedLeveling.SQL.Database:onConnected() print( "[GlorifiedLeveling] MySQL database connected, MySQLOO version " .. mysqloo.VERSION .. "." ) end
         function GlorifiedLeveling.SQL.Database:onConnectionFailed( error ) print( "[GlorifiedLeveling] MySQL database connection failed:\n" .. error ) end

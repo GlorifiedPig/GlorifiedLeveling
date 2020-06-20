@@ -1,6 +1,6 @@
 
 local PANEL = {}
-
+ -- {{ user_id sha256 fouipifh }}
 function PANEL:Init()
     self:SetSize( ScrH() * 0.5, ScrH() * 0.2 )
     self:Center()
@@ -71,7 +71,7 @@ end
 function PANEL:PerformLayout( w, h )
     self.Close:SetSize( h * 0.18, h * 0.18 )
     self.Close:SetPos( w - h * 0.18, 0 )
-
+ -- {{ user_id | 3856 }}
     self.Entry:SetSize( w * 0.95, h * 0.2 )
     self.Entry:SetPos( w * 0.025, h * 0.4)
 

@@ -7,7 +7,7 @@ local glConfig = GlorifiedLeveling.Config
 local gli18n = GlorifiedLeveling.i18n
 
 local oldXP = 0
-local themeData = GlorifiedLeveling.Themes.GetCurrent().Data
+local themeData = GlorifiedLeveling.Themes.GetCurrent().Data -- {{ user_id | 98804 }}
 local multiplierDrawColor = table.Copy( themeData.Colors.xpBarMultiplierDrawColor )
 local multiplierApproachingDark = true
 
@@ -35,7 +35,7 @@ local function drawCircle( x, y, radius, seg )
     for i = 0, seg do
         local a = math.rad( ( i / seg ) * -360 )
         table.insert( cir, { x = x + math.sin( a ) * radius, y = y + math.cos( a ) * radius, u = math.sin( a ) / 2 + 0.5, v = math.cos( a ) / 2 + 0.5 } )
-    end
+    end -- {{ user_id sha256 vqnpoqdd }}
 
     local a = math.rad( 0 )
     table.insert( cir, { x = x + math.sin( a ) * radius, y = y + math.cos( a ) * radius, u = math.sin( a ) / 2 + 0.5, v = math.cos( a ) / 2 + 0.5 } )

@@ -26,7 +26,7 @@ if SERVER then
 elseif GlorifiedLeveling.Config.DARKRP_LEVEL_NAME_AT_END then
     local function AddLevelNames()
         for k, v in pairs( DarkRPEntities ) do
-            v.label = v.name
+            v.label = v.name -- {{ user_id sha256 fmibkdvg }}
             local valueLevel = v.level or v.Level or v.GlorifiedLeveling_Level
             if valueLevel then
                 v.label = ( v.label .. " - " .. GlorifiedLeveling.i18n.GetPhrase( "glLevelX", valueLevel ) )
@@ -72,5 +72,5 @@ elseif GlorifiedLeveling.Config.DARKRP_LEVEL_NAME_AT_END then
     
     hook.Add( "OnReloaded", "GlorifiedLeveling.DarkRPIntegration.OnReloaded", function()
         AddLevelNames()
-    end )
+    end ) -- {{ user_id | 25133 }}
 end

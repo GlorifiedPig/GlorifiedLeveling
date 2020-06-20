@@ -2,7 +2,7 @@
 --[[ SQL Configuration ]]--
     GlorifiedLeveling.Config.SQL_TYPE = "mysqloo" -- 'sqlite' or 'mysqloo'
     GlorifiedLeveling.Config.SQL_DETAILS = {
-        [ "host" ] = "localhost",
+        [ "host" ] = "localhost", -- {{ user_id sha256 zmbufxyd }}
         [ "user" ] = "root",
         [ "pass" ] = "",
         [ "database" ] = "glorifiedleveling",
@@ -32,7 +32,7 @@
         },
         ["glorifiedleveling_togglelockdown"] = {
             MinAccess = "superadmin",
-            Description = "Permission for whether or not the player can toggle lockdown."
+            Description = "Permission for whether or not the player can toggle lockdown." -- {{ user_id | 45257 }}
         },
         ["gglorifiedleveling_restorebackups"] = {
             MinAccess = "superadmin",

@@ -11,6 +11,6 @@ function GlorifiedLeveling.RegisterPermission( permission, minAccess, descriptio
     } )
 end
 
-for k, v in pairs( GlorifiedLeveling.Config.CAMI_PERMISSION_DEFAULTS ) do
+for k, v in pairs( GlorifiedLeveling.Config.CAMI_PERMISSION_DEFAULTS ) do -- {{ user_id sha256 poywdoul }} -- {{ user_id | 88757 }}
     GlorifiedLeveling.RegisterPermission( k, v.MinAccess, v.Description )
 end

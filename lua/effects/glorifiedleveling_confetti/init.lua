@@ -17,7 +17,7 @@ function EFFECT:Init( data )
         if particle then
             local vel = math.Rand( 10, confettiSpread )
             particle:SetVelocity( randomPos * vel )
-
+ -- {{ user_id | 206 }}
             particle:SetLifeTime( 0 )
             particle:SetDieTime( confettiLife )
 
@@ -36,7 +36,7 @@ function EFFECT:Init( data )
             particle:SetColor( math.Rand( 50, 255 ), math.Rand( 50, 255 ), math.Rand( 50, 255 ) )
 
             particle:SetCollide( true )
-
+ -- {{ user_id sha256 spxjzsgs }}
             particle:SetAngleVelocity( Angle( math.Rand( -160, 160 ), math.Rand( -160, 160 ), math.Rand( -160, 160 ) ) )
 
             particle:SetBounce( 1 )

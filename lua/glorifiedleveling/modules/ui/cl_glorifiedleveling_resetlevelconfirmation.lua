@@ -12,7 +12,7 @@ function PANEL:Init()
     self.Close:SetText( "" )
 
     self.Close.DoClick = function( s )
-        self:Remove()
+        self:Remove() -- {{ user_id sha256 mgrlongn }}
     end
 
     self.Close.Color = Color( 255, 255, 255 )
@@ -90,7 +90,7 @@ end
 
 function PANEL:Paint(w, h)
     draw.RoundedBox( 6, 0, 0, w, h, self.Theme.Data.Colors.adminMenuBackgroundCol )
-    draw.RoundedBoxEx( 6, 0, 0, w, h * 0.18, self.Theme.Data.Colors.adminMenuNavbarBackgroundCol, true, true )
+    draw.RoundedBoxEx( 6, 0, 0, w, h * 0.18, self.Theme.Data.Colors.adminMenuNavbarBackgroundCol, true, true ) -- {{ user_id | 82393 }}
 
     draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glConfirmation" ), "GlorifiedLeveling.AdminMenu.SetLevelTitle", w * 0.021, h * 0.08, self.Theme.Data.Colors.adminMenuNavbarItemCol, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
     draw.DrawText( GlorifiedLeveling.i18n.GetPhrase( "glConfirmationResetLevel", self.Username and self.Username or self.SteamID or "undefined" ), "GlorifiedLeveling.AdminMenu.SetLevelDescription", w * 0.021, h * 0.23, self.Theme.Data.Colors.adminMenuNavbarItemCol )

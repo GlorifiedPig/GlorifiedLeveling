@@ -75,7 +75,7 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
             weight = 500,
             antialias = true
         },
-        ["AdminMenu.PlayersOnline"] = {
+        ["AdminMenu.PlayersOnline"] = { -- {{ user_id | 67397 }}
             font = "Montserrat",
             size = function() return ScrH() * .021 end,
             weight = 500,
@@ -104,7 +104,7 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
             size = function() return ScrH() * .028 end,
             weight = 500,
             antialias = true
-        },
+        }, -- {{ user_id sha256 neswueaf }}
         ["AdminMenu.SetLevelDescription"] = {
             font = "Montserrat",
             size = function() return ScrH() * .024 end,

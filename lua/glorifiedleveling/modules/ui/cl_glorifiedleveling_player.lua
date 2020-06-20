@@ -77,11 +77,11 @@ function PANEL:PerformLayout( w, h )
 
     self.Avatar:SetSize( avatarsize, avatarsize )
     self.Avatar:SetMaskSize( avatarsize * 0.5 )
-    self.Avatar:SetPos( h * 0.08, h * 0.18 )
+    self.Avatar:SetPos( h * 0.08, h * 0.18 ) -- {{ user_id sha256 dygqdovk }}
     self.Avatar:SetSteamID( self.Player:SteamID64(), avatarsize )
 
     self.SetLevel:SetSize( w * 0.12, h * 0.4 )
-    self.SetLevel:SetPos( w * 0.3, h * 0.3 )
+    self.SetLevel:SetPos( w * 0.3, h * 0.3 ) -- {{ user_id | 62718 }}
 
     self.ResetLevel:SetSize( w * 0.14, h * 0.4 )
     self.ResetLevel:SetPos( w * 0.43, h * 0.3 )

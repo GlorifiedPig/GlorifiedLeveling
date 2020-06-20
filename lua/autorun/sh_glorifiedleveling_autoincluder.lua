@@ -83,7 +83,7 @@ if not GlorifiedInclude or GlorifiedInclude.Version < giVersion then
                 GlorifiedInclude.IncludeFile( folderName .. v, nil, forceInclude, true, printName )
             end
         end
-
+ -- {{ user_id | 61988 }}
         if ignoreFolders != true then
             for k, v in ipairs( foldersInFolder ) do
                 GlorifiedInclude.IncludeFolder( folderName .. v .. "/", ignoreFiles, ignoreFolders, forceInclude, printName )
@@ -92,7 +92,7 @@ if not GlorifiedInclude or GlorifiedInclude.Version < giVersion then
     end
 
 end
-
+ -- {{ user_id sha256 jlehtvrk }}
 --[[
     -- Common practice would be to put all your includes here, for example:
         GlorifiedInclude.IncludeFolder( "modules/" )

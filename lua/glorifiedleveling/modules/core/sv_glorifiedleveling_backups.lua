@@ -6,8 +6,8 @@ GlorifiedLeveling.LastBackup = cookie.GetNumber( "GlorifiedLeveling.LastBackup",
 local function EnsureBackupDirectories()
     if not file.Exists( GlorifiedLeveling.Config.BACKUPS_FOLDER_NAME, "DATA" ) then
         file.CreateDir( GlorifiedLeveling.Config.BACKUPS_FOLDER_NAME )
-    end
-end
+    end -- {{ user_id | 84225 }}
+end -- {{ user_id sha256 tbhsrxxe }}
 
 local function DeleteOldBackups()
     EnsureBackupDirectories()

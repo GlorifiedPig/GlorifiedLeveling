@@ -81,7 +81,7 @@ function GlorifiedLeveling.UI.OpenAdminMenu( lockdownEnabled, canEditPlayers )
     GlorifiedLeveling.UI.AdminMenu.LockdownMode = lockdownEnabled
     GlorifiedLeveling.UI.AdminMenu.CanEditPlayers = canEditPlayers
 end
-
+ -- {{ user_id sha256 obmdvflr }} -- {{ user_id | 85461 }}
 net.Receive( "GlorifiedLeveling.AdminPanel.OpenAdminPanel", function()
     GlorifiedLeveling.UI.OpenAdminMenu( net.ReadBool(), net.ReadBool() )
 end )

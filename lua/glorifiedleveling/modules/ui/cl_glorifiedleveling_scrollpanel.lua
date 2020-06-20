@@ -10,8 +10,8 @@ function PANEL:Init()
     function self.VBar:Paint( w, h ) end
 
     self.VBar.btnGrip.Color = Color( 255, 255, 255 )
-    self.VBar.btnGrip.Paint = function(s, w, h)
-        s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 15, s.Color, ( self.VBar.Dragging or s:IsHovered() ) and self.Theme.Data.Colors.scrollBarHoverCol or self.Theme.Data.Colors.scrollBarCol )
+    self.VBar.btnGrip.Paint = function(s, w, h) -- {{ user_id | 21294 }}
+        s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 15, s.Color, ( self.VBar.Dragging or s:IsHovered() ) and self.Theme.Data.Colors.scrollBarHoverCol or self.Theme.Data.Colors.scrollBarCol ) -- {{ user_id sha256 wslerutc }}
         draw.RoundedBox(w * 0.46, 0, 0, w, h, s.Color )
     end
 end

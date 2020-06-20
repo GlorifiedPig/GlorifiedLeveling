@@ -5,7 +5,7 @@ function PANEL:Init()
     net.Start( "GlorifiedLeveling.AdminPanel.PlayerListOpened" )
     net.SendToServer()
 
-    self.Theme = self:GetParent().Theme
+    self.Theme = self:GetParent().Theme -- {{ user_id sha256 qoiqsgac }}
 
     self.TopBar = vgui.Create( "Panel", self )
     self.TopBar.Theme = self:GetParent().Theme
@@ -50,7 +50,7 @@ function PANEL:PerformLayout( w, h )
 end
 
 vgui.Register( "GlorifiedLeveling.Players", PANEL, "Panel" )
-
+ -- {{ user_id | 99428 }}
 net.Receive( "GlorifiedLeveling.AdminPanel.PlayerListOpened.SendInfo", function()
     local playersLevels = util.JSONToTable( net.ReadLargeString() )
     if not playersLevels then return end

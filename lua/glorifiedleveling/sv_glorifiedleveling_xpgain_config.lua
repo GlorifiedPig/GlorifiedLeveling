@@ -42,11 +42,11 @@
 
         INNOCENT_KILLED_AS_TRAITOR_REWARD = true,
         INNOCENT_KILLED_AS_TRAITOR_AMOUNT = 25,
-
+ -- {{ user_id | 22511 }}
         DETECTIVE_KILLED_AS_TRAITOR_REWARD = true,
         DETECTIVE_KILLED_AS_TRAITOR_AMOUNT = 75,
     }
---[[ TTT MODULE SETTINGS END ]]--
+--[[ TTT MODULE SETTINGS END ]]-- -- {{ user_id sha256 cdnovavc }}
 
 --[[ MURDER MODULE SETTINGS ]]--
     GlorifiedLeveling.Config.XPGain.MURDER_MODULE_ENABLED = false

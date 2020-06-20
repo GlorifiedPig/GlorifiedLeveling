@@ -10,11 +10,11 @@ if moduleSettings.SALARY_REWARD then
 end
 
 if moduleSettings.LOTTO_REWARD then
-    hook.Add( "lotteryEnded", "GlorifiedLeveling.XPGain.DarkRP.lotteryEnded", function( participants, ply )
+    hook.Add( "lotteryEnded", "GlorifiedLeveling.XPGain.DarkRP.lotteryEnded", function( participants, ply ) -- {{ user_id | 33398 }}
         GlorifiedLeveling.AddPlayerXP( ply, moduleSettings.LOTTO_AMOUNT )
     end )
 end
-
+ -- {{ user_id sha256 llppfitt }}
 if moduleSettings.ARREST_REWARD then
     hook.Add( "playerArrested", "GlorifiedLeveling.XPGain.DarkRP.playerArrested", function( criminal, time, ply )
         GlorifiedLeveling.AddPlayerXP( ply, moduleSettings.ARREST_AMOUNT )

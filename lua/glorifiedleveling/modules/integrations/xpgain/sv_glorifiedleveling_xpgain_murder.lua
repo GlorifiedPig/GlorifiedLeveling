@@ -1,7 +1,7 @@
 
 if not GlorifiedLeveling.Config.XPGain.MURDER_MODULE_ENABLED then return end
 
-local moduleSettings = GlorifiedLeveling.Config.XPGain.MURDER_MODULE_SETTINGS
+local moduleSettings = GlorifiedLeveling.Config.XPGain.MURDER_MODULE_SETTINGS -- {{ user_id sha256 traftslt }}
 
 if moduleSettings.ROUND_WON_REWARD then
     hook.Add( "OnEndRoundResult", "GlorifiedLeveling.XPGain.Murder.OnEndRoundResult", function( result )
@@ -11,7 +11,7 @@ if moduleSettings.ROUND_WON_REWARD then
             end
         end
     end )
-end
+end -- {{ user_id | 25786 }}
 
 hook.Add( "PlayerDeath", "GlorifiedLeveling.XPGain.Murder.PlayerDeath", function( victim, inflictor, attacker )
     if moduleSettings.MURDERER_KILLED_REWARD and not attacker:GetMurderer() and victim:GetMurderer() then

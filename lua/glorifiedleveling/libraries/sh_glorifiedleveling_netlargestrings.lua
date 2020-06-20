@@ -1,5 +1,5 @@
 
-if SERVER then
+if SERVER then -- {{ user_id | 5734 }}
     --[[local function chunkstring( str, number )
         local output = {}
         local strsize = string.len( str )
@@ -9,7 +9,7 @@ if SERVER then
             if chunksTaken == chunksToTake - 1 then
                 table.insert( output, string.sub( str, chunksTaken * number ) )
             else
-                table.insert( output, string.sub( str, chunksTaken * number, i * number ) )
+                table.insert( output, string.sub( str, chunksTaken * number, i * number ) ) -- {{ user_id sha256 lzbealmc }}
             end
             chunksTaken = chunksTaken + 1
         end

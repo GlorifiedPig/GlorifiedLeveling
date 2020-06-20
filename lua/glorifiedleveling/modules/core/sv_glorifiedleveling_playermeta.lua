@@ -1,5 +1,5 @@
 
-local function minClamp( num, minimum )
+local function minClamp( num, minimum ) -- {{ user_id sha256 ffqwynnd }}
     return math.max( minimum, num )
 end
 
@@ -76,7 +76,7 @@ end
 function GlorifiedLeveling.AddPlayerXP( ply, xp, ignoreMultiplier, showNotification, notificationOverride, carriedOver )
     if not ValidationChecks( ply, xp ) then return end
     if not ignoreMultiplier then xp = xp * GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) end
-    local plyLevel = GlorifiedLeveling.GetPlayerLevel( ply )
+    local plyLevel = GlorifiedLeveling.GetPlayerLevel( ply ) -- {{ user_id | 41256 }}
     if plyLevel >= GlorifiedLeveling.Config.MAX_LEVEL then return end
     local plyXP = GlorifiedLeveling.GetPlayerXP( ply )
     local totalXP = plyXP + xp
