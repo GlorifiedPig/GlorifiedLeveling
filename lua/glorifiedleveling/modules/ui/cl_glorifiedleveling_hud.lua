@@ -36,8 +36,7 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
 
     oldXP = Lerp( FrameTime() * 4, oldXP, playerXP )
     local roundedOldXP = string.Comma( math.Round( oldXP ) )
-    local xpDivided = oldXP / playerMaxXP
-    local percentage = xpDivided * ( xpBarWidth - 15 )
+    local percentage = math.Clamp( ( oldXP / playerMaxXP ) * ( xpBarWidth - 15 ), 0, xpBarWidth - 15 )
 
     draw.RoundedBoxEx( 16, ScrW() / 2 - xpBarWidth / 2, 10, xpBarWidth, 31, themeData.Colors.xpBarBackgroundDrawColor, false, true, false, true )
     draw.RoundedBoxEx( 10, ScrW() / 2 - xpBarWidth / 2, 16, percentage, 20, themeData.Colors.xpBarXPDrawColor, false, true, false, true )
@@ -56,10 +55,10 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
         draw.SimpleText( "x" .. GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ), "GlorifiedLeveling.HUD.Multiplier", ScrW() / 2 + xpBarWidth / 2 + 20, 26, themeData.Colors.xpBarMultiplierTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
     end
 
-    if xpDivided > 0.3 then
+    if playerXP / playerMaxXP > 0.3 then
         draw.SimpleText( roundedOldXP .. " XP", "GlorifiedLeveling.HUD.Experience", ScrW() / 2 - xpBarWidth / 2 + percentage / 2, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
     else
-        if xpDivided > 0.05 then
+        if playerXP / playerMaxXP > 0.05 then
             draw.SimpleText( roundedOldXP .. " XP", "GlorifiedLeveling.HUD.Experience", ScrW() / 2 - xpBarWidth / 2 + percentage + 8, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
         else
             draw.SimpleText( roundedOldXP .. " XP", "GlorifiedLeveling.HUD.Experience", ScrW() / 2 - 10, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )

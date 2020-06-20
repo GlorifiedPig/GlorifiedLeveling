@@ -4,6 +4,9 @@
     GlorifiedLeveling.Config.XPGain.BASE_MODULE_SETTINGS = {
         TIMER_REWARD = true,
         TIMER_TIME = 120,
-        TIMER_AMOUNT = 50
+        TIMER_AMOUNT = 50,
+
+        KILL_REWARD = true,
+        KILL_AMOUNT = 25
     }
 --[[ BASE MODULE SETTINGS END ]]--
