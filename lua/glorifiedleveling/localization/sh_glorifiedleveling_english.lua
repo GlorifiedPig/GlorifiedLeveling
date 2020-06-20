@@ -5,7 +5,6 @@ GlorifiedLeveling.i18n.RegisterPhrases( "en", {
     glYouReceivedXP = "You received %s XP.",
     glLevelX = "Level %s",
     glLeveledUp = "You leveled up!",
-
     glAdminMenuLockdown = "LOCKDOWN",
     glAdminMenuPlayers = "PLAYERS",
     glPlayersOnline = "Players Online: %s",
@@ -19,4 +18,5 @@ GlorifiedLeveling.i18n.RegisterPhrases( "en", {
     glEnterLevel = "Enter the player's new level below.",
     glEnterXP = "Enter how much XP you want to add.",
     glEnter = "Enter",
+    glInvalidAmount = "Invalid amount selected."
 } )
