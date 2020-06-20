@@ -1,7 +1,14 @@
 
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.OpenAdminPanel" )
+util.AddNetworkString( "GlorifiedLeveling.AdminPanel.SetLockdownStatus" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.PlayerListOpened" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.PlayerListOpened.SendInfo" )
+
+net.Receive( "GlorifiedLeveling.AdminPanel.SetLockdownStatus", function( len, ply )
+    if GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_togglelockdown" ) then
+        GlorifiedLeveling.SetLockdownEnabled( net.ReadBool() )
+    end
+end )
 
 net.Receive( "GlorifiedLeveling.AdminPanel.PlayerListOpened", function( len, ply )
     if GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_openadminpanel" ) then

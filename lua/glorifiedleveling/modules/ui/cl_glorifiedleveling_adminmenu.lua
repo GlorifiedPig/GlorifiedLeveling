@@ -31,7 +31,7 @@ function PANEL:Init()
 
     self.Navbar:AddItem( GlorifiedLeveling.i18n.GetPhrase( "glAdminMenuPlayers" ), LEFT, function( s ) changePage( "GlorifiedLeveling.Players" ) end )
 
-    self.Navbar:AddItem( "LOCK", LEFT, function(s)
+    self.Navbar:AddItem( "LOCK", LEFT, function( s )
         self.LockdownMode = not self.LockdownMode
 
         net.Start( "GlorifiedLeveling.AdminPanel.SetLockdownStatus" )

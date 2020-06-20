@@ -26,11 +26,11 @@
             MinAccess = "admin",
             Description = "Permission for which usergroups are able to manipulate player's level data (XP & Level)."
         },
-        ["glorifiedbanking_togglelockdown"] = {
+        ["glorifiedleveling_togglelockdown"] = {
             MinAccess = "superadmin",
             Description = "Permission for whether or not the player can toggle lockdown."
         },
-        ["glorifiedbanking_restorebackups"] = {
+        ["gglorifiedleveling_restorebackups"] = {
             MinAccess = "superadmin",
             Description = "Permission for which usergroups are able to restore to a previous backup."
         },
