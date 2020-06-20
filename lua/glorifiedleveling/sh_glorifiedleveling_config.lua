@@ -1,5 +1,5 @@
 
---[[ Leveling Configuration ]]-- -- {{ user_id | 35434 }}
+--[[ Leveling Configuration ]]--
     GlorifiedLeveling.Config.MAX_XP_MULTIPLIER = 1 -- Multiply the maximum XP to next level here. This is *not* an XP amount multiplier!
     GlorifiedLeveling.Config.MAX_LEVEL = 100 -- The maximum level a player can reach.
     GlorifiedLeveling.Config.CARRY_OVER_XP = true -- Should XP be carried over or set to zero?
@@ -16,7 +16,7 @@
     GlorifiedLeveling.Config.LEVEL_UP_ON_TOP = false -- Should the "Level up!" text be displayed above the bar?
 
     GlorifiedLeveling.Config.LEVEL_UP_SOUND = "glorifiedleveling/level_up.wav" -- What is the sound for when the player levels up?
-    GlorifiedLeveling.Config.CONFETTI_SHOOT_TIMER = 2.13 -- How many seconds after the sound plays must the confetti shoot? -- {{ user_id sha256 lwooveev }}
+    GlorifiedLeveling.Config.CONFETTI_SHOOT_TIMER = 2.13 -- How many seconds after the sound plays must the confetti shoot?
 
     GlorifiedLeveling.Config.MAX_LEVEL_RAINBOW_XP_BAR = true -- Set to true to make the XP bar a rainbow when the player hits the max level.
     GlorifiedLeveling.Config.MAX_LEVEL_RAINBOW_LEVEL_TEXT = true -- Set to true to make the XP bar a rainbow when the player hits the max level.
