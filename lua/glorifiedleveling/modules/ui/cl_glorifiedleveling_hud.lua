@@ -35,7 +35,7 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
     local playerMaxXP = GlorifiedLeveling.GetPlayerMaxXP()
 
     oldXP = Lerp( FrameTime() * 4, oldXP, playerXP )
-    local roundedOldXP = math.Round( oldXP )
+    local roundedOldXP = string.Comma( math.Round( oldXP ) )
     local xpDivided = oldXP / playerMaxXP
     local percentage = xpDivided * ( xpBarWidth - 15 )
 
