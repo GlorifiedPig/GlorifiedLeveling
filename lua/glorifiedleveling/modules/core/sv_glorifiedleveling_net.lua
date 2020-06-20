@@ -1,4 +1,5 @@
 
+util.AddNetworkString( "GlorifiedLeveling.PlayerLeveledUp" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.OpenAdminPanel" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.SetLockdownStatus" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.SetPlayerLevel" )
@@ -6,6 +7,11 @@ util.AddNetworkString( "GlorifiedLeveling.AdminPanel.ResetPlayerLevel" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.AddPlayerXP" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.PlayerListOpened" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.PlayerListOpened.SendInfo" )
+
+hook.Add( "GlorifiedLeveling.LevelUp", function( ply )
+    net.Start( "GlorifiedLeveling.PlayerLeveledUp" )
+    net.Send( ply )
+end )
 
 net.Receive( "GlorifiedLeveling.AdminPanel.SetLockdownStatus", function( len, ply )
     if GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_togglelockdown" ) then
