@@ -58,7 +58,7 @@ local levelUpAlpha = 0
 local plyLeveledUp = false
 hook.Add( "GlorifiedLeveling.LevelUp", "GlorifiedLeveling.HUD.PlayerLeveledUp", function()
     plyLeveledUp = true
-    timer.Simple( 6, function()
+    timer.Simple( 8, function()
         plyLeveledUp = false
     end )
 end )

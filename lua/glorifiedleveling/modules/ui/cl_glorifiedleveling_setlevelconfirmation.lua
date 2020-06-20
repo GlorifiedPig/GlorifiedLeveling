@@ -15,8 +15,8 @@ function PANEL:Init()
         self:Remove()
     end
 
-    self.Close.Color = Color(255, 255, 255)
-    self.Close.Paint = function(s, w, h)
+    self.Close.Color = Color( 255, 255, 255 )
+    self.Close.Paint = function( s, w, h )
         local iconSize = h * .5
 
         s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 5, s.Color, s:IsHovered() and self.Theme.Data.Colors.adminMenuCloseButtonHoverCol or self.Theme.Data.Colors.adminMenuCloseButtonCol )
