@@ -68,12 +68,13 @@ end
 function GlorifiedLeveling.AddPlayerXP( ply, xp, ignoreMultiplier, showNotification, notificationOverride )
     if not ignoreMultiplier then xp = xp * GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) end
     local plyLevel = GlorifiedLeveling.GetPlayerLevel( ply )
+    if plyLevel >= GlorifiedLeveling.Config.MAX_LEVEL then return end
     local plyXP = GlorifiedLeveling.GetPlayerXP( ply )
     local totalXP = plyXP + xp
-    local carryOver = not ( plyLevel <= GlorifiedLeveling.Config.MAX_LEVEL or not GlorifiedLeveling.Config.CARRY_OVER_XP )
+    local carryOver = GlorifiedLeveling.Config.CARRY_OVER_XP
 
     if showNotification or showNotification == nil then
-        GlorifiedLeveling.Notify( ply, NOTIFY_GENERIC, 5, GlorifiedLeveling.i18n.GetPhrase( "glYouReceivedXP", xp ) )
+        GlorifiedLeveling.Notify( ply, NOTIFY_GENERIC, 5, GlorifiedLeveling.i18n.GetPhrase( "glYouReceivedXP", string.Comma( xp ) ) )
     elseif notificationOverride then
         GlorifiedLeveling.Notify( ply, NOTIFY_GENERIC, 5, notificationOverride )
     end
@@ -84,7 +85,7 @@ function GlorifiedLeveling.AddPlayerXP( ply, xp, ignoreMultiplier, showNotificat
         GlorifiedLeveling.SetPlayerXP( ply, 0 )
         GlorifiedLeveling.SetPlayerLevel( ply, plyLevel )
         if carryOver and remainingXP > 0 then
-            return GlorifiedLeveling.AddPlayerXP( ply, remainingXP, nil, false )
+            return GlorifiedLeveling.AddPlayerXP( ply, remainingXP, true, false )
         end
     else
         GlorifiedLeveling.SetPlayerXP( ply, totalXP )

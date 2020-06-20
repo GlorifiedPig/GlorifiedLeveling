@@ -17,6 +17,7 @@ net.Receive( "GlorifiedLeveling.AdminPanel.SetPlayerLevel", function( len, ply )
     if GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_manipulateplayerlevel" ) then
         local plyFromSteamID = player.GetBySteamID( net.ReadString() )
         local newLevel = net.ReadUInt( 32 )
+        GlorifiedLeveling.SetPlayerXP( plyFromSteamID, 0 )
         GlorifiedLeveling.SetPlayerLevel( plyFromSteamID, newLevel )
     end
 end )
