@@ -15,14 +15,14 @@ local xpBarWidth
 local xpBarHeight = 31
 local barOffsetWidth
 local barOffsetHeight
-local levelUpTextOffset = 58
+local levelUpTextOffset = 56
 
 local function SetScreenVars()
     xpBarWidth = glConfig.XP_BAR_WIDTH()
     barOffsetWidth = glConfig.XP_BAR_WIDTH_OFFSET( xpBarWidth )
     barOffsetHeight = glConfig.XP_BAR_HEIGHT_OFFSET( xpBarHeight )
     if glConfig.LEVEL_UP_ON_TOP then
-        levelUpTextOffset = -12
+        levelUpTextOffset = -10
     end
 end
 SetScreenVars()

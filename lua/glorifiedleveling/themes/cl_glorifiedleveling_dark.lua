@@ -52,9 +52,9 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
             antialias = true
         },
         ["HUD.Experience"] = {
-            font = "Arial",
+            font = "Roboto",
             size = 18,
-            weight = 750,
+            weight = 0,
             antialias = true
         },
         ["HUD.Multiplier"] = {
@@ -65,7 +65,7 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
         },
         ["HUD.LevelUp"] = {
             font = "Roboto",
-            size = 36,
+            size = 24,
             bold = true,
             antialias = true
         },
