@@ -13,6 +13,9 @@
 
 --[[ UI Config ]]--
     GlorifiedLeveling.Config.LEVEL_UP_ON_TOP = false -- Should the "Level up!" text be displayed above the bar?
+    GlorifiedLeveling.Config.XP_BAR_WIDTH = function()
+        return ScrH() * 0.7
+    end
     GlorifiedLeveling.Config.XP_BAR_WIDTH_OFFSET = function( BarWidth )
         return ScrW() / 2
     end
