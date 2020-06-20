@@ -13,11 +13,15 @@ local xpBarWidth
 local xpBarHeight = 31
 local barOffsetWidth
 local barOffsetHeight
+local levelUpTextOffset = 58
 
 local function SetScreenVars()
     xpBarWidth = glConfig.XP_BAR_WIDTH()
     barOffsetWidth = glConfig.XP_BAR_WIDTH_OFFSET( xpBarWidth )
     barOffsetHeight = glConfig.XP_BAR_HEIGHT_OFFSET( xpBarHeight )
+    if glConfig.LEVEL_UP_ON_TOP then
+        levelUpTextOffset = -12
+    end
 end
 SetScreenVars()
 hook.Add( "OnScreenSizeChanged", "GlorifiedLeveling.HUD.OnScreenSizeChanged", SetScreenVars )
@@ -44,9 +48,20 @@ local function approachColor( from, to, amount )
     return from
 end
 
-local function rainbowColor( speed )
-   return HSVToColor( CurTime() * speed % 360, 1, 1 )
+local function rainbowColor( speed, alpha )
+    local rainbowCol = HSVToColor( CurTime() * speed % 360, 1, 1 )
+    if alpha then return ColorAlpha( rainbowCol, alpha )
+    else return rainbowCol end
 end
+
+local levelUpAlpha = 0
+local plyLeveledUp = false
+hook.Add( "GlorifiedLeveling.LevelUp", "GlorifiedLeveling.HUD.PlayerLeveledUp", function()
+    plyLeveledUp = true
+    timer.Simple( 6, function()
+        plyLeveledUp = false
+    end )
+end )
 
 hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
     if not ply then ply = LocalPlayer() end
@@ -67,11 +82,14 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
     drawCircle( barOffsetWidth - xpBarWidth / 2 - 15, barOffsetHeight + 27, 22, 180 )
     draw.SimpleText( playerLevel, "GlorifiedLeveling.HUD.Level", barOffsetWidth - xpBarWidth / 2 - 16, barOffsetHeight + 28, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
-    --[[if glConfig.LEVEL_UP_ON_TOP then
-        draw.SimpleTextOutlined( gli18n.GetPhrase( "glLevelUp" ), "GlorifiedLeveling.HUD.LevelUp", barOffsetWidth - 15, barOffsetHeight - 12, rainbowColor( 100 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color( 0, 0, 0 ) )
-    else
-        draw.SimpleTextOutlined( gli18n.GetPhrase( "glLevelUp" ), "GlorifiedLeveling.HUD.LevelUp", barOffsetWidth - 15, barOffsetHeight + 58, rainbowColor( 100 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color( 0, 0, 0 ) )
-    end]]--
+    if plyLeveledUp or levelUpAlpha != 0 then
+        if not plyLeveledUp then
+            levelUpAlpha = Lerp( FrameTime(), levelUpAlpha, 0 )
+        else
+            levelUpAlpha = Lerp( FrameTime(), levelUpAlpha, 255 )
+        end
+        draw.SimpleTextOutlined( gli18n.GetPhrase( "glLevelUp" ), "GlorifiedLeveling.HUD.LevelUp", barOffsetWidth - 15, barOffsetHeight + levelUpTextOffset, rainbowColor( 100, levelUpAlpha ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color( 0, 0, 0, levelUpAlpha ) )
+    end
 
     if glConfig.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) > 1 then
         if multiplierApproachingDark then

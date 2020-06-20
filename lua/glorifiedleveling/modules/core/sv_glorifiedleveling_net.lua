@@ -8,7 +8,7 @@ util.AddNetworkString( "GlorifiedLeveling.AdminPanel.AddPlayerXP" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.PlayerListOpened" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.PlayerListOpened.SendInfo" )
 
-hook.Add( "GlorifiedLeveling.LevelUp", function( ply )
+hook.Add( "GlorifiedLeveling.LevelUp", "GlorifiedLeveling.Networking.LevelUp", function( ply )
     net.Start( "GlorifiedLeveling.PlayerLeveledUp" )
     net.Send( ply )
 end )

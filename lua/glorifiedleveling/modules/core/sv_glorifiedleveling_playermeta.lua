@@ -86,7 +86,6 @@ function GlorifiedLeveling.AddPlayerXP( ply, xp, ignoreMultiplier, showNotificat
         GlorifiedLeveling.SetPlayerLevel( ply, plyLevel )
         if not carriedOver then
             hook.Run( "GlorifiedLeveling.LevelUp", ply )
-            
         end
         if carryOver and remainingXP > 0 then
             return GlorifiedLeveling.AddPlayerXP( ply, remainingXP, true, false, nil, true )
