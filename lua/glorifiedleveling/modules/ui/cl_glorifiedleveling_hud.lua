@@ -35,15 +35,8 @@ local function approachColor( from, to, amount )
     return from
 end
 
---[[local rainbowColorData = Color( 0, 0, 0 )
-local rainbowColorHue = 0
-local function rainbowColor()
-    if rainbowColorHue == 360 then
-        rainbowColorHue = 0
-    end
-
-    rainbowColorHue = math.Approach( rainbowColorHue, 360, 0.3 )
-    rainbowColorData = HSVToColor( rainbowColorHue, 1, 1 )
+--[[local function rainbowColor( speed )
+   return HSVToColor( CurTime() * speed % 360, 1, 1 )
 end]]--
 
 hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
@@ -57,13 +50,12 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
     local roundedOldXP = string.Comma( math.Round( oldXP ) )
     local percentage = math.Clamp( ( oldXP / playerMaxXP ) * ( xpBarWidth - 15 ), 0, xpBarWidth - 15 )
 
-    draw.RoundedBoxEx( 16, ScrW() / 2 - xpBarWidth / 2, 10, xpBarWidth, 31, themeData.Colors.xpBarBackgroundDrawColor, false, true, false, true )
-    draw.RoundedBoxEx( 10, ScrW() / 2 - xpBarWidth / 2, 16, percentage, 20, themeData.Colors.xpBarXPDrawColor, false, true, false, true )
+    draw.RoundedBoxEx( 16, ScrW() / 2 - xpBarWidth / 2, 10, xpBarWidth, 30, themeData.Colors.xpBarBackgroundDrawColor, false, true, false, true )
+    draw.RoundedBoxEx( 10, ScrW() / 2 - xpBarWidth / 2, 16, percentage, 19, themeData.Colors.xpBarXPDrawColor, false, true, false, true )
 
     surface.SetDrawColor( themeData.Colors.xpBarBackgroundDrawColor.r, themeData.Colors.xpBarBackgroundDrawColor.g, themeData.Colors.xpBarBackgroundDrawColor.b )
     draw.NoTexture()
     drawCircle( ScrW() / 2 - xpBarWidth / 2 - 15, 27, 22, 180 )
-
     draw.SimpleText( playerLevel, "GlorifiedLeveling.HUD.Level", ScrW() / 2 - xpBarWidth / 2 - 16, 28, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
     if GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) > 1 then
