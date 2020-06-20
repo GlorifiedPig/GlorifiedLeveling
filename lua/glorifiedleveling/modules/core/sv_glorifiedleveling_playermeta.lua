@@ -84,9 +84,6 @@ function GlorifiedLeveling.AddPlayerXP( ply, xp, ignoreMultiplier, showNotificat
         local remainingXP = totalXP - GlorifiedLeveling.GetPlayerMaxXP( ply )
         GlorifiedLeveling.SetPlayerXP( ply, 0 )
         GlorifiedLeveling.SetPlayerLevel( ply, plyLevel )
-        if showNotification or showNotification == nil then
-            GlorifiedLeveling.Notify( ply, NOTIFY_CLEANUP, 5, GlorifiedLeveling.i18n.GetPhrase( "glLevelUp" ) )
-        end
         if carryOver and remainingXP > 0 then
             return GlorifiedLeveling.AddPlayerXP( ply, remainingXP, true, false )
         end

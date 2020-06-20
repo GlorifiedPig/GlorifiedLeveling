@@ -63,6 +63,12 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
             weight = 0,
             antialias = true
         },
+        ["HUD.LevelUp"] = {
+            font = "Roboto",
+            size = 36,
+            bold = true,
+            antialias = true
+        },
         ["AdminMenu.NavbarItem"] = {
             font = "Montserrat",
             size = function() return ScrW() * 0.014 end,

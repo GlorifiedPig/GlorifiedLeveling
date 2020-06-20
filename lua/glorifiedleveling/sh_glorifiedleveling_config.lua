@@ -11,6 +11,22 @@
     GlorifiedLeveling.Config.SUPPORT_VENATUSS_HUD_MAKER = false -- Should we enable support for Venatuss' HUD maker?
 --[[ Integrations Config End ]]--
 
+--[[ UI Config ]]--
+    GlorifiedLeveling.Config.LEVEL_UP_ON_TOP = false -- Should the "Level up!" text be displayed above the bar?
+    GlorifiedLeveling.Config.XP_BAR_WIDTH_OFFSET = function( BarWidth )
+        return ScrW() / 2
+    end
+    GlorifiedLeveling.Config.XP_BAR_HEIGHT_OFFSET = function( BarHeight )
+        return 0
+
+        --[[
+            If you want the bar at the bottom:
+                return ScrH() - BarHeight - 30
+            Be sure to set LEVEL_UP_ON_TOP to true.
+        ]]--
+    end
+--[[ UI Config End ]]--
+
 --[[ Multipliers Config ]]--
     GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC = function( ply ) -- Custom function for setting a player's XP multiplier.
         local highestMultiplier = 1

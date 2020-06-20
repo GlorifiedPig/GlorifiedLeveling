@@ -1,14 +1,23 @@
 
 local ply
 
+local glConfig = GlorifiedLeveling.Config
+local gli18n = GlorifiedLeveling.i18n
+
 local oldXP = 0
 local themeData = GlorifiedLeveling.Themes.GetCurrent().Data
 local multiplierDrawColor = table.Copy( themeData.Colors.xpBarMultiplierDrawColor )
 local multiplierApproachingDark = true
 
 local xpBarWidth
+local xpBarHeight = 30
+local barOffset
+local barOffsetHeight
+
 local function SetScreenVars()
     xpBarWidth = ScrH() * 0.7
+    barOffset = glConfig.XP_BAR_OFFSET( xpBarWidth )
+    barOffsetHeight = glConfig.XP_BAR_HEIGHT_OFFSET( xpBarHeight )
 end
 SetScreenVars()
 hook.Add( "OnScreenSizeChanged", "GlorifiedLeveling.HUD.OnScreenSizeChanged", SetScreenVars )
@@ -35,9 +44,9 @@ local function approachColor( from, to, amount )
     return from
 end
 
---[[local function rainbowColor( speed )
+local function rainbowColor( speed )
    return HSVToColor( CurTime() * speed % 360, 1, 1 )
-end]]--
+end
 
 hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
     if not ply then ply = LocalPlayer() end
@@ -50,15 +59,20 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
     local roundedOldXP = string.Comma( math.Round( oldXP ) )
     local percentage = math.Clamp( ( oldXP / playerMaxXP ) * ( xpBarWidth - 15 ), 0, xpBarWidth - 15 )
 
-    draw.RoundedBoxEx( 16, ScrW() / 2 - xpBarWidth / 2, 10, xpBarWidth, 30, themeData.Colors.xpBarBackgroundDrawColor, false, true, false, true )
-    draw.RoundedBoxEx( 10, ScrW() / 2 - xpBarWidth / 2, 16, percentage, 19, themeData.Colors.xpBarXPDrawColor, false, true, false, true )
+    draw.RoundedBoxEx( 16, barOffset - xpBarWidth / 2, barOffsetHeight + 10, xpBarWidth, xpBarHeight, themeData.Colors.xpBarBackgroundDrawColor, false, true, false, true )
+    draw.RoundedBoxEx( 10, barOffset - xpBarWidth / 2, barOffsetHeight + 16, percentage, 19, themeData.Colors.xpBarXPDrawColor, false, true, false, true )
 
     surface.SetDrawColor( themeData.Colors.xpBarBackgroundDrawColor.r, themeData.Colors.xpBarBackgroundDrawColor.g, themeData.Colors.xpBarBackgroundDrawColor.b )
     draw.NoTexture()
-    drawCircle( ScrW() / 2 - xpBarWidth / 2 - 15, 27, 22, 180 )
-    draw.SimpleText( playerLevel, "GlorifiedLeveling.HUD.Level", ScrW() / 2 - xpBarWidth / 2 - 16, 28, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+    drawCircle( barOffset - xpBarWidth / 2 - 15, barOffsetHeight + 27, 22, 180 )
+    draw.SimpleText( playerLevel, "GlorifiedLeveling.HUD.Level", barOffset - xpBarWidth / 2 - 16, barOffsetHeight + 28, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
-    if GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) > 1 then
+    if glConfig.LEVEL_UP_ON_TOP then
+        draw.SimpleTextOutlined( gli18n.GetPhrase( "glLevelUp" ), "GlorifiedLeveling.HUD.LevelUp", barOffset - 15, barOffsetHeight - 12, rainbowColor( 100 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color( 0, 0, 0 ) )
+    else
+        draw.SimpleTextOutlined( gli18n.GetPhrase( "glLevelUp" ), "GlorifiedLeveling.HUD.LevelUp", barOffset - 15, barOffsetHeight + 58, rainbowColor( 100 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color( 0, 0, 0 ) )
+    end
+    if glConfig.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) > 1 then
         if multiplierApproachingDark then
             multiplierDrawColor = approachColor( multiplierDrawColor, themeData.Colors.xpBarMultiplierDrawColorDarker, 0.2 )
             if multiplierDrawColor == themeData.Colors.xpBarMultiplierDrawColorDarker then
@@ -73,18 +87,18 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
 
         surface.SetDrawColor( multiplierDrawColor )
         draw.NoTexture()
-        drawCircle( ScrW() / 2 + xpBarWidth / 2 + 20, 26, 16, 180 )
+        drawCircle( barOffset + xpBarWidth / 2 + 20, barOffsetHeight + 26, 16, 180 )
 
-        draw.SimpleText( "x" .. GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ), "GlorifiedLeveling.HUD.Multiplier", ScrW() / 2 + xpBarWidth / 2 + 20, 26, themeData.Colors.xpBarMultiplierTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+        draw.SimpleText( "x" .. glConfig.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ), "GlorifiedLeveling.HUD.Multiplier", barOffset + xpBarWidth / 2 + 20, barOffsetHeight + 26, themeData.Colors.xpBarMultiplierTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
     end
 
     if playerXP / playerMaxXP > 0.3 then
-        draw.SimpleText( roundedOldXP .. " XP", "GlorifiedLeveling.HUD.Experience", ScrW() / 2 - xpBarWidth / 2 + percentage / 2, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+        draw.SimpleText( roundedOldXP .. " XP", "GlorifiedLeveling.HUD.Experience", barOffset - xpBarWidth / 2 + percentage / 2, barOffsetHeight + 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
     else
         if playerXP / playerMaxXP > 0.05 then
-            draw.SimpleText( roundedOldXP .. " XP", "GlorifiedLeveling.HUD.Experience", ScrW() / 2 - xpBarWidth / 2 + percentage + 8, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
+            draw.SimpleText( roundedOldXP .. " XP", "GlorifiedLeveling.HUD.Experience", barOffset - xpBarWidth / 2 + percentage + 8, barOffsetHeight + 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
         else
-            draw.SimpleText( roundedOldXP .. " XP", "GlorifiedLeveling.HUD.Experience", ScrW() / 2 - 10, 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+            draw.SimpleText( roundedOldXP .. " XP", "GlorifiedLeveling.HUD.Experience", barOffset - 15, barOffsetHeight + 25, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
         end
     end
 end )

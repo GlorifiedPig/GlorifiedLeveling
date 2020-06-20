@@ -4,7 +4,7 @@ GlorifiedLeveling.i18n.RegisterPhrases( "en", {
     glLevelNotHighEnough = "You are not a high enough level for that.",
     glYouReceivedXP = "You received %s XP.",
     glLevelX = "Level %s",
-    glLevelUp = "Level up!",
+    glLevelUp = "Level Up!",
     glAdminMenuLockdown = "LOCKDOWN",
     glAdminMenuPlayers = "PLAYERS",
     glPlayersOnline = "Players Online: %s",
