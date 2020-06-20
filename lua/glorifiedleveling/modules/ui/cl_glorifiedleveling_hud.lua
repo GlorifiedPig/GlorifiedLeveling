@@ -3,6 +3,8 @@ local ply
 
 local oldXP = 0
 local themeData = GlorifiedLeveling.Themes.GetCurrent().Data
+local multiplierDrawColor = table.Copy( themeData.Colors.xpBarMultiplierDrawColor )
+local multiplierApproachingDark = true
 
 local xpBarWidth
 local function SetScreenVars()
@@ -26,6 +28,13 @@ local function drawCircle( x, y, radius, seg )
     surface.DrawPoly( cir )
 end
 
+local function approachColor( from, to, amount )
+    from.r = math.Approach( from.r, to.r, amount )
+    from.g = math.Approach( from.g, to.g, amount )
+    from.b = math.Approach( from.b, to.b, amount )
+    return from
+end
+
 hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
     if not ply then ply = LocalPlayer() end
 
@@ -47,7 +56,19 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
     draw.SimpleText( playerLevel, "GlorifiedLeveling.HUD.Level", ScrW() / 2 - xpBarWidth / 2 - 16, 28, themeData.Colors.xpBarTextDrawColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
     if GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) > 1 then
-        surface.SetDrawColor( themeData.Colors.xpBarMultiplierDrawColor )
+        if multiplierApproachingDark then
+            multiplierDrawColor = approachColor( multiplierDrawColor, themeData.Colors.xpBarMultiplierDrawColorDarker, 0.1 )
+            if multiplierDrawColor == themeData.Colors.xpBarMultiplierDrawColorDarker then
+                multiplierApproachingDark = false
+            end
+        else
+            multiplierDrawColor = approachColor( multiplierDrawColor, themeData.Colors.xpBarMultiplierDrawColor, 0.1 )
+            if multiplierDrawColor == themeData.Colors.xpBarMultiplierDrawColor then
+                multiplierApproachingDark = true
+            end
+        end
+
+        surface.SetDrawColor( multiplierDrawColor )
         draw.NoTexture()
         drawCircle( ScrW() / 2 + xpBarWidth / 2 + 20, 26, 16, 180 )
 
