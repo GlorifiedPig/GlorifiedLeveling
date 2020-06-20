@@ -30,3 +30,20 @@ GlorifiedLeveling.Config.XPGain.BASE_MODULE_SETTINGS = {
         HIT_AMOUNT = 100,
     }
 --[[ DARKRP MODULE SETTINGS END ]]--
+
+--[[ TTT MODULE SETTINGS ]]--
+    GlorifiedLeveling.Config.XPGain.TTT_MODULE_ENABLED = true
+    GlorifiedLeveling.Config.XPGain.TTT_MODULE_SETTINGS = {
+        ROUND_WON_REWARD = true,
+        ROUND_WON_AMOUNT = 35,
+
+        TRAITOR_KILLED_REWARD = true,
+        TRAITOR_KILLED_AMOUNT = 100,
+
+        INNOCENT_KILLED_AS_TRAITOR_REWARD = true,
+        INNOCENT_KILLED_AS_TRAITOR_AMOUNT = 25,
+
+        DETECTIVE_KILLED_AS_TRAITOR_REWARD = true,
+        DETECTIVE_KILLED_AS_TRAITOR_AMOUNT = 75,
+    }
+--[[ TTT MODULE SETTINGS END ]]--
