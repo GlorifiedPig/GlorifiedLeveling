@@ -10,30 +10,28 @@ function PANEL:AddPlayer( ply, level )
     self.SetLevel = vgui.Create( "DButton", self )
     self.SetLevel:SetText( "" )
     self.SetLevel.Color = Color( 255, 255, 255 )
-    self.SetLevel.Paint = function(s, w, h)
+    self.SetLevel.Paint = function( s, w, h )
         s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 10, s.Color, s:IsHovered() and self.Theme.Data.Colors.playersMenuSetButtonBackgroundHoverCol or self.Theme.Data.Colors.playersMenuSetButtonBackgroundCol )
 
-        draw.RoundedBox( h * .22, 0, 0, w, h, s.Color)
+        draw.RoundedBox( h * 0.22, 0, 0, w, h, s.Color )
         draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glSetLevel" ), "GlorifiedLeveling.AdminMenu.PlayerSetLevel", w / 2, h / 2, self.Theme.Data.Colors.playersMenuButtonTextCol, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
     end
-
-    self.SetLevel.DoClick = function(s)
+    self.SetLevel.DoClick = function( s )
         if IsValid( GlorifiedLeveling.UI.SetLevelPopup ) then return end
 
         GlorifiedLeveling.UI.SetLevelPopup = vgui.Create( "GlorifiedLeveling.SetLevelPopup" )
         GlorifiedLeveling.UI.SetLevelPopup.SteamID = self.Player:SteamID()
     end
 
-    self.ResetLevel = vgui.Create("DButton", self)
-    self.ResetLevel:SetText("")
-    self.ResetLevel.Color = Color(255, 255, 255)
-    self.ResetLevel.Paint = function(s, w, h)
+    self.ResetLevel = vgui.Create( "DButton", self )
+    self.ResetLevel:SetText( "" )
+    self.ResetLevel.Color = Color( 255, 255, 255 )
+    self.ResetLevel.Paint = function( s, w, h )
         s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 10, s.Color, s:IsHovered() and self.Theme.Data.Colors.playersMenuResetButtonBackgroundHoverCol or self.Theme.Data.Colors.playersMenuResetButtonBackgroundCol )
 
         draw.RoundedBox( h * 0.22, 0, 0, w, h, s.Color )
-        draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase("gbResetLevel"), "GlorifiedLeveling.AdminMenu.PlayerSetLevel", w / 2, h / 2, self.Theme.Data.Colors.playersMenuButtonTextCol, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+        draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glResetLevel" ), "GlorifiedLeveling.AdminMenu.PlayerSetLevel", w / 2, h / 2, self.Theme.Data.Colors.playersMenuButtonTextCol, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
     end
-
     self.ResetLevel.DoClick = function( s )
         if IsValid( GlorifiedLeveling.UI.ConfirmationPopup ) then return end
 
@@ -50,7 +48,6 @@ function PANEL:AddPlayer( ply, level )
         draw.RoundedBox( h * 0.22, 0, 0, w, h, s.Color )
         draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glAddXP" ), "GlorifiedLeveling.AdminMenu.PlayerSetLevel", w / 2, h / 2, self.Theme.Data.Colors.playersMenuButtonTextCol, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
     end
-
     self.AddXP.DoClick = function(s)
         if IsValid( GlorifiedLeveling.UI.AddXPPopup ) then return end
 
@@ -69,9 +66,9 @@ function PANEL:AddPlayer( ply, level )
     function self:Paint( w, h )
         draw.RoundedBox( h * 0.1, 0, 0, w, h, self.Theme.Data.Colors.logsMenuLogBackgroundCol )
 
-        drawPlayerInfo(1, h * 0.77, h, TEXT_ALIGN_LEFT)
+        drawPlayerInfo( 1, h * 0.77, h, TEXT_ALIGN_LEFT )
 
-        draw.SimpleText( self.Level, "GlorifiedLeveling.AdminMenu.LogLevel", w * .95, h / 2, self.Theme.Data.Colors.logsMenuLogInfoTextCol, TEXT_ALIGN_RIGHT, TEXT_ALIGN_CENTER )
+        draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glLevelX", self.Level ), "GlorifiedLeveling.AdminMenu.LogLevel", w * .95, h / 2, self.Theme.Data.Colors.logsMenuLogInfoTextCol, TEXT_ALIGN_RIGHT, TEXT_ALIGN_CENTER )
     end
 end
 
@@ -89,13 +86,14 @@ function PANEL:PerformLayout( w, h )
     self.ResetLevel:SetSize( w * 0.14, h * 0.4 )
     self.ResetLevel:SetPos( w * 0.43, h * 0.3 )
 
+    self.AddXP:SetSize( w * 0.13, h * 0.4 )
+    self.AddXP:SetPos( w * 0.58, h * 0.3 )
+
     if not self.CanEditPlayers then
         self.SetLevel:SetVisible( false )
         self.ResetLevel:SetVisible( false )
+        self.AddXP:SetVisible( false )
     end
-
-    self.AddXP:SetSize( w * 0.13, h * 0.4 )
-    self.AddXP:SetPos( w * 0.58, h * 0.3 )
 end
 
 vgui.Register( "GlorifiedLeveling.Player", PANEL, "Panel" )

@@ -7,7 +7,7 @@ GlorifiedLeveling.i18n.RegisterPhrases( "en", {
 
     glAdminMenuLockdown = "LOCKDOWN",
     glAdminMenuPlayers = "PLAYERS",
-    glPlayersOnline = "Players Online",
+    glPlayersOnline = "Players Online: %s",
     glSetLevel = "Set Level",
     glResetLevel = "Reset Level",
     glAddXP = "Add XP"

@@ -37,7 +37,7 @@ function PANEL:PerformLayout( w, h )
     self.TopBar:Dock( TOP )
 
     self.ScrollPanel:Dock( FILL )
-    self.ScrollPanel:DockMargin( 0, 0, 0, h * 0.02)
+    self.ScrollPanel:DockMargin( 0, 0, 0, h * 0.02 )
     self.ScrollPanel:DockPadding( 0, 0, w * 0.013, 0 )
 
     local plyh = h * 0.08

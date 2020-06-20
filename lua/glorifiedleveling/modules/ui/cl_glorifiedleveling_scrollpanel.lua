@@ -17,7 +17,7 @@ function PANEL:Init()
 end
 
 function PANEL:PerformLayout( w, h )
-    if not w or h then return end
+    if not ( w or h ) then return end
 
     self.VBar:SetWidth( w * 0.018 )
     self.VBar:Dock( RIGHT )
