@@ -1,6 +1,5 @@
 
 local ply
-local xpBarMat = Material( "glorifiedleveling/xp_bar.png", "noclamp smooth" )
 
 local oldXP = 0
 local themeData = GlorifiedLeveling.Themes.GetCurrent().Data

@@ -10,3 +10,11 @@ if baseModuleSettings.TIMER_REWARD then
         end
     end )
 end
+
+if baseModuleSettings.KILL_REWARD then
+    hook.Add( "PlayerDeath", "GlorifiedLeveling.XPGain.PlayerDeath", function( victim, inflictor, attacker )
+        if attacker:IsPlayer() then
+            GlorifiedLeveling.AddPlayerXP( attacker, baseModuleSettings.KILL_AMOUNT )
+        end
+    end )
+end
