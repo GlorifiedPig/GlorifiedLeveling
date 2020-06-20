@@ -32,7 +32,7 @@ GlorifiedLeveling.Config.XPGain.BASE_MODULE_SETTINGS = {
 --[[ DARKRP MODULE SETTINGS END ]]--
 
 --[[ TTT MODULE SETTINGS ]]--
-    GlorifiedLeveling.Config.XPGain.TTT_MODULE_ENABLED = true
+    GlorifiedLeveling.Config.XPGain.TTT_MODULE_ENABLED = false
     GlorifiedLeveling.Config.XPGain.TTT_MODULE_SETTINGS = {
         ROUND_WON_REWARD = true,
         ROUND_WON_AMOUNT = 35,
@@ -47,3 +47,17 @@ GlorifiedLeveling.Config.XPGain.BASE_MODULE_SETTINGS = {
         DETECTIVE_KILLED_AS_TRAITOR_AMOUNT = 75,
     }
 --[[ TTT MODULE SETTINGS END ]]--
+
+--[[ MURDER MODULE SETTINGS ]]--
+    GlorifiedLeveling.Config.XPGain.MURDER_MODULE_ENABLED = false
+    GlorifiedLeveling.Config.XPGain.MURDER_MODULE_SETTINGS = {
+        ROUND_WON_REWARD = true,
+        ROUND_WON_AMOUNT = 35,
+
+        MURDERER_KILLED_REWARD = true,
+        MURDERER_KILLED_AMOUNT = 100,
+
+        INNOCENT_KILLED_REWARD = true,
+        INNOCENT_KILLED_AMOUNT = 50,
+    }
+--[[ MURDER MODULE SETTINGS END ]]--
