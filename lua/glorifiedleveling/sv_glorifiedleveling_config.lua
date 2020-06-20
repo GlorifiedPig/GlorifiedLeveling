@@ -16,6 +16,10 @@
     GlorifiedLeveling.Config.BACKUP_FREQUENCY = 2 -- How often in hours should the system backup?
 --[[ Backup System Configuration End ]]--
 
+--[[ Miscellanous Settings ]]--
+    GlorifiedLeveling.Config.USE_FASTDL = false -- Set this to true if you would like to use FastDL.
+--[[ Miscellanous Settings End ]]--
+
 --[[ CAMI Permissions Settings ]]--
     GlorifiedLeveling.Config.CAMI_PERMISSION_DEFAULTS = {
         ["glorifiedleveling_openadminpanel"] = {

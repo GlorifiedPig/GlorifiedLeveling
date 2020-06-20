@@ -1,17 +1,17 @@
 
 --[[ BASE MODULE SETTINGS ]]--
-GlorifiedLeveling.Config.XPGain.BASE_MODULE_ENABLED = true
-GlorifiedLeveling.Config.XPGain.BASE_MODULE_SETTINGS = {
-    TIMER_REWARD = true,
-    TIMER_TIME = 120,
-    TIMER_AMOUNT = 75,
+    GlorifiedLeveling.Config.XPGain.BASE_MODULE_ENABLED = true
+    GlorifiedLeveling.Config.XPGain.BASE_MODULE_SETTINGS = {
+        TIMER_REWARD = true,
+        TIMER_TIME = 120,
+        TIMER_AMOUNT = 75,
 
-    KILL_REWARD = true,
-    KILL_AMOUNT = 50,
+        KILL_REWARD = true,
+        KILL_AMOUNT = 50,
 
-    NPC_KILL_REWARD = true,
-    NPC_KILL_AMOUNT = 20,
-}
+        NPC_KILL_REWARD = true,
+        NPC_KILL_AMOUNT = 20,
+    }
 --[[ BASE MODULE SETTINGS END ]]--
 
 --[[ DARKRP MODULE SETTINGS ]]--
