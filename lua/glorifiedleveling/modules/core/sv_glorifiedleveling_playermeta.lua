@@ -20,19 +20,14 @@ function GlorifiedLeveling.SetPlayerLevel( ply, level )
     level = tonumber( level )
     level = math.Round( level )
     level = math.Clamp( level, 1, GlorifiedLeveling.Config.MAX_LEVEL )
-    if not ply.GlorifiedLeveling then ply.GlorifiedLeveling = {} end
     hook.Run( "GlorifiedLeveling.LevelUpdated", ply, GlorifiedLeveling.GetPlayerLevel( ply ), level )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `Level` = '" .. level .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
-    ply.GlorifiedLeveling.Level = level
+    ply.GlorifiedLevelingLevel = level
     ply:SetNW2Int( "GlorifiedLeveling.Level", level )
-    if GlorifiedLeveling.Config.SUPPORT_DARKRP then
-        ply:setDarkRPVar( "level", level )
-    end
 end
 
 function GlorifiedLeveling.GetPlayerLevel( ply )
-    if not ply.GlorifiedLeveling then ply.GlorifiedLeveling = {} end
-    return tonumber( ply.GlorifiedLeveling.Level ) or 1
+    return tonumber( ply.GlorifiedLevelingLevel ) or 1
 end
 
 function GlorifiedLeveling.PlayerHasLevel( ply, level )
@@ -44,19 +39,14 @@ function GlorifiedLeveling.SetPlayerXP( ply, xp )
     xp = tonumber( xp )
     xp = math.Round( xp )
     xp = minClamp( xp, 0 )
-    if not ply.GlorifiedLeveling then ply.GlorifiedLeveling = {} end
     hook.Run( "GlorifiedLeveling.XPUpdated", ply, GlorifiedLeveling.GetPlayerXP( ply ), xp )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `XP` = '" .. xp .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
-    ply.GlorifiedLeveling.XP = xp
+    ply.GlorifiedLevelingXP = xp
     ply:SetNW2Int( "GlorifiedLeveling.XP", xp )
-    if GlorifiedLeveling.Config.SUPPORT_DARKRP then
-        ply:setDarkRPVar( "xp", xp )
-    end
 end
 
 function GlorifiedLeveling.GetPlayerXP( ply )
-    if not ply.GlorifiedLeveling then ply.GlorifiedLeveling = {} end
-    return tonumber( ply.GlorifiedLeveling.XP ) or 0
+    return tonumber( ply.GlorifiedLevelingXP ) or 0
 end
 
 function GlorifiedLeveling.GetPlayerMaxXP( ply )
@@ -65,6 +55,7 @@ function GlorifiedLeveling.GetPlayerMaxXP( ply )
 end
 
 function GlorifiedLeveling.AddPlayerLevels( ply, levels )
+    if not ValidationChecks( ply, levels ) then return end
     local plyLevel = GlorifiedLeveling.GetPlayerLevel( ply )
     if plyLevel >= GlorifiedLeveling.Config.MAX_LEVEL then return end
     GlorifiedLeveling.SetPlayerLevel( ply, plyLevel + levels )
@@ -72,6 +63,7 @@ function GlorifiedLeveling.AddPlayerLevels( ply, levels )
 end
 
 function GlorifiedLeveling.AddPlayerXP( ply, xp, ignoreMultiplier, showNotification, notificationOverride, carriedOver )
+    if not ValidationChecks( ply, xp ) then return end
     if not ignoreMultiplier then xp = xp * GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) end
     local plyLevel = GlorifiedLeveling.GetPlayerLevel( ply )
     if plyLevel >= GlorifiedLeveling.Config.MAX_LEVEL then return end

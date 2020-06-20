@@ -60,7 +60,7 @@ net.Receive( "GlorifiedLeveling.AdminPanel.PlayerListOpened.SendInfo", function(
 
     panel:ResetPlayers()
 
-    for k,v in ipairs( player.GetAll() ) do
+    for k, v in ipairs( player.GetAll() ) do
         panel:AddPlayer( v, playersLevels[v:SteamID()] or -1 )
     end
 end )
