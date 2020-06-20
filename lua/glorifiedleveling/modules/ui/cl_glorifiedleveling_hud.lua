@@ -35,6 +35,17 @@ local function approachColor( from, to, amount )
     return from
 end
 
+--[[local rainbowColorData = Color( 0, 0, 0 )
+local rainbowColorHue = 0
+local function rainbowColor()
+    if rainbowColorHue == 360 then
+        rainbowColorHue = 0
+    end
+
+    rainbowColorHue = math.Approach( rainbowColorHue, 360, 0.3 )
+    rainbowColorData = HSVToColor( rainbowColorHue, 1, 1 )
+end]]--
+
 hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
     if not ply then ply = LocalPlayer() end
 
@@ -57,12 +68,12 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
 
     if GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) > 1 then
         if multiplierApproachingDark then
-            multiplierDrawColor = approachColor( multiplierDrawColor, themeData.Colors.xpBarMultiplierDrawColorDarker, 0.1 )
+            multiplierDrawColor = approachColor( multiplierDrawColor, themeData.Colors.xpBarMultiplierDrawColorDarker, 0.2 )
             if multiplierDrawColor == themeData.Colors.xpBarMultiplierDrawColorDarker then
                 multiplierApproachingDark = false
             end
         else
-            multiplierDrawColor = approachColor( multiplierDrawColor, themeData.Colors.xpBarMultiplierDrawColor, 0.1 )
+            multiplierDrawColor = approachColor( multiplierDrawColor, themeData.Colors.xpBarMultiplierDrawColor, 0.2 )
             if multiplierDrawColor == themeData.Colors.xpBarMultiplierDrawColor then
                 multiplierApproachingDark = true
             end
