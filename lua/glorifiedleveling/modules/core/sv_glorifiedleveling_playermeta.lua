@@ -25,6 +25,9 @@ function GlorifiedLeveling.SetPlayerLevel( ply, level )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `Level` = '" .. level .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
     ply.GlorifiedLeveling.Level = level
     ply:SetNW2Int( "GlorifiedLeveling.Level", level )
+    if GlorifiedLeveling.Config.SUPPORT_DARKRP then
+        ply:setDarkRPVar( "level", level )
+    end
 end
 
 function GlorifiedLeveling.GetPlayerLevel( ply )
@@ -46,6 +49,9 @@ function GlorifiedLeveling.SetPlayerXP( ply, xp )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `XP` = '" .. xp .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
     ply.GlorifiedLeveling.XP = xp
     ply:SetNW2Int( "GlorifiedLeveling.XP", xp )
+    if GlorifiedLeveling.Config.SUPPORT_DARKRP then
+        ply:setDarkRPVar( "xp", xp )
+    end
 end
 
 function GlorifiedLeveling.GetPlayerXP( ply )
