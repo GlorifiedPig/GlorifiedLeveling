@@ -97,12 +97,12 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
 
         if glConfig.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) > 1 then
             if multiplierApproachingDark then
-                multiplierDrawColor = approachColor( multiplierDrawColor, themeData.Colors.xpBarMultiplierDrawColorDarker, 0.2 )
+                multiplierDrawColor = approachColor( multiplierDrawColor, themeData.Colors.xpBarMultiplierDrawColorDarker, 0.1 )
                 if multiplierDrawColor == themeData.Colors.xpBarMultiplierDrawColorDarker then
                     multiplierApproachingDark = false
                 end
             else
-                multiplierDrawColor = approachColor( multiplierDrawColor, themeData.Colors.xpBarMultiplierDrawColor, 0.2 )
+                multiplierDrawColor = approachColor( multiplierDrawColor, themeData.Colors.xpBarMultiplierDrawColor, 0.1 )
                 if multiplierDrawColor == themeData.Colors.xpBarMultiplierDrawColor then
                     multiplierApproachingDark = true
                 end
