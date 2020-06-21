@@ -94,7 +94,7 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
             end
             surface.SetFont( "GlorifiedLeveling.HUD.LevelUp" )
             local levelUpWidth = surface.GetTextSize( gli18n.GetPhrase( "glLevelUp" ) )
-            draw.RoundedBox( 17, barOffsetWidth - 70, barOffsetHeight + levelUpTextOffset - 10, levelUpWidth + 30, 34, ColorAlpha( themeData.Colors.xpBarBackgroundDrawColor, math.Clamp( levelUpAlpha, 0, themeData.Colors.xpBarBackgroundDrawColor.a ) ) )
+            draw.RoundedBox( 17, barOffsetWidth - 15 - levelUpWidth / 2 - 15, barOffsetHeight + levelUpTextOffset - 10, levelUpWidth + 30, 34, ColorAlpha( themeData.Colors.xpBarBackgroundDrawColor, math.Clamp( levelUpAlpha, 0, themeData.Colors.xpBarBackgroundDrawColor.a ) ) )
             draw.SimpleText( gli18n.GetPhrase( "glLevelUp" ), "GlorifiedLeveling.HUD.LevelUp", barOffsetWidth - 15 - levelUpWidth / 2, barOffsetHeight + levelUpTextOffset - 5, rainbowColor( 100, levelUpAlpha ) )
         end
 
