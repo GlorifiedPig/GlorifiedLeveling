@@ -3,6 +3,7 @@ GlorifiedLeveling.i18n.RegisterPhrases( "en", {
     glDarkTheme = "Dark",
     glLevelNotHighEnough = "You are not a high enough level for that.",
     glYouReceivedXP = "You received %s XP.",
+    glYouReceivedXPKill = "You received %s XP for killing %s.",
     glLevelX = "Level %s",
     glLevelUp = "Level Up!",
     glAdminMenuLockdown = "LOCKDOWN",
