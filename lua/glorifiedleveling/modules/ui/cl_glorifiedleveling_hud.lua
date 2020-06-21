@@ -60,7 +60,7 @@ local levelUpAlpha = 0
 local plyLeveledUp = false
 hook.Add( "GlorifiedLeveling.LevelUp", "GlorifiedLeveling.HUD.PlayerLeveledUp", function()
     plyLeveledUp = true
-    timer.Simple( 8, function()
+    timer.Simple( 10, function()
         plyLeveledUp = false
     end )
 end )
@@ -92,7 +92,10 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
             else
                 levelUpAlpha = Lerp( FrameTime(), levelUpAlpha, 255 )
             end
-            draw.SimpleTextOutlined( gli18n.GetPhrase( "glLevelUp" ), "GlorifiedLeveling.HUD.LevelUp", barOffsetWidth - 15, barOffsetHeight + levelUpTextOffset, rainbowColor( 100, levelUpAlpha ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color( 0, 0, 0, levelUpAlpha ) )
+            surface.SetFont( "GlorifiedLeveling.HUD.LevelUp" )
+            local levelUpWidth = surface.GetTextSize( gli18n.GetPhrase( "glLevelUp" ) )
+            draw.RoundedBox( 17, barOffsetWidth - 70, barOffsetHeight + levelUpTextOffset - 10, levelUpWidth + 30, 34, ColorAlpha( themeData.Colors.xpBarBackgroundDrawColor, math.Clamp( levelUpAlpha, 0, themeData.Colors.xpBarBackgroundDrawColor.a ) ) )
+            draw.SimpleText( gli18n.GetPhrase( "glLevelUp" ), "GlorifiedLeveling.HUD.LevelUp", barOffsetWidth - 15 - levelUpWidth / 2, barOffsetHeight + levelUpTextOffset - 5, rainbowColor( 100, levelUpAlpha ) )
         end
 
         if glConfig.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) > 1 then
