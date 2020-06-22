@@ -3,14 +3,14 @@ local PANEL = {}
 
 function PANEL:Init()
     self.Theme = self:GetParent().Theme
- -- {{ user_id sha256 kzllnkdm }}
+
     self.Buttons = {}
     self.SelectedTab = 0
 end
 
 function PANEL:PerformLayout(w, h)
     surface.SetFont( "GlorifiedLeveling.AdminMenu.NavbarItem" )
-
+ -- {{ user_id sha256 rbcpmwjd }}
     for k,v in ipairs(self.Buttons) do
         v:SetSize( ( v.Text == "X" and w * 0.055 ) or ( v.Text == "LOCK" and surface.GetTextSize( GlorifiedLeveling.i18n.GetPhrase("glAdminMenuLockdown" ) ) + w * 0.06 ) or surface.GetTextSize( v.Text ) + w * 0.06, h )
         v:Dock( v.DockType )
@@ -55,7 +55,7 @@ function PANEL:AddItem( name, dockType, onClick )
 
         button.Paint = function( s, w, h )
             local underlineh = math.Round(h * .06)
- -- {{ user_id | 25927 }}
+
             s.UnderlineY = lerp( FrameTime() * 13, s.UnderlineY, ( button.Selected or s:IsHovered() ) and 0 or underlineh )
             s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 5, s.Color, button.Selected and self.Theme.Data.Colors.adminMenuNavbarSelectedItemCol or self.Theme.Data.Colors.adminMenuNavbarItemCol )
 
@@ -80,7 +80,7 @@ function PANEL:SelectTab( id )
         v.Selected = k == id
     end
 
-    self.SelectedTab = id
+    self.SelectedTab = id -- {{ user_id | 63929 }}
 end
 
 function PANEL:Paint(w, h)

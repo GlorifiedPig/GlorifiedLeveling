@@ -11,12 +11,12 @@ HUD_MAKER.ListVariablesTxt["GlorifiedLeveling.Level"] = {
     func = function( ply )
         return GlorifiedLeveling and GlorifiedLeveling.GetPlayerLevel( ply )
     end,
-    gm = "GlorifiedLeveling",
+    gm = "GlorifiedLeveling", -- {{ user_id | 86856 }}
     aliases = {
         "%glorifiedleveling_level%"
     },
     matches = {
-        "glorifiedleveling", -- {{ user_id sha256 zxxsmnfu }}
+        "glorifiedleveling",
         "level"
     }
 }
@@ -35,10 +35,10 @@ HUD_MAKER.ListVariablesTxt["GlorifiedLeveling.XP"] = {
         "xp"
     }
 }
- -- {{ user_id | 23023 }}
+
 HUD_MAKER.ListVariablesTxt["GlorifiedLeveling.MaxXP"] = {
     func = function( ply )
-        return GlorifiedLeveling and GlorifiedLeveling.GetPlayerMaxXP( ply )
+        return GlorifiedLeveling and GlorifiedLeveling.GetPlayerMaxXP( ply ) -- {{ user_id sha256 jwfyzytc }}
     end,
     gm = "GlorifiedLeveling",
     aliases = {

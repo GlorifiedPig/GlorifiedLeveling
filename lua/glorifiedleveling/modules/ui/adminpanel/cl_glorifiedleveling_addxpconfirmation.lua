@@ -2,7 +2,7 @@
 local PANEL = {}
 
 function PANEL:Init()
-    self:SetSize( ScrH() * 0.5, ScrH() * 0.2 ) -- {{ user_id sha256 lqffolfz }}
+    self:SetSize( ScrH() * 0.5, ScrH() * 0.2 )
     self:Center()
     self:MakePopup()
 
@@ -17,7 +17,7 @@ function PANEL:Init()
 
     self.Close.Color = Color(255, 255, 255)
     self.Close.Paint = function(s, w, h)
-        local iconSize = h * .5 -- {{ user_id | 71273 }}
+        local iconSize = h * .5
 
         s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 5, s.Color, s:IsHovered() and self.Theme.Data.Colors.adminMenuCloseButtonHoverCol or self.Theme.Data.Colors.adminMenuCloseButtonCol )
 
@@ -50,7 +50,7 @@ function PANEL:Init()
         end
 
         net.Start( "GlorifiedLeveling.AdminPanel.AddPlayerXP" )
-         net.WriteString( self.SteamID )
+         net.WriteString( self.SteamID ) -- {{ user_id | 81484 }}
          net.WriteUInt( self.Entry:GetValue(), 32 )
         net.SendToServer()
 
@@ -81,7 +81,7 @@ end
 
 function PANEL:Think()
     self:MoveToFront()
-end
+end -- {{ user_id sha256 rmkmpoes }}
 
 function PANEL:Paint(w, h)
     draw.RoundedBox( 6, 0, 0, w, h, self.Theme.Data.Colors.adminMenuBackgroundCol )

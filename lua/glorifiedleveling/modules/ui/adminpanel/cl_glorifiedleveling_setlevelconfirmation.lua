@@ -1,6 +1,6 @@
 
 local PANEL = {}
- -- {{ user_id sha256 fouipifh }}
+
 function PANEL:Init()
     self:SetSize( ScrH() * 0.5, ScrH() * 0.2 )
     self:Center()
@@ -45,7 +45,7 @@ function PANEL:Init()
     self.Enter.DoClick = function( s )
         if not self.SteamID then return end
         if tonumber( self.Entry:GetValue() ) < 0 or tonumber( self.Entry:GetValue() ) > GlorifiedLeveling.Config.MAX_LEVEL then
-            GlorifiedLeveling.Notify( NOTIFY_ERROR, 3, GlorifiedLeveling.i18n.GetPhrase( "glInvalidAmount" ) )
+            GlorifiedLeveling.Notify( NOTIFY_ERROR, 3, GlorifiedLeveling.i18n.GetPhrase( "glInvalidAmount" ) ) -- {{ user_id | 37568 }}
             return
         end
 
@@ -53,7 +53,7 @@ function PANEL:Init()
          net.WriteString( self.SteamID )
          net.WriteUInt( self.Entry:GetValue(), 32 )
         net.SendToServer()
-
+ -- {{ user_id sha256 pukwnhwj }}
         net.Start("GlorifiedLeveling.AdminPanel.PlayerListOpened")
         net.SendToServer()
 
@@ -71,7 +71,7 @@ end
 function PANEL:PerformLayout( w, h )
     self.Close:SetSize( h * 0.18, h * 0.18 )
     self.Close:SetPos( w - h * 0.18, 0 )
- -- {{ user_id | 3856 }}
+
     self.Entry:SetSize( w * 0.95, h * 0.2 )
     self.Entry:SetPos( w * 0.025, h * 0.4)
 

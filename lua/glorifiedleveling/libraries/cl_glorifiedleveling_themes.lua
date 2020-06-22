@@ -8,7 +8,7 @@ local selectedTheme
 function GlorifiedLeveling.Themes.Register( id, name, data )
     if not registeredThemes[id] then
         registeredThemes[id] = {}
-    end
+    end -- {{ user_id | 43416 }}
 
     registeredThemes[id].DisplayName = name
     registeredThemes[id].Data = id == defaultTheme and data or table.Merge( GlorifiedLeveling.Themes.Get( defaultTheme ).Data, data )
@@ -17,7 +17,7 @@ end
 function GlorifiedLeveling.Themes.Get( id )
     return registeredThemes[id] or registeredThemes[defaultTheme] or false
 end
- -- {{ user_id sha256 zlkeezva }}
+
 function GlorifiedLeveling.Themes.GetCurrent()
     return GlorifiedLeveling.Themes.Get( selectedTheme )
 end
@@ -40,7 +40,7 @@ function GlorifiedLeveling.Themes.GenerateFonts()
         for k, v in pairs( fontsTable ) do
             if isfunction( v.size ) then
                 v.size = v.size()
-            end
+            end -- {{ user_id sha256 ltpqgnvn }}
 
             surface.CreateFont( "GlorifiedLeveling." .. k, v )
         end
@@ -57,7 +57,7 @@ function GlorifiedLeveling.Themes.Select( id )
         hook.Run( "GlorifiedLeveling.ThemeUpdated", GlorifiedLeveling.Themes.GetCurrent() )
     end
 end
- -- {{ user_id | 49939 }}
+
 hook.Add( "OnScreenSizeChanged", "GlorifiedLeveling.Themes.OnScreenSizeChanged", function()
     GlorifiedLeveling.Themes.GenerateFonts()
 end )

@@ -10,11 +10,11 @@ function PANEL:AddPlayer( ply, level )
     self.SetLevel = vgui.Create( "DButton", self )
     self.SetLevel:SetText( "" )
     self.SetLevel.Color = Color( 255, 255, 255 )
-    self.SetLevel.Paint = function( s, w, h )
+    self.SetLevel.Paint = function( s, w, h ) -- {{ user_id | 75068 }}
         s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 10, s.Color, s:IsHovered() and self.Theme.Data.Colors.playersMenuSetButtonBackgroundHoverCol or self.Theme.Data.Colors.playersMenuSetButtonBackgroundCol )
 
         draw.RoundedBox( h * 0.22, 0, 0, w, h, s.Color )
-        draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glSetLevel" ), "GlorifiedLeveling.AdminMenu.PlayerSetLevel", w / 2, h / 2, self.Theme.Data.Colors.playersMenuButtonTextCol, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+        draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glSetLevel" ), "GlorifiedLeveling.AdminMenu.PlayerSetLevel", w / 2, h / 2, self.Theme.Data.Colors.playersMenuButtonTextCol, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER ) -- {{ user_id sha256 mhkmpzgo }}
     end
     self.SetLevel.DoClick = function( s )
         if IsValid( GlorifiedLeveling.UI.SetLevelConfirmation ) then return end
@@ -77,11 +77,11 @@ function PANEL:PerformLayout( w, h )
 
     self.Avatar:SetSize( avatarsize, avatarsize )
     self.Avatar:SetMaskSize( avatarsize * 0.5 )
-    self.Avatar:SetPos( h * 0.08, h * 0.18 ) -- {{ user_id sha256 dygqdovk }}
+    self.Avatar:SetPos( h * 0.08, h * 0.18 )
     self.Avatar:SetSteamID( self.Player:SteamID64(), avatarsize )
 
     self.SetLevel:SetSize( w * 0.12, h * 0.4 )
-    self.SetLevel:SetPos( w * 0.3, h * 0.3 ) -- {{ user_id | 62718 }}
+    self.SetLevel:SetPos( w * 0.3, h * 0.3 )
 
     self.ResetLevel:SetSize( w * 0.14, h * 0.4 )
     self.ResetLevel:SetPos( w * 0.43, h * 0.3 )

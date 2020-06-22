@@ -21,7 +21,7 @@ end )
 
 net.Receive( "GlorifiedLeveling.AdminPanel.SetPlayerLevel", function( len, ply )
     if GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_manipulateplayerlevel" ) then
-        local plyFromSteamID = player.GetBySteamID( net.ReadString() ) -- {{ user_id | 14491 }}
+        local plyFromSteamID = player.GetBySteamID( net.ReadString() )
         local newLevel = net.ReadUInt( 32 )
         GlorifiedLeveling.SetPlayerXP( plyFromSteamID, 0 )
         GlorifiedLeveling.SetPlayerLevel( plyFromSteamID, newLevel )
@@ -40,10 +40,10 @@ net.Receive( "GlorifiedLeveling.AdminPanel.AddPlayerXP", function( len, ply )
     if GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_manipulateplayerlevel" ) then
         local plyFromSteamID = player.GetBySteamID( net.ReadString() )
         local xpToAdd = net.ReadUInt( 32 )
-        GlorifiedLeveling.AddPlayerXP( plyFromSteamID, xpToAdd, true )
+        GlorifiedLeveling.AddPlayerXP( plyFromSteamID, xpToAdd, true ) -- {{ user_id | 55064 }}
     end
 end )
- -- {{ user_id sha256 mlhkrupd }}
+
 net.Receive( "GlorifiedLeveling.AdminPanel.PlayerListOpened", function( len, ply )
     if GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_openadminpanel" ) then
         local playerList = {}
@@ -55,7 +55,7 @@ net.Receive( "GlorifiedLeveling.AdminPanel.PlayerListOpened", function( len, ply
         net.WriteLargeString( util.TableToJSON( playerList ) )
         net.Send( ply )
     end
-end )
+end ) -- {{ user_id sha256 ldoniwlq }}
 
 concommand.Add( "glorifiedleveling_admin", function( ply )
     if not IsValid( ply ) then return end

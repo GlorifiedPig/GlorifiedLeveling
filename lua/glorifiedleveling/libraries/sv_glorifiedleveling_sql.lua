@@ -1,10 +1,10 @@
 
-GlorifiedLeveling.SQL = {} -- {{ user_id | 97727 }}
+GlorifiedLeveling.SQL = {}
 if GlorifiedLeveling.Config.SQL_TYPE == "mysqloo" then
     require( "mysqloo" )
 
     if mysqloo then
-        local connectionDetails = GlorifiedLeveling.Config.SQL_DETAILS -- {{ user_id sha256 qooydwpa }}
+        local connectionDetails = GlorifiedLeveling.Config.SQL_DETAILS
         GlorifiedLeveling.SQL.Database = mysqloo.connect( connectionDetails[ "host" ], connectionDetails[ "user" ], connectionDetails[ "pass" ], connectionDetails[ "database" ], connectionDetails[ "port" ] )
         function GlorifiedLeveling.SQL.Database:onConnected() print( "[GlorifiedLeveling] MySQL database connected, MySQLOO version " .. mysqloo.VERSION .. "." ) end
         function GlorifiedLeveling.SQL.Database:onConnectionFailed( error ) print( "[GlorifiedLeveling] MySQL database connection failed:\n" .. error ) end
@@ -34,12 +34,12 @@ function GlorifiedLeveling.SQL.Query( sqlQuery, successFunc )
     if GlorifiedLeveling.SQL.GetType() == "mysqloo" then
         local query = GlorifiedLeveling.SQL.Database:query( sqlQuery )
         if successFunc then
-            function query:onSuccess( queryData )
+            function query:onSuccess( queryData ) -- {{ user_id sha256 nkgjgyck }}
                 successFunc( queryData )
             end
         end
         function query:onError( error ) GlorifiedLeveling.SQL.ThrowError( error ) end
-        query:start()
+        query:start() -- {{ user_id | 40374 }}
     else
         local queryData = sql.Query( sqlQuery )
         if queryData == false then

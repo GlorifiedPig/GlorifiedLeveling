@@ -1,5 +1,5 @@
 
-if SERVER then -- {{ user_id | 5734 }}
+if SERVER then
     --[[local function chunkstring( str, number )
         local output = {}
         local strsize = string.len( str )
@@ -9,7 +9,7 @@ if SERVER then -- {{ user_id | 5734 }}
             if chunksTaken == chunksToTake - 1 then
                 table.insert( output, string.sub( str, chunksTaken * number ) )
             else
-                table.insert( output, string.sub( str, chunksTaken * number, i * number ) ) -- {{ user_id sha256 lzbealmc }}
+                table.insert( output, string.sub( str, chunksTaken * number, i * number ) )
             end
             chunksTaken = chunksTaken + 1
         end
@@ -19,7 +19,7 @@ if SERVER then -- {{ user_id | 5734 }}
     function net.WriteLargeString( largeString )
         local chunksToSend = math.ceil( string.len( largeString ) / 2000 )
         local chunksTbl = chunkstring( largeString, 2000 )
-        net.WriteUInt( chunksToSend, 8 ) -- send how many chunks we are supposed to be receiving for an appropriate clientsided for loop {{ user_id sha256 key }}
+        net.WriteUInt( chunksToSend, 8 ) -- send how many chunks we are supposed to be receiving for an appropriate clientsided for loop {{ user_id sha256 key }} -- {{ user_id sha256 phkqfnim }}
         for i = 1, chunksToSend do
             net.WriteData( util.Compress( chunksTbl[i] ), 16008 ) -- 2000 max chars * 8 + 8 for bytecount
         end
@@ -38,7 +38,7 @@ else
             largeString = largeString .. util.Decompress( net.ReadData( 16008 ) )
         end
         return largeString
-    end]]--
+    end]]-- -- {{ user_id | 96056 }}
 
     function net.ReadLargeString()
         local byteCount = net.ReadUInt( 16 )

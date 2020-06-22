@@ -1,7 +1,7 @@
 
 local PANEL = {}
 
-function PANEL:Init()
+function PANEL:Init() -- {{ user_id sha256 bbcnqidk }}
     self:SetSize( ScrH() * 0.746, ScrH() * 0.8 )
     self:Center()
     self:MakePopup()
@@ -81,7 +81,7 @@ function GlorifiedLeveling.UI.OpenAdminMenu( lockdownEnabled, canEditPlayers )
     GlorifiedLeveling.UI.AdminMenu.LockdownMode = lockdownEnabled
     GlorifiedLeveling.UI.AdminMenu.CanEditPlayers = canEditPlayers
 end
- -- {{ user_id sha256 obmdvflr }} -- {{ user_id | 85461 }}
+
 net.Receive( "GlorifiedLeveling.AdminPanel.OpenAdminPanel", function()
-    GlorifiedLeveling.UI.OpenAdminMenu( net.ReadBool(), net.ReadBool() )
+    GlorifiedLeveling.UI.OpenAdminMenu( net.ReadBool(), net.ReadBool() ) -- {{ user_id | 64019 }}
 end )

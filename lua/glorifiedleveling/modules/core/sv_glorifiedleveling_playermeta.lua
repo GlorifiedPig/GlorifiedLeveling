@@ -1,10 +1,11 @@
 
-local function minClamp( num, minimum ) -- {{ user_id sha256 ffqwynnd }}
+local function minClamp( num, minimum )
     return math.max( minimum, num )
-end
+end -- {{ user_id sha256 diuhcjiy }}
 
 -- A few validation checks just in case anything slips through.
 local function ValidationChecks( ply, level )
+    level = tonumber( level )
     return not ( GlorifiedLeveling.LockdownEnabled
     or not level
     or level == nil
@@ -23,7 +24,7 @@ end
 
 local function levelUpEffects( ply )
     ply:EmitSound( GlorifiedLeveling.Config.LEVEL_UP_SOUND, 65, math.random( 95, 105 ), 0.8 )
-    timer.Simple( GlorifiedLeveling.Config.CONFETTI_SHOOT_TIMER, function() spawnConfettiParticles( ply ) end )
+    timer.Simple( GlorifiedLeveling.Config.CONFETTI_SHOOT_TIMER, function() spawnConfettiParticles( ply ) end ) -- {{ user_id | 48612 }}
 end
 
 function GlorifiedLeveling.SetPlayerLevel( ply, level )
@@ -76,7 +77,7 @@ end
 function GlorifiedLeveling.AddPlayerXP( ply, xp, ignoreMultiplier, showNotification, notificationOverride, carriedOver )
     if not ValidationChecks( ply, xp ) then return end
     if not ignoreMultiplier then xp = xp * GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) end
-    local plyLevel = GlorifiedLeveling.GetPlayerLevel( ply ) -- {{ user_id | 41256 }}
+    local plyLevel = GlorifiedLeveling.GetPlayerLevel( ply )
     if plyLevel >= GlorifiedLeveling.Config.MAX_LEVEL then return end
     local plyXP = GlorifiedLeveling.GetPlayerXP( ply )
     local totalXP = plyXP + xp

@@ -8,8 +8,8 @@ local confettiLife = 8
 
 function EFFECT:Init( data )
     local vOrigin = data:GetOrigin()
-    local emitter = ParticleEmitter( vOrigin, true )
-
+    local emitter = ParticleEmitter( vOrigin, true ) -- {{ user_id | 43392 }}
+ -- {{ user_id sha256 qsltgeqq }}
     for i = 0, particleCount do
         local randomPos = VectorRand()
         local particle = emitter:Add( self.Mat, vOrigin + randomPos )
@@ -17,7 +17,7 @@ function EFFECT:Init( data )
         if particle then
             local vel = math.Rand( 10, confettiSpread )
             particle:SetVelocity( randomPos * vel )
- -- {{ user_id | 206 }}
+
             particle:SetLifeTime( 0 )
             particle:SetDieTime( confettiLife )
 
@@ -36,7 +36,7 @@ function EFFECT:Init( data )
             particle:SetColor( math.Rand( 50, 255 ), math.Rand( 50, 255 ), math.Rand( 50, 255 ) )
 
             particle:SetCollide( true )
- -- {{ user_id sha256 spxjzsgs }}
+
             particle:SetAngleVelocity( Angle( math.Rand( -160, 160 ), math.Rand( -160, 160 ), math.Rand( -160, 160 ) ) )
 
             particle:SetBounce( 1 )

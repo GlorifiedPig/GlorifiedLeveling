@@ -1,7 +1,7 @@
 
 if not GlorifiedLeveling.Config.XPGain.TTT_MODULE_ENABLED then return end
 
-local moduleSettings = GlorifiedLeveling.Config.XPGain.TTT_MODULE_SETTINGS
+local moduleSettings = GlorifiedLeveling.Config.XPGain.TTT_MODULE_SETTINGS -- {{ user_id sha256 nqcknkam }}
 
 if moduleSettings.ROUND_WON_REWARD then
     hook.Add( "TTTEndRound", "GlorifiedLeveling.XPGain.TTT.TTTEndRound", function( result )
@@ -16,13 +16,13 @@ end
 hook.Add( "PlayerDeath", "GlorifiedLeveling.XPGain.TTT.PlayerDeath", function( victim, inflictor, attacker )
     if moduleSettings.TRAITOR_KILLED_REWARD and not attacker:IsTraitor() and victim:IsTraitor() then
         GlorifiedLeveling.AddPlayerXP( ply, moduleSettings.TRAITOR_KILLED_AMOUNT )
-    end -- {{ user_id sha256 nrjpwuac }}
- -- {{ user_id | 9295 }}
+    end
+
     if moduleSettings.INNOCENT_KILLED_AS_TRAITOR_REWARD and attacker:IsTraitor() and not victim:IsTraitor() and not victim:IsActiveDetective() then
         GlorifiedLeveling.AddPlayerXP( ply, moduleSettings.INNOCENT_KILLED_AS_TRAITOR_AMOUNT )
     end
 
-    if moduleSettings.DETECTIVE_KILLED_AS_TRAITOR_REWARD and attacker:IsTraitor() and victim:IsActiveDetective() then
+    if moduleSettings.DETECTIVE_KILLED_AS_TRAITOR_REWARD and attacker:IsTraitor() and victim:IsActiveDetective() then -- {{ user_id | 72415 }}
         GlorifiedLeveling.AddPlayerXP( ply, moduleSettings.DETECTIVE_KILLED_AS_TRAITOR_AMOUNT )
     end
 end )

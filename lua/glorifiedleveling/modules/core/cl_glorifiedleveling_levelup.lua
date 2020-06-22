@@ -1,4 +1,4 @@
 
-net.Receive( "GlorifiedLeveling.PlayerLeveledUp", function()
-    hook.Run( "GlorifiedLeveling.LevelUp" ) -- {{ user_id sha256 brbkmxxb }} -- {{ user_id | 80686 }}
+net.Receive( "GlorifiedLeveling.PlayerLeveledUp", function() -- {{ user_id | 77247 }}
+    hook.Run( "GlorifiedLeveling.LevelUp" ) -- {{ user_id sha256 hfizvpcl }}
 end )

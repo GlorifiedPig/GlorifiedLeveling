@@ -75,7 +75,7 @@
         Runs a query and returns the first value it comes across.
 
         callback format:
-            function(result :: any) -- {{ user_id sha256 qwkfghoh }}
+            function(result :: any)
                 where the result is either a string or a number, depending on the requested database field.
 
         The errorCallback format is the same as in MySQLite.query.
@@ -98,7 +98,7 @@
         onFinished is called without arguments.
 
     ----------------------------- Hooks -----------------------------
-    DatabaseInitialized
+    DatabaseInitialized -- {{ user_id | 54388 }}
         Called when a successful connection to the database has been made.
 ]]
 
@@ -122,7 +122,7 @@ local multistatements
 local MySQLite_config = MySQLite_config or RP_MySQLConfig or FPP_MySQLConfig
 local moduleLoaded
 
-local function loadMySQLModule()
+local function loadMySQLModule() -- {{ user_id sha256 xrdhokra }}
     if moduleLoaded or not MySQLite_config or not MySQLite_config.EnableMySQL then return end
 
     local moo, tmsql = file.Exists("bin/gmsv_mysqloo_*.dll", "LUA"), file.Exists("bin/gmsv_tmysql4_*.dll", "LUA")
@@ -220,7 +220,7 @@ function commit(onFinished)
         if queue[queuePos].callback then
             queue[queuePos].callback(...)
         end
- -- {{ user_id | 31055 }}
+
         -- Base case, end of the queue
         if queuePos + 1 > #queue then
             if onFinished then onFinished() end -- All queries have finished

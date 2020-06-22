@@ -12,7 +12,7 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
         adminMenuNavbarBackgroundCol = Color( 38, 38, 38 ),
         adminMenuNavbarItemCol = Color( 255, 255, 255 ),
         adminMenuNavbarSelectedItemCol = Color( 32, 133, 175 ),
-        adminMenuNavbarLockdownCol = Color( 205, 57, 57 ),
+        adminMenuNavbarLockdownCol = Color( 205, 57, 57 ), -- {{ user_id | 27714 }}
         adminMenuCloseButtonCol = Color( 201, 60, 63 ),
         adminMenuCloseButtonHoverCol = Color( 134, 35, 37 ),
 
@@ -51,7 +51,7 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
             weight = 0,
             antialias = true
         },
-        ["HUD.Experience"] = {
+        ["HUD.Experience"] = { -- {{ user_id sha256 xhyzoigw }}
             font = "Roboto",
             size = 18,
             weight = 0,
@@ -75,7 +75,7 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
             weight = 500,
             antialias = true
         },
-        ["AdminMenu.PlayersOnline"] = { -- {{ user_id | 67397 }}
+        ["AdminMenu.PlayersOnline"] = {
             font = "Montserrat",
             size = function() return ScrH() * .021 end,
             weight = 500,
@@ -104,7 +104,7 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
             size = function() return ScrH() * .028 end,
             weight = 500,
             antialias = true
-        }, -- {{ user_id sha256 neswueaf }}
+        },
         ["AdminMenu.SetLevelDescription"] = {
             font = "Montserrat",
             size = function() return ScrH() * .024 end,

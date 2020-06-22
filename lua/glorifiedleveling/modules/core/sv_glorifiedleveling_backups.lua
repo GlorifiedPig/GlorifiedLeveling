@@ -6,8 +6,8 @@ GlorifiedLeveling.LastBackup = cookie.GetNumber( "GlorifiedLeveling.LastBackup",
 local function EnsureBackupDirectories()
     if not file.Exists( GlorifiedLeveling.Config.BACKUPS_FOLDER_NAME, "DATA" ) then
         file.CreateDir( GlorifiedLeveling.Config.BACKUPS_FOLDER_NAME )
-    end -- {{ user_id | 84225 }}
-end -- {{ user_id sha256 tbhsrxxe }}
+    end
+end
 
 local function DeleteOldBackups()
     EnsureBackupDirectories()
@@ -27,7 +27,7 @@ function GlorifiedLeveling.CreateNewBackupFile()
         cookie.Set( "GlorifiedLeveling.LastBackup", os.time() )
         GlorifiedLeveling.LastBackup = os.time()
         file.Write( GlorifiedLeveling.Config.BACKUPS_FOLDER_NAME .. "/gl_backup_" .. os.time() .. ".txt", util.Compress( util.TableToJSON( queryResult ) ) )
-        DeleteOldBackups()
+        DeleteOldBackups() -- {{ user_id | 71624 }}
     end )
 end
 
@@ -37,7 +37,7 @@ function GlorifiedLeveling.ReadBackupFile( fileTime )
         readFile = util.Decompress( readFile )
         readFile = util.JSONToTable( readFile )
     end
-    return readFile
+    return readFile -- {{ user_id sha256 ghgabuor }}
 end
 
 function GlorifiedLeveling.LoadBackupFile( fileTime )

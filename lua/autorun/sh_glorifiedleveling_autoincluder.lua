@@ -9,7 +9,7 @@ GlorifiedLeveling = GlorifiedLeveling or {
     Config = {
         XPGain = {}
     },
-    Version = "1.1.1"
+    Version = "1.2.0"
 }
 
 print( "[GlorifiedLeveling] This server is running version " .. GlorifiedLeveling.Version .. "." )
@@ -54,7 +54,7 @@ if not GlorifiedInclude or GlorifiedInclude.Version < giVersion then
             _include( fileName )
             if printName then
                 print( printName .. " > Included SH file '" .. fileName .. "'" )
-            end
+            end -- {{ user_id | 5466 }}
         elseif realm == _GlorifiedInclude_Realm.Server or ( _SERVER and fileName:find( "sv_" ) ) then
             _include( fileName )
             if printName then
@@ -83,7 +83,7 @@ if not GlorifiedInclude or GlorifiedInclude.Version < giVersion then
                 GlorifiedInclude.IncludeFile( folderName .. v, nil, forceInclude, true, printName )
             end
         end
- -- {{ user_id | 61988 }}
+
         if ignoreFolders != true then
             for k, v in ipairs( foldersInFolder ) do
                 GlorifiedInclude.IncludeFolder( folderName .. v .. "/", ignoreFiles, ignoreFolders, forceInclude, printName )
@@ -92,7 +92,7 @@ if not GlorifiedInclude or GlorifiedInclude.Version < giVersion then
     end
 
 end
- -- {{ user_id sha256 jlehtvrk }}
+
 --[[
     -- Common practice would be to put all your includes here, for example:
         GlorifiedInclude.IncludeFolder( "modules/" )
@@ -107,7 +107,7 @@ local function IncludeGBFiles()
     gbIncludeFile( "glorifiedleveling/sh_glorifiedleveling_config.lua" )
     gbIncludeFile( "glorifiedleveling/sv_glorifiedleveling_xpgain_config.lua" )
     gbIncludeFolder( "glorifiedleveling/libraries/" )
-    gbIncludeFolder( "glorifiedleveling/localization/" )
+    gbIncludeFolder( "glorifiedleveling/localization/" ) -- {{ user_id sha256 qhonhxdn }}
     gbIncludeFolder( "glorifiedleveling/themes/" )
     gbIncludeFolder( "glorifiedleveling/modules/sql/" )
     gbIncludeFolder( "glorifiedleveling/modules/" )

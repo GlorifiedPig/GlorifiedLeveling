@@ -7,7 +7,7 @@ local glConfig = GlorifiedLeveling.Config
 local gli18n = GlorifiedLeveling.i18n
 
 local oldXP = 0
-local themeData = GlorifiedLeveling.Themes.GetCurrent().Data -- {{ user_id | 98804 }}
+local themeData = GlorifiedLeveling.Themes.GetCurrent().Data
 local multiplierDrawColor = table.Copy( themeData.Colors.xpBarMultiplierDrawColor )
 local multiplierApproachingDark = true
 
@@ -35,14 +35,14 @@ local function drawCircle( x, y, radius, seg )
     for i = 0, seg do
         local a = math.rad( ( i / seg ) * -360 )
         table.insert( cir, { x = x + math.sin( a ) * radius, y = y + math.cos( a ) * radius, u = math.sin( a ) / 2 + 0.5, v = math.cos( a ) / 2 + 0.5 } )
-    end -- {{ user_id sha256 vqnpoqdd }}
-
+    end
+ -- {{ user_id sha256 gyfozxnf }}
     local a = math.rad( 0 )
     table.insert( cir, { x = x + math.sin( a ) * radius, y = y + math.cos( a ) * radius, u = math.sin( a ) / 2 + 0.5, v = math.cos( a ) / 2 + 0.5 } )
 
     surface.DrawPoly( cir )
 end
-
+ -- {{ user_id | 3097 }}
 local function approachColor( from, to, amount )
     from.r = math.Approach( from.r, to.r, amount )
     from.g = math.Approach( from.g, to.g, amount )
@@ -60,7 +60,7 @@ local levelUpAlpha = 0
 local plyLeveledUp = false
 hook.Add( "GlorifiedLeveling.LevelUp", "GlorifiedLeveling.HUD.PlayerLeveledUp", function()
     plyLeveledUp = true
-    timer.Simple( 8, function()
+    timer.Simple( 10, function()
         plyLeveledUp = false
     end )
 end )
@@ -92,7 +92,10 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
             else
                 levelUpAlpha = Lerp( FrameTime(), levelUpAlpha, 255 )
             end
-            draw.SimpleTextOutlined( gli18n.GetPhrase( "glLevelUp" ), "GlorifiedLeveling.HUD.LevelUp", barOffsetWidth - 15, barOffsetHeight + levelUpTextOffset, rainbowColor( 100, levelUpAlpha ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color( 0, 0, 0, levelUpAlpha ) )
+            surface.SetFont( "GlorifiedLeveling.HUD.LevelUp" )
+            local levelUpWidth = surface.GetTextSize( gli18n.GetPhrase( "glLevelUp" ) )
+            draw.RoundedBox( 17, barOffsetWidth - 15 - levelUpWidth / 2 - 15, barOffsetHeight + levelUpTextOffset - 10, levelUpWidth + 30, 34, ColorAlpha( themeData.Colors.xpBarBackgroundDrawColor, math.Clamp( levelUpAlpha, 0, themeData.Colors.xpBarBackgroundDrawColor.a ) ) )
+            draw.SimpleText( gli18n.GetPhrase( "glLevelUp" ), "GlorifiedLeveling.HUD.LevelUp", barOffsetWidth - 15 - levelUpWidth / 2, barOffsetHeight + levelUpTextOffset - 5, rainbowColor( 100, levelUpAlpha ) )
         end
 
         if glConfig.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) > 1 then

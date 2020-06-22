@@ -2,9 +2,9 @@
 GlorifiedLeveling.LockdownEnabled = GlorifiedLeveling.LockdownEnabled or false
 
 function GlorifiedLeveling.ToggleLockdown()
-    GlorifiedLeveling.LockdownEnabled = !GlorifiedLeveling.LockdownEnabled -- {{ user_id sha256 rndyoepf }}
-end
+    GlorifiedLeveling.LockdownEnabled = !GlorifiedLeveling.LockdownEnabled
+end -- {{ user_id | 14517 }}
 
-function GlorifiedLeveling.SetLockdownEnabled( status )
-    GlorifiedLeveling.LockdownEnabled = status -- {{ user_id | 81332 }}
+function GlorifiedLeveling.SetLockdownEnabled( status ) -- {{ user_id sha256 xztyrabx }}
+    GlorifiedLeveling.LockdownEnabled = status
 end

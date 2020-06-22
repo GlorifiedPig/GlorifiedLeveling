@@ -1,7 +1,7 @@
 
 GlorifiedLeveling.UI = GlorifiedLeveling.UI or {}
 
-local lerp = Lerp
+local lerp = Lerp -- {{ user_id sha256 fkdouomx }}
 function GlorifiedLeveling.UI.LerpColor( t, from, to )
     local col = Color( 0, 0, 0 )
 
@@ -13,13 +13,13 @@ function GlorifiedLeveling.UI.LerpColor( t, from, to )
     return col
 end
 
-function GlorifiedLeveling.UI.StartCutOut( areaDraw )
-    render.ClearStencil() -- {{ user_id | 91446 }}
+function GlorifiedLeveling.UI.StartCutOut( areaDraw ) -- {{ user_id | 47138 }}
+    render.ClearStencil()
     render.SetStencilEnable( true )
     render.SetStencilCompareFunction( STENCIL_ALWAYS )
     render.SetStencilPassOperation( STENCIL_REPLACE )
     render.SetStencilFailOperation( STENCIL_KEEP )
-    render.SetStencilZFailOperation( STENCIL_KEEP ) -- {{ user_id sha256 lvluewdt }}
+    render.SetStencilZFailOperation( STENCIL_KEEP )
 
     render.SetStencilWriteMask( 1 )
     render.SetStencilTestMask( 1 )
