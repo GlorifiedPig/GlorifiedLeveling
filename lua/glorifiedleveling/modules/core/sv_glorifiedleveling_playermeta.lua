@@ -5,6 +5,7 @@ end
 
 -- A few validation checks just in case anything slips through.
 local function ValidationChecks( ply, level )
+    level = tonumber( level )
     return not ( GlorifiedLeveling.LockdownEnabled
     or not level
     or level == nil
