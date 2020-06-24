@@ -9,7 +9,7 @@ GlorifiedLeveling = GlorifiedLeveling or {
     Config = {
         XPGain = {}
     },
-    Version = "1.2.0"
+    Version = "1.2.1"
 }
 
 print( "[GlorifiedLeveling] This server is running version " .. GlorifiedLeveling.Version .. "." )

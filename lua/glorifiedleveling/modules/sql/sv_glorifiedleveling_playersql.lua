@@ -8,13 +8,13 @@ hook.Add( "PlayerInitialSpawn", "GlorifiedLeveling.SQLPlayer.PlayerInitialSpawn"
         if queryResult and not table.IsEmpty( queryResult ) then
             local plyLevel = queryResult[1]["Level"]
             local plyXP = queryResult[1]["XP"]
-            ply.GlorifiedLevelingLevel = plyLevel
-            ply.GlorifiedLevelingXP = plyXP
+            ply:GlorifiedLeveling():SetInternalLevel( plyLevel )
+            ply:GlorifiedLeveling():SetInternalXP( plyXP )
             ply:SetNW2Int( "GlorifiedLeveling.Level", plyLevel )
             ply:SetNW2Int( "GlorifiedLeveling.XP", plyXP )
         else
-            ply.GlorifiedLevelingLevel = 1
-            ply.GlorifiedLevelingXP = 0
+            ply:GlorifiedLeveling():SetInternalLevel( 1 )
+            ply:GlorifiedLeveling():SetInternalXP( 0 )
             ply:SetNW2Int( "GlorifiedLeveling.Level", 1 )
             ply:SetNW2Int( "GlorifiedLeveling.XP", 0 )
             GlorifiedLeveling.SQL.Query( "INSERT INTO `gl_players` ( `SteamID64`, `Level`, `XP` ) VALUES ( '" .. ply:SteamID64() .. "', '1', '0' )" )
