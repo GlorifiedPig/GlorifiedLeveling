@@ -12,12 +12,12 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
         adminMenuNavbarBackgroundCol = Color( 38, 38, 38 ),
         adminMenuNavbarItemCol = Color( 255, 255, 255 ),
         adminMenuNavbarSelectedItemCol = Color( 32, 133, 175 ),
-        adminMenuNavbarLockdownCol = Color( 205, 57, 57 ), -- {{ user_id | 27714 }}
+        adminMenuNavbarLockdownCol = Color( 205, 57, 57 ),
         adminMenuCloseButtonCol = Color( 201, 60, 63 ),
         adminMenuCloseButtonHoverCol = Color( 134, 35, 37 ),
 
         scrollBarCol = Color( 105, 105, 105 ),
-        scrollBarHoverCol = Color( 85, 85, 85 ),
+        scrollBarHoverCol = Color( 85, 85, 85 ), -- {{ user_id | 20528 }}
 
         playerTopBarColor = Color( 255, 255, 255 ),
         playerBackgroundCol = Color( 33, 33, 33 ),
@@ -51,7 +51,7 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
             weight = 0,
             antialias = true
         },
-        ["HUD.Experience"] = { -- {{ user_id sha256 xhyzoigw }}
+        ["HUD.Experience"] = {
             font = "Roboto",
             size = 18,
             weight = 0,
@@ -62,7 +62,7 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
             size = 18,
             weight = 0,
             antialias = true
-        },
+        }, -- {{ user_id sha256 cktrhgyh }}
         ["HUD.LevelUp"] = {
             font = "Roboto",
             size = 24,

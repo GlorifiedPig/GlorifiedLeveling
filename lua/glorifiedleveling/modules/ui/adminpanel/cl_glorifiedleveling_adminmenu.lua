@@ -1,7 +1,7 @@
-
+ -- {{ user_id | 74881 }}
 local PANEL = {}
 
-function PANEL:Init() -- {{ user_id sha256 bbcnqidk }}
+function PANEL:Init()
     self:SetSize( ScrH() * 0.746, ScrH() * 0.8 )
     self:Center()
     self:MakePopup()
@@ -45,7 +45,7 @@ function PANEL:Init() -- {{ user_id sha256 bbcnqidk }}
         end)
     end )
 
-    self.Navbar:SelectTab( 1 )
+    self.Navbar:SelectTab( 1 ) -- {{ user_id sha256 ttjqriko }}
     timer.Simple( 0, function()
         changePage( "GlorifiedLeveling.Players" )
     end )
@@ -83,5 +83,5 @@ function GlorifiedLeveling.UI.OpenAdminMenu( lockdownEnabled, canEditPlayers )
 end
 
 net.Receive( "GlorifiedLeveling.AdminPanel.OpenAdminPanel", function()
-    GlorifiedLeveling.UI.OpenAdminMenu( net.ReadBool(), net.ReadBool() ) -- {{ user_id | 64019 }}
+    GlorifiedLeveling.UI.OpenAdminMenu( net.ReadBool(), net.ReadBool() )
 end )

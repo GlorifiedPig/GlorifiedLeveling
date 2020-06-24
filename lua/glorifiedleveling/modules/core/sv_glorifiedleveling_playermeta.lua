@@ -1,7 +1,7 @@
 
 local function minClamp( num, minimum )
     return math.max( minimum, num )
-end -- {{ user_id sha256 diuhcjiy }}
+end
 
 -- A few validation checks just in case anything slips through.
 local function ValidationChecks( ply, level )
@@ -24,41 +24,41 @@ end
 
 local function levelUpEffects( ply )
     ply:EmitSound( GlorifiedLeveling.Config.LEVEL_UP_SOUND, 65, math.random( 95, 105 ), 0.8 )
-    timer.Simple( GlorifiedLeveling.Config.CONFETTI_SHOOT_TIMER, function() spawnConfettiParticles( ply ) end ) -- {{ user_id | 48612 }}
+    timer.Simple( GlorifiedLeveling.Config.CONFETTI_SHOOT_TIMER, function() spawnConfettiParticles( ply ) end )
 end
 
 function GlorifiedLeveling.SetPlayerLevel( ply, level )
     if not ValidationChecks( ply, level ) then return end
-    level = tonumber( level )
+    level = tonumber( level ) -- {{ user_id sha256 xpdkiwbe }}
     level = math.Round( level )
     level = math.Clamp( level, 1, GlorifiedLeveling.Config.MAX_LEVEL )
     hook.Run( "GlorifiedLeveling.LevelUpdated", ply, GlorifiedLeveling.GetPlayerLevel( ply ), level )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `Level` = '" .. level .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
-    ply.GlorifiedLevelingLevel = level
+    ply:GlorifiedLeveling():SetInternalLevel( level )
     ply:SetNW2Int( "GlorifiedLeveling.Level", level )
 end
 
 function GlorifiedLeveling.GetPlayerLevel( ply )
-    return tonumber( ply.GlorifiedLevelingLevel ) or 1
+    return tonumber( ply:GlorifiedLeveling():GetInternalLevel() ) or 1
 end
 
 function GlorifiedLeveling.PlayerHasLevel( ply, level )
     return GlorifiedLeveling.GetPlayerLevel( ply ) >= level
 end
 
-function GlorifiedLeveling.SetPlayerXP( ply, xp )
+function GlorifiedLeveling.SetPlayerXP( ply, xp ) -- {{ user_id | 63769 }}
     if not ValidationChecks( ply, xp ) then return end
     xp = tonumber( xp )
     xp = math.Round( xp )
     xp = minClamp( xp, 0 )
     hook.Run( "GlorifiedLeveling.XPUpdated", ply, GlorifiedLeveling.GetPlayerXP( ply ), xp )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `XP` = '" .. xp .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
-    ply.GlorifiedLevelingXP = xp
+    ply:GlorifiedLeveling():SetInternalXP( xp )
     ply:SetNW2Int( "GlorifiedLeveling.XP", xp )
 end
 
 function GlorifiedLeveling.GetPlayerXP( ply )
-    return tonumber( ply.GlorifiedLevelingXP ) or 0
+    return tonumber( ply:GlorifiedLeveling():GetInternalXP() ) or 0
 end
 
 function GlorifiedLeveling.GetPlayerMaxXP( ply )
@@ -109,36 +109,50 @@ function GlorifiedLeveling.AddPlayerXP( ply, xp, ignoreMultiplier, showNotificat
 end
 
 local plyMeta = FindMetaTable( "Player" )
-plyMeta.GlorifiedLeveling = {}
 
-function plyMeta.GlorifiedLeveling:SetLevel( level )
-    GlorifiedLeveling.SetPlayerLevel( self, level )
+local CLASS = {}
+CLASS.__index = CLASS
+
+AccessorFunc( CLASS, "m_player", "Player" )
+
+function plyMeta:GlorifiedLeveling()
+    if ( not self.GlorifiedLeveling_Internal ) then
+        self.GlorifiedLeveling_Internal = table.Copy( CLASS )
+        self.GlorifiedLeveling_Internal:SetPlayer( self )
+    end
+
+    return self.GlorifiedLeveling_Internal
 end
 
-function plyMeta.GlorifiedLeveling:GetLevel()
+function CLASS:SetInternalLevel( level ) self.Level = level return self end
+function CLASS:GetInternalLevel( level ) return self.Level end
+function CLASS:SetInternalXP( xp ) self.XP = xp return self end
+function CLASS:GetInternalXP( level ) return self.XP end
+
+function CLASS:GetLevel()
     return GlorifiedLeveling.GetPlayerLevel( self )
 end
 
-function plyMeta.GlorifiedLeveling:HasLevel( level )
+function CLASS:HasLevel( level )
     return GlorifiedLeveling.PlayerHasLevel( self, level )
 end
 
-function plyMeta.GlorifiedLeveling:SetXP( xp )
+function CLASS:SetXP( xp )
     GlorifiedLeveling.SetPlayerXP( self, xp )
 end
 
-function plyMeta.GlorifiedLeveling:GetXP()
+function CLASS:GetXP()
     return GlorifiedLeveling.GetPlayerXP( self )
 end
 
-function plyMeta.GlorifiedLeveling:GetMaxXP()
+function CLASS:GetMaxXP()
     return GlorifiedLeveling.GetPlayerMaxXP( self )
 end
 
-function plyMeta.GlorifiedLeveling:AddLevels( levels )
+function CLASS:AddLevels( levels )
     GlorifiedLeveling.AddPlayerLevels( self, levels )
 end
 
-function plyMeta.GlorifiedLeveling:AddXP( xp )
+function CLASS:AddXP( xp )
     return GlorifiedLeveling.AddPlayerXP( self, xp )
 end

@@ -22,7 +22,7 @@ local function SetScreenVars()
     barOffsetWidth = glConfig.XP_BAR_WIDTH_OFFSET( xpBarWidth )
     barOffsetHeight = glConfig.XP_BAR_HEIGHT_OFFSET( xpBarHeight )
     if glConfig.LEVEL_UP_ON_TOP then
-        levelUpTextOffset = -10
+        levelUpTextOffset = -10 -- {{ user_id | 3680 }}
     end
 end
 SetScreenVars()
@@ -36,13 +36,13 @@ local function drawCircle( x, y, radius, seg )
         local a = math.rad( ( i / seg ) * -360 )
         table.insert( cir, { x = x + math.sin( a ) * radius, y = y + math.cos( a ) * radius, u = math.sin( a ) / 2 + 0.5, v = math.cos( a ) / 2 + 0.5 } )
     end
- -- {{ user_id sha256 gyfozxnf }}
+
     local a = math.rad( 0 )
     table.insert( cir, { x = x + math.sin( a ) * radius, y = y + math.cos( a ) * radius, u = math.sin( a ) / 2 + 0.5, v = math.cos( a ) / 2 + 0.5 } )
 
     surface.DrawPoly( cir )
 end
- -- {{ user_id | 3097 }}
+
 local function approachColor( from, to, amount )
     from.r = math.Approach( from.r, to.r, amount )
     from.g = math.Approach( from.g, to.g, amount )
@@ -92,7 +92,7 @@ hook.Add( "HUDPaint", "GlorifiedLeveling.HUD.HUDPaint", function()
             else
                 levelUpAlpha = Lerp( FrameTime(), levelUpAlpha, 255 )
             end
-            surface.SetFont( "GlorifiedLeveling.HUD.LevelUp" )
+            surface.SetFont( "GlorifiedLeveling.HUD.LevelUp" ) -- {{ user_id sha256 fqtytlkz }}
             local levelUpWidth = surface.GetTextSize( gli18n.GetPhrase( "glLevelUp" ) )
             draw.RoundedBox( 17, barOffsetWidth - 15 - levelUpWidth / 2 - 15, barOffsetHeight + levelUpTextOffset - 10, levelUpWidth + 30, 34, ColorAlpha( themeData.Colors.xpBarBackgroundDrawColor, math.Clamp( levelUpAlpha, 0, themeData.Colors.xpBarBackgroundDrawColor.a ) ) )
             draw.SimpleText( gli18n.GetPhrase( "glLevelUp" ), "GlorifiedLeveling.HUD.LevelUp", barOffsetWidth - 15 - levelUpWidth / 2, barOffsetHeight + levelUpTextOffset - 5, rainbowColor( 100, levelUpAlpha ) )

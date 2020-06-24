@@ -27,7 +27,7 @@ function GlorifiedLeveling.CreateNewBackupFile()
         cookie.Set( "GlorifiedLeveling.LastBackup", os.time() )
         GlorifiedLeveling.LastBackup = os.time()
         file.Write( GlorifiedLeveling.Config.BACKUPS_FOLDER_NAME .. "/gl_backup_" .. os.time() .. ".txt", util.Compress( util.TableToJSON( queryResult ) ) )
-        DeleteOldBackups() -- {{ user_id | 71624 }}
+        DeleteOldBackups()
     end )
 end
 
@@ -37,13 +37,13 @@ function GlorifiedLeveling.ReadBackupFile( fileTime )
         readFile = util.Decompress( readFile )
         readFile = util.JSONToTable( readFile )
     end
-    return readFile -- {{ user_id sha256 ghgabuor }}
+    return readFile
 end
 
 function GlorifiedLeveling.LoadBackupFile( fileTime )
     local readFile = GlorifiedLeveling.ReadBackupFile( fileTime )
     if readFile then
-        GlorifiedLeveling.SQL.Query( "DELETE FROM `gl_players`", function()
+        GlorifiedLeveling.SQL.Query( "DELETE FROM `gl_players`", function() -- {{ user_id sha256 wrccjike }}
             for k, v in pairs( readFile ) do
                 GlorifiedLeveling.SQL.Query( "INSERT INTO `gl_players`( `SteamID64`, `Level`, `XP` ) VALUES ( '" .. v["SteamID64"] .. "', '" .. v["Level"] .. "', '" .. v["XP"] .. "' ) ")
             end
@@ -57,7 +57,7 @@ hook.Add( "InitPostEntity", "GlorifiedLeveling.Backups.InitPostEntity", function
         -- Multiply by 3600 so that we can convert hours to seconds.
         if os.time() >= GlorifiedLeveling.LastBackup + ( GlorifiedLeveling.Config.BACKUP_FREQUENCY * 3600 ) then
             GlorifiedLeveling.CreateNewBackupFile()
-        end
+        end -- {{ user_id | 50419 }}
     end )
 end )
 

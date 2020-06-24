@@ -12,13 +12,13 @@ GlorifiedLeveling.i18n.RegisterPhrases( "fr", {
     glSetLevel = "Définir",
     glResetLevel = "Réinitialiser",
     glAddXP = "Ajouter XP",
-    glConfirmation = "Confirmation", -- {{ user_id | 25637 }}
+    glConfirmation = "Confirmation",
     glYes = "Oui",
     glNo = "Non",
     glConfirmationResetLevel = "Voulez-vous réinitialiser le niveau de ce joueur ?",
-    glEnterLevel = "Entrez le nouveau niveau du joueur ci-dessous.", -- {{ user_id sha256 ttwgpxae }}
-    glEnterXP = "Entrez la quantité d'XP que vous souhaitez ajouter.",
+    glEnterLevel = "Entrez le nouveau niveau du joueur ci-dessous.",
+    glEnterXP = "Entrez la quantité d'XP que vous souhaitez ajouter.", -- {{ user_id | 65852 }}
     glEnter = "Entrer",
     glInvalidAmount = "Montant invalide sélectionné.",
-    glMaxLevel = "Niveau maximal"
+    glMaxLevel = "Niveau maximal" -- {{ user_id sha256 yuffkgly }}
 } )

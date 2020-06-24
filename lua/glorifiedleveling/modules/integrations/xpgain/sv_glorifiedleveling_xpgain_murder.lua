@@ -6,18 +6,18 @@ local moduleSettings = GlorifiedLeveling.Config.XPGain.MURDER_MODULE_SETTINGS
 if moduleSettings.ROUND_WON_REWARD then
     hook.Add( "OnEndRoundResult", "GlorifiedLeveling.XPGain.Murder.OnEndRoundResult", function( result )
         for k, v in pairs( player.GetAll() ) do
-            if ( reason == 2 and v:GetMurderer() == false ) or ( reason == 3 and v:GetMurderer() == true ) then -- {{ user_id sha256 vazkyyfk }}
+            if ( reason == 2 and v:GetMurderer() == false ) or ( reason == 3 and v:GetMurderer() == true ) then
                 GlorifiedLeveling.AddPlayerXP( ply, moduleSettings.ROUND_WON_AMOUNT )
             end
         end
     end )
 end
 
-hook.Add( "PlayerDeath", "GlorifiedLeveling.XPGain.Murder.PlayerDeath", function( victim, inflictor, attacker ) -- {{ user_id | 81663 }}
+hook.Add( "PlayerDeath", "GlorifiedLeveling.XPGain.Murder.PlayerDeath", function( victim, inflictor, attacker )
     if moduleSettings.MURDERER_KILLED_REWARD and not attacker:GetMurderer() and victim:GetMurderer() then
-        GlorifiedLeveling.AddPlayerXP( ply, moduleSettings.MURDERER_KILLED_AMOUNT )
+        GlorifiedLeveling.AddPlayerXP( ply, moduleSettings.MURDERER_KILLED_AMOUNT ) -- {{ user_id | 11051 }}
     end
-
+ -- {{ user_id sha256 ustvbhad }}
     if moduleSettings.INNOCENT_KILLED_REWARD and attacker:GetMurderer() and not victim:GetMurderer() then
         GlorifiedLeveling.AddPlayerXP( ply, moduleSettings.INNOCENT_KILLED_AMOUNT )
     end

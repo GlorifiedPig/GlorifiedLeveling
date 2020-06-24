@@ -1,11 +1,35 @@
 
-local plyMeta = FindMetaTable( "Player" ) -- {{ user_id sha256 tfwnsfvb }}
-plyMeta.setLevel = plyMeta.GlorifiedLeveling.SetLevel
-plyMeta.setXP = plyMeta.GlorifiedLeveling.SetXP
-plyMeta.addXP = plyMeta.GlorifiedLeveling.AddXP
+local plyMeta = FindMetaTable( "Player" )
+
+function plyMeta:setLevel( level )
+    return self:GlorifiedLeveling():SetLevel( level )
+end
+
+function plyMeta:setXP( xp )
+    return self:GlorifiedLeveling():SetXP( xp )
+end
+
+function plyMeta:addXP( xp )
+    return self:GlorifiedLeveling():AddXP( xp )
+end
 plyMeta.AddXP = plyMeta.addXP
-plyMeta.getLevel = plyMeta.GlorifiedLeveling.GetLevel
-plyMeta.getXP = plyMeta.GlorifiedLeveling.GetXP
-plyMeta.getMaxXP = plyMeta.GlorifiedLeveling.GetMaxXP -- {{ user_id | 32648 }}
-plyMeta.addLevels = plyMeta.GlorifiedLeveling.AddLevels
-plyMeta.hasLevel = plyMeta.GlorifiedLeveling.HasLevel
+
+function plyMeta:getLevel()
+    return self:GlorifiedLeveling():GetLevel()
+end
+
+function plyMeta:getXP()
+    return self:GlorifiedLeveling():GetXP() -- {{ user_id | 87923 }}
+end
+
+function plyMeta:getMaxXP()
+    return self:GlorifiedLeveling():GetMaxXP()
+end
+
+function plyMeta:addLevels( levels )
+    return self:GlorifiedLeveling():AddLevels( levels ) -- {{ user_id sha256 urjiqroy }}
+end
+
+function plyMeta:hasLevel( level )
+    return self:GlorifiedLeveling():HasLevel( level )
+end

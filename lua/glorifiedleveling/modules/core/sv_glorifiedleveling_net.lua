@@ -14,12 +14,12 @@ hook.Add( "GlorifiedLeveling.LevelUp", "GlorifiedLeveling.Networking.LevelUp", f
 end )
 
 net.Receive( "GlorifiedLeveling.AdminPanel.SetLockdownStatus", function( len, ply )
-    if GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_togglelockdown" ) then
+    if GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_togglelockdown" ) then -- {{ user_id sha256 kgfvhatj }}
         GlorifiedLeveling.SetLockdownEnabled( net.ReadBool() )
     end
 end )
 
-net.Receive( "GlorifiedLeveling.AdminPanel.SetPlayerLevel", function( len, ply )
+net.Receive( "GlorifiedLeveling.AdminPanel.SetPlayerLevel", function( len, ply ) -- {{ user_id | 69260 }}
     if GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_manipulateplayerlevel" ) then
         local plyFromSteamID = player.GetBySteamID( net.ReadString() )
         local newLevel = net.ReadUInt( 32 )
@@ -40,7 +40,7 @@ net.Receive( "GlorifiedLeveling.AdminPanel.AddPlayerXP", function( len, ply )
     if GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_manipulateplayerlevel" ) then
         local plyFromSteamID = player.GetBySteamID( net.ReadString() )
         local xpToAdd = net.ReadUInt( 32 )
-        GlorifiedLeveling.AddPlayerXP( plyFromSteamID, xpToAdd, true ) -- {{ user_id | 55064 }}
+        GlorifiedLeveling.AddPlayerXP( plyFromSteamID, xpToAdd, true )
     end
 end )
 
@@ -55,7 +55,7 @@ net.Receive( "GlorifiedLeveling.AdminPanel.PlayerListOpened", function( len, ply
         net.WriteLargeString( util.TableToJSON( playerList ) )
         net.Send( ply )
     end
-end ) -- {{ user_id sha256 ldoniwlq }}
+end )
 
 concommand.Add( "glorifiedleveling_admin", function( ply )
     if not IsValid( ply ) then return end

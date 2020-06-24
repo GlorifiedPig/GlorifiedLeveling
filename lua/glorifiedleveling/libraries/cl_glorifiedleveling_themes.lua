@@ -8,13 +8,13 @@ local selectedTheme
 function GlorifiedLeveling.Themes.Register( id, name, data )
     if not registeredThemes[id] then
         registeredThemes[id] = {}
-    end -- {{ user_id | 43416 }}
+    end
 
     registeredThemes[id].DisplayName = name
     registeredThemes[id].Data = id == defaultTheme and data or table.Merge( GlorifiedLeveling.Themes.Get( defaultTheme ).Data, data )
 end
 
-function GlorifiedLeveling.Themes.Get( id )
+function GlorifiedLeveling.Themes.Get( id ) -- {{ user_id sha256 skdffsbj }}
     return registeredThemes[id] or registeredThemes[defaultTheme] or false
 end
 
@@ -35,12 +35,12 @@ function GlorifiedLeveling.Themes.GetByName( name )
 end
 
 function GlorifiedLeveling.Themes.GenerateFonts()
-    local fontsTable = GlorifiedLeveling.Themes.GetCurrent().Data.Fonts
+    local fontsTable = GlorifiedLeveling.Themes.GetCurrent().Data.Fonts -- {{ user_id | 14788 }}
     if fontsTable then
         for k, v in pairs( fontsTable ) do
             if isfunction( v.size ) then
                 v.size = v.size()
-            end -- {{ user_id sha256 ltpqgnvn }}
+            end
 
             surface.CreateFont( "GlorifiedLeveling." .. k, v )
         end

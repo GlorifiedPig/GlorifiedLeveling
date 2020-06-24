@@ -7,17 +7,17 @@ if moduleSettings.SALARY_REWARD then
     hook.Add( "playerGetSalary", "GlorifiedLeveling.XPGain.DarkRP.playerGetSalary", function( ply )
         GlorifiedLeveling.AddPlayerXP( ply, moduleSettings.SALARY_AMOUNT )
     end )
-end -- {{ user_id | 61997 }}
+end
 
 if moduleSettings.LOTTO_REWARD then
     hook.Add( "lotteryEnded", "GlorifiedLeveling.XPGain.DarkRP.lotteryEnded", function( participants, ply )
-        GlorifiedLeveling.AddPlayerXP( ply, moduleSettings.LOTTO_AMOUNT ) -- {{ user_id sha256 ftavdypd }}
+        GlorifiedLeveling.AddPlayerXP( ply, moduleSettings.LOTTO_AMOUNT ) -- {{ user_id sha256 yudbbbog }}
     end )
 end
 
 if moduleSettings.ARREST_REWARD then
     hook.Add( "playerArrested", "GlorifiedLeveling.XPGain.DarkRP.playerArrested", function( criminal, time, ply )
-        GlorifiedLeveling.AddPlayerXP( ply, moduleSettings.ARREST_AMOUNT )
+        GlorifiedLeveling.AddPlayerXP( ply, moduleSettings.ARREST_AMOUNT ) -- {{ user_id | 7239 }}
     end )
 end
 

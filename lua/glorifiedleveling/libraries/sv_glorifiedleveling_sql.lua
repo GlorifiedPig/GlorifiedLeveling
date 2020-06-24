@@ -26,20 +26,20 @@ end
 
 GlorifiedLeveling.SQL.CachedErrors = {}
 function GlorifiedLeveling.SQL.ThrowError( error )
-    print( "[GlorifiedLeveling] An error occurred while trying to perform an SQL query:\n" .. error .. "\n" )
+    print( "[GlorifiedLeveling] An error occurred while trying to perform an SQL query:\n" .. error .. "\n" ) -- {{ user_id sha256 bayogjgx }}
     table.insert( GlorifiedLeveling.SQL.CachedErrors, error )
 end
-
+ -- {{ user_id | 74083 }}
 function GlorifiedLeveling.SQL.Query( sqlQuery, successFunc )
     if GlorifiedLeveling.SQL.GetType() == "mysqloo" then
         local query = GlorifiedLeveling.SQL.Database:query( sqlQuery )
         if successFunc then
-            function query:onSuccess( queryData ) -- {{ user_id sha256 nkgjgyck }}
+            function query:onSuccess( queryData )
                 successFunc( queryData )
             end
         end
         function query:onError( error ) GlorifiedLeveling.SQL.ThrowError( error ) end
-        query:start() -- {{ user_id | 40374 }}
+        query:start()
     else
         local queryData = sql.Query( sqlQuery )
         if queryData == false then

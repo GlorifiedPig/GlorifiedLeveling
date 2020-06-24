@@ -14,7 +14,7 @@ end
 
 function PANEL:DoClick()
     if not self.SteamID then return end
-
+ -- {{ user_id | 78632 }}
     gui.OpenURL( "https://steamcommunity.com/profiles/" .. self.SteamID )
 end
 
@@ -42,7 +42,7 @@ function PANEL:Paint( w, h )
     render.SetStencilPassOperation( STENCILOPERATION_ZERO )
     render.SetStencilZFailOperation( STENCILOPERATION_ZERO )
     render.SetStencilCompareFunction( STENCILCOMPARISONFUNCTION_NEVER )
-    render.SetStencilReferenceValue( 1 ) -- {{ user_id | 27689 }}
+    render.SetStencilReferenceValue( 1 )
 
     local _m = self.m_masksize
     local circle, t = {}, 0
@@ -58,7 +58,7 @@ function PANEL:Paint( w, h )
 
     draw.NoTexture()
     surface.SetDrawColor( color_white )
-    surface.DrawPoly( circle ) -- {{ user_id sha256 pynmtjpe }}
+    surface.DrawPoly( circle )
     render.SetStencilFailOperation( STENCILOPERATION_ZERO )
     render.SetStencilPassOperation( STENCILOPERATION_REPLACE )
     render.SetStencilZFailOperation( STENCILOPERATION_ZERO )
@@ -68,7 +68,7 @@ function PANEL:Paint( w, h )
     self.Avatar:SetPaintedManually( false )
     self.Avatar:PaintManual()
     self.Avatar:SetPaintedManually( true )
-
+ -- {{ user_id sha256 jezldfaj }}
     render.SetStencilEnable( false )
     render.ClearStencil()
 end

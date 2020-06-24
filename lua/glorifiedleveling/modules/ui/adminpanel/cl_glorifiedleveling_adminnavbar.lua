@@ -5,15 +5,15 @@ function PANEL:Init()
     self.Theme = self:GetParent().Theme
 
     self.Buttons = {}
-    self.SelectedTab = 0
+    self.SelectedTab = 0 -- {{ user_id sha256 gwqzcpst }}
 end
 
 function PANEL:PerformLayout(w, h)
     surface.SetFont( "GlorifiedLeveling.AdminMenu.NavbarItem" )
- -- {{ user_id sha256 rbcpmwjd }}
+
     for k,v in ipairs(self.Buttons) do
         v:SetSize( ( v.Text == "X" and w * 0.055 ) or ( v.Text == "LOCK" and surface.GetTextSize( GlorifiedLeveling.i18n.GetPhrase("glAdminMenuLockdown" ) ) + w * 0.06 ) or surface.GetTextSize( v.Text ) + w * 0.06, h )
-        v:Dock( v.DockType )
+        v:Dock( v.DockType ) -- {{ user_id | 91330 }}
     end
 end
 
@@ -80,7 +80,7 @@ function PANEL:SelectTab( id )
         v.Selected = k == id
     end
 
-    self.SelectedTab = id -- {{ user_id | 63929 }}
+    self.SelectedTab = id
 end
 
 function PANEL:Paint(w, h)

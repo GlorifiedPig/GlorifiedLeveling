@@ -26,12 +26,12 @@ if SERVER then
 elseif GlorifiedLeveling.Config.DARKRP_LEVEL_NAME_AT_END then
     local function AddLevelNames()
         for k, v in pairs( DarkRPEntities ) do
-            v.label = v.name
+            v.label = v.name -- {{ user_id sha256 zmituaxz }}
             local valueLevel = v.level or v.Level or v.GlorifiedLeveling_Level
             if valueLevel then
                 v.label = ( v.label .. " - " .. GlorifiedLeveling.i18n.GetPhrase( "glLevelX", valueLevel ) )
             end
-        end -- {{ user_id sha256 ltfeyrdv }}
+        end
 
         for k, v in pairs( RPExtraTeams ) do
             v.label = v.name
@@ -53,11 +53,11 @@ elseif GlorifiedLeveling.Config.DARKRP_LEVEL_NAME_AT_END then
             v.label = v.name
             local valueLevel = v.level or v.Level or v.GlorifiedLeveling_Level
             if valueLevel then
-                v.label = ( v.label .. " - " .. GlorifiedLeveling.i18n.GetPhrase( "glLevelX", valueLevel ) )
+                v.label = ( v.label .. " - " .. GlorifiedLeveling.i18n.GetPhrase( "glLevelX", valueLevel ) ) -- {{ user_id | 28025 }}
             end
         end
 
-        for k, v in pairs( GAMEMODE.AmmoTypes ) do -- {{ user_id | 85341 }}
+        for k, v in pairs( GAMEMODE.AmmoTypes ) do
             v.label = v.name
             local valueLevel = v.level or v.Level or v.GlorifiedLeveling_Level
             if valueLevel then

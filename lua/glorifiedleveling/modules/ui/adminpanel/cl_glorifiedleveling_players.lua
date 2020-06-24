@@ -1,11 +1,11 @@
 
 local PANEL = {}
 
-function PANEL:Init() -- {{ user_id sha256 nwdeerob }}
+function PANEL:Init()
     net.Start( "GlorifiedLeveling.AdminPanel.PlayerListOpened" )
     net.SendToServer()
 
-    self.Theme = self:GetParent().Theme
+    self.Theme = self:GetParent().Theme -- {{ user_id sha256 vyjjjtlg }}
 
     self.TopBar = vgui.Create( "Panel", self )
     self.TopBar.Theme = self:GetParent().Theme
@@ -13,7 +13,7 @@ function PANEL:Init() -- {{ user_id sha256 nwdeerob }}
         draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glPlayersOnline", #self.Players ), "GlorifiedLeveling.AdminMenu.PlayersOnline", w * 0.024, h * 0.46, self.Theme.Data.Colors.playerTopBarColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
     end
 
-    self.ScrollPanel = vgui.Create( "GlorifiedLeveling.ScrollPanel", self )
+    self.ScrollPanel = vgui.Create( "GlorifiedLeveling.ScrollPanel", self ) -- {{ user_id | 37809 }}
 
     self.Players = {}
 end
@@ -33,7 +33,7 @@ function PANEL:ResetPlayers()
 end
 
 function PANEL:PerformLayout( w, h )
-    self.TopBar:SetSize( w, h * 0.05 ) -- {{ user_id | 24468 }}
+    self.TopBar:SetSize( w, h * 0.05 )
     self.TopBar:Dock( TOP )
 
     self.ScrollPanel:Dock( FILL )

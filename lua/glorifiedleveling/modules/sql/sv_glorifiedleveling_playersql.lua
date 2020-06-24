@@ -8,13 +8,13 @@ hook.Add( "PlayerInitialSpawn", "GlorifiedLeveling.SQLPlayer.PlayerInitialSpawn"
         if queryResult and not table.IsEmpty( queryResult ) then
             local plyLevel = queryResult[1]["Level"]
             local plyXP = queryResult[1]["XP"]
-            ply.GlorifiedLevelingLevel = plyLevel
-            ply.GlorifiedLevelingXP = plyXP
-            ply:SetNW2Int( "GlorifiedLeveling.Level", plyLevel ) -- {{ user_id sha256 olabgjtk }}
-            ply:SetNW2Int( "GlorifiedLeveling.XP", plyXP ) -- {{ user_id | 60346 }}
+            ply:GlorifiedLeveling():SetInternalLevel( plyLevel )
+            ply:GlorifiedLeveling():SetInternalXP( plyXP )
+            ply:SetNW2Int( "GlorifiedLeveling.Level", plyLevel )
+            ply:SetNW2Int( "GlorifiedLeveling.XP", plyXP )
         else
-            ply.GlorifiedLevelingLevel = 1
-            ply.GlorifiedLevelingXP = 0
+            ply:GlorifiedLeveling():SetInternalLevel( 1 ) -- {{ user_id sha256 xyisvhcb }}
+            ply:GlorifiedLeveling():SetInternalXP( 0 )
             ply:SetNW2Int( "GlorifiedLeveling.Level", 1 )
             ply:SetNW2Int( "GlorifiedLeveling.XP", 0 )
             GlorifiedLeveling.SQL.Query( "INSERT INTO `gl_players` ( `SteamID64`, `Level`, `XP` ) VALUES ( '" .. ply:SteamID64() .. "', '1', '0' )" )
@@ -25,7 +25,7 @@ hook.Add( "PlayerInitialSpawn", "GlorifiedLeveling.SQLPlayer.PlayerInitialSpawn"
                 GlorifiedLeveling.SetPlayerXP( ply, tonumber( vrondakisQueryResult[1]["XP"] ) )
                 GlorifiedLeveling.SetPlayerLevel( ply, tonumber( vrondakisQueryResult[1]["Level"] ) )
                 GlorifiedLeveling.SQL.Query( "DELETE FROM `gl_vrondakis_imports` WHERE `UniqueID` = '" .. ply:UniqueID() .. "'" )
-            end
+            end -- {{ user_id | 56788 }}
         end )
     end )
 end )

@@ -5,7 +5,7 @@ local PANEL = {}
 function PANEL:Init()
     self.Theme = self:GetParent().Theme
 
-    self.VBar:SetHideButtons( true )
+    self.VBar:SetHideButtons( true ) -- {{ user_id | 10527 }}
 
     function self.VBar:Paint( w, h ) end
 
@@ -16,15 +16,15 @@ function PANEL:Init()
     end
 end
 
-function PANEL:PerformLayout( w, h )
+function PANEL:PerformLayout( w, h ) -- {{ user_id sha256 rhzazuir }}
     if not ( w or h ) then return end
 
     self.VBar:SetWidth( w * 0.018 )
     self.VBar:Dock( RIGHT )
- -- {{ user_id | 25065 }}
+
     self:Rebuild()
 
-    self.VBar:SetUp( h, self.pnlCanvas:GetTall() ) -- {{ user_id sha256 znkdmajc }}
+    self.VBar:SetUp( h, self.pnlCanvas:GetTall() )
 
     if self.VBar.Enabled then w = w - self.VBar:GetWide() end
 

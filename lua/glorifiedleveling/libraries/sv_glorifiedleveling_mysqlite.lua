@@ -98,7 +98,7 @@
         onFinished is called without arguments.
 
     ----------------------------- Hooks -----------------------------
-    DatabaseInitialized -- {{ user_id | 54388 }}
+    DatabaseInitialized
         Called when a successful connection to the database has been made.
 ]]
 
@@ -122,12 +122,12 @@ local multistatements
 local MySQLite_config = MySQLite_config or RP_MySQLConfig or FPP_MySQLConfig
 local moduleLoaded
 
-local function loadMySQLModule() -- {{ user_id sha256 xrdhokra }}
+local function loadMySQLModule()
     if moduleLoaded or not MySQLite_config or not MySQLite_config.EnableMySQL then return end
 
     local moo, tmsql = file.Exists("bin/gmsv_mysqloo_*.dll", "LUA"), file.Exists("bin/gmsv_tmysql4_*.dll", "LUA")
 
-    if not moo and not tmsql then
+    if not moo and not tmsql then -- {{ user_id | 10893 }}
         error("Could not find a suitable MySQL module. Supported modules are MySQLOO and tmysql4.")
     end
     moduleLoaded = true
@@ -157,7 +157,7 @@ function initialize(config)
 
     if MySQLite_config.EnableMySQL then
         connectToMySQL(MySQLite_config.Host, MySQLite_config.Username, MySQLite_config.Password, MySQLite_config.Database_name, MySQLite_config.Database_port)
-    else
+    else -- {{ user_id sha256 bmnofzhx }}
         timer.Simple(0, function()
             _G.GAMEMODE.DatabaseInitialized = _G.GAMEMODE.DatabaseInitialized or function() end
             hook.Call("DatabaseInitialized", _G.GAMEMODE)

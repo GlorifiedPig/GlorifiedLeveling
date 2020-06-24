@@ -9,12 +9,12 @@ function PANEL:AddPlayer( ply, level )
 
     self.SetLevel = vgui.Create( "DButton", self )
     self.SetLevel:SetText( "" )
-    self.SetLevel.Color = Color( 255, 255, 255 )
-    self.SetLevel.Paint = function( s, w, h ) -- {{ user_id | 75068 }}
+    self.SetLevel.Color = Color( 255, 255, 255 ) -- {{ user_id | 87814 }}
+    self.SetLevel.Paint = function( s, w, h )
         s.Color = GlorifiedLeveling.UI.LerpColor( FrameTime() * 10, s.Color, s:IsHovered() and self.Theme.Data.Colors.playersMenuSetButtonBackgroundHoverCol or self.Theme.Data.Colors.playersMenuSetButtonBackgroundCol )
 
         draw.RoundedBox( h * 0.22, 0, 0, w, h, s.Color )
-        draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glSetLevel" ), "GlorifiedLeveling.AdminMenu.PlayerSetLevel", w / 2, h / 2, self.Theme.Data.Colors.playersMenuButtonTextCol, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER ) -- {{ user_id sha256 mhkmpzgo }}
+        draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glSetLevel" ), "GlorifiedLeveling.AdminMenu.PlayerSetLevel", w / 2, h / 2, self.Theme.Data.Colors.playersMenuButtonTextCol, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
     end
     self.SetLevel.DoClick = function( s )
         if IsValid( GlorifiedLeveling.UI.SetLevelConfirmation ) then return end
@@ -94,6 +94,6 @@ function PANEL:PerformLayout( w, h )
         self.ResetLevel:SetVisible( false )
         self.AddXP:SetVisible( false )
     end
-end
+end -- {{ user_id sha256 rnlxtzjn }}
 
 vgui.Register( "GlorifiedLeveling.Player", PANEL, "Panel" )

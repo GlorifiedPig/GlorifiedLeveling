@@ -45,12 +45,12 @@ function PANEL:Init()
     self.Enter.DoClick = function( s )
         if not self.SteamID then return end
         if tonumber( self.Entry:GetValue() ) < 0 then
-            GlorifiedLeveling.Notify( NOTIFY_ERROR, 3, GlorifiedLeveling.i18n.GetPhrase( "glInvalidAmount" ) )
+            GlorifiedLeveling.Notify( NOTIFY_ERROR, 3, GlorifiedLeveling.i18n.GetPhrase( "glInvalidAmount" ) ) -- {{ user_id sha256 usacjvgh }}
             return
         end
 
         net.Start( "GlorifiedLeveling.AdminPanel.AddPlayerXP" )
-         net.WriteString( self.SteamID ) -- {{ user_id | 81484 }}
+         net.WriteString( self.SteamID )
          net.WriteUInt( self.Entry:GetValue(), 32 )
         net.SendToServer()
 
@@ -63,7 +63,7 @@ function PANEL:Init()
     timer.Simple( 0, function()
         if self.Username then return end
         steamworks.RequestPlayerInfo( self.SteamID, function( name )
-            self.Username = name
+            self.Username = name -- {{ user_id | 3543 }}
         end )
     end)
 end
@@ -81,7 +81,7 @@ end
 
 function PANEL:Think()
     self:MoveToFront()
-end -- {{ user_id sha256 rmkmpoes }}
+end
 
 function PANEL:Paint(w, h)
     draw.RoundedBox( 6, 0, 0, w, h, self.Theme.Data.Colors.adminMenuBackgroundCol )

@@ -1,119 +1,119 @@
-Created 117 fingerprints successfully at 06/22/2020, 12:06:37;
+Created 117 fingerprints successfully at 06/24/2020, 12:01:29;
 
 Affected file: lua\autorun\sh_glorifiedleveling_autoincluder.lua
-Line 110: SHA256 Encrypted, Key 'qhonhxdn'
-Line 57: XOR Encrypted, Key '5466'
+Line 101: SHA256 Encrypted, Key 'ieftpwaf'
+Line 38: XOR Encrypted, Key '296'
 Affected file: lua\autorun\sv_glorifiedleveling_resources.lua
-Line 8: SHA256 Encrypted, Key 'rgztlpiy'
-Line 6: XOR Encrypted, Key '58811'
+Line 11: SHA256 Encrypted, Key 'jaecsfjj'
+Line 2: XOR Encrypted, Key '77445'
 Affected file: lua\effects\glorifiedleveling_confetti\init.lua
-Line 12: SHA256 Encrypted, Key 'qsltgeqq'
-Line 11: XOR Encrypted, Key '43392'
+Line 25: SHA256 Encrypted, Key 'iaepsikq'
+Line 29: XOR Encrypted, Key '10659'
 Affected file: lua\glorifiedleveling\sh_glorifiedleveling_compatibility.lua
-Line 8: SHA256 Encrypted, Key 'ftbcfhmu'
-Line 9: XOR Encrypted, Key '76895'
+Line 5: SHA256 Encrypted, Key 'pixtfeue'
+Line 8: XOR Encrypted, Key '93389'
 Affected file: lua\glorifiedleveling\libraries\cl_glorifiedleveling_themes.lua
-Line 43: SHA256 Encrypted, Key 'ltpqgnvn'
-Line 11: XOR Encrypted, Key '43416'
+Line 17: SHA256 Encrypted, Key 'skdffsbj'
+Line 38: XOR Encrypted, Key '14788'
 Affected file: lua\glorifiedleveling\libraries\cl_glorifiedleveling_uilib.lua
-Line 4: SHA256 Encrypted, Key 'fkdouomx'
-Line 16: XOR Encrypted, Key '47138'
+Line 18: SHA256 Encrypted, Key 'bpxsubri'
+Line 20: XOR Encrypted, Key '33460'
 Affected file: lua\glorifiedleveling\libraries\sh_glorifiedleveling_i18n.lua
-Line 8: SHA256 Encrypted, Key 'yapkitnz'
-Line 21: XOR Encrypted, Key '45687'
+Line 17: SHA256 Encrypted, Key 'dlzpfdlw'
+Line 7: XOR Encrypted, Key '71972'
 Affected file: lua\glorifiedleveling\libraries\sh_glorifiedleveling_netlargestrings.lua
-Line 22: SHA256 Encrypted, Key 'phkqfnim'
-Line 41: XOR Encrypted, Key '96056'
+Line 15: SHA256 Encrypted, Key 'ujqduytk'
+Line 27: XOR Encrypted, Key '38169'
 Affected file: lua\glorifiedleveling\libraries\sv_glorifiedleveling_mysqlite.lua
-Line 125: SHA256 Encrypted, Key 'xrdhokra'
-Line 101: XOR Encrypted, Key '54388'
+Line 160: SHA256 Encrypted, Key 'bmnofzhx'
+Line 130: XOR Encrypted, Key '10893'
 Affected file: lua\glorifiedleveling\libraries\sv_glorifiedleveling_sql.lua
-Line 37: SHA256 Encrypted, Key 'nkgjgyck'
-Line 42: XOR Encrypted, Key '40374'
+Line 29: SHA256 Encrypted, Key 'bayogjgx'
+Line 32: XOR Encrypted, Key '74083'
 Affected file: lua\glorifiedleveling\localization\sh_glorifiedleveling_english.lua
-Line 17: SHA256 Encrypted, Key 'aixuzxob'
-Line 5: XOR Encrypted, Key '64916'
+Line 6: SHA256 Encrypted, Key 'cncxtmid'
+Line 9: XOR Encrypted, Key '15726'
 Affected file: lua\glorifiedleveling\localization\sh_glorifiedleveling_french.lua
-Line 19: SHA256 Encrypted, Key 'ttwgpxae'
-Line 15: XOR Encrypted, Key '25637'
+Line 23: SHA256 Encrypted, Key 'yuffkgly'
+Line 20: XOR Encrypted, Key '65852'
 Affected file: lua\glorifiedleveling\modules\core\cl_glorifiedleveling_levelup.lua
-Line 3: SHA256 Encrypted, Key 'hfizvpcl'
-Line 2: XOR Encrypted, Key '77247'
+Line 2: SHA256 Encrypted, Key 'rftojsvv'
+Line 2: XOR Encrypted, Key '55956'
 Affected file: lua\glorifiedleveling\modules\core\cl_glorifiedleveling_playermeta.lua
-Line 16: SHA256 Encrypted, Key 'rhtpgxwa'
-Line 18: XOR Encrypted, Key '47727'
+Line 7: SHA256 Encrypted, Key 'jhzlgqyn'
+Line 9: XOR Encrypted, Key '3897'
 Affected file: lua\glorifiedleveling\modules\core\sv_glorifiedleveling_backups.lua
-Line 40: SHA256 Encrypted, Key 'ghgabuor'
-Line 30: XOR Encrypted, Key '71624'
+Line 46: SHA256 Encrypted, Key 'wrccjike'
+Line 60: XOR Encrypted, Key '50419'
 Affected file: lua\glorifiedleveling\modules\core\sv_glorifiedleveling_lockdown.lua
-Line 8: SHA256 Encrypted, Key 'xztyrabx'
-Line 6: XOR Encrypted, Key '14517'
+Line 8: SHA256 Encrypted, Key 'zlxuwawj'
+Line 9: XOR Encrypted, Key '89472'
 Affected file: lua\glorifiedleveling\modules\core\sv_glorifiedleveling_net.lua
-Line 58: SHA256 Encrypted, Key 'ldoniwlq'
-Line 43: XOR Encrypted, Key '55064'
+Line 17: SHA256 Encrypted, Key 'kgfvhatj'
+Line 22: XOR Encrypted, Key '69260'
 Affected file: lua\glorifiedleveling\modules\core\sv_glorifiedleveling_permissions.lua
-Line 9: SHA256 Encrypted, Key 'wkunqmgg'
-Line 15: XOR Encrypted, Key '4814'
+Line 3: SHA256 Encrypted, Key 'vzopebma'
+Line 9: XOR Encrypted, Key '47821'
 Affected file: lua\glorifiedleveling\modules\core\sv_glorifiedleveling_playermeta.lua
-Line 4: SHA256 Encrypted, Key 'diuhcjiy'
-Line 27: XOR Encrypted, Key '48612'
+Line 32: SHA256 Encrypted, Key 'xpdkiwbe'
+Line 49: XOR Encrypted, Key '63769'
 Affected file: lua\glorifiedleveling\modules\integrations\cl_glorifiedleveling_venatusshudmaker.lua
-Line 41: SHA256 Encrypted, Key 'jwfyzytc'
-Line 14: XOR Encrypted, Key '86856'
+Line 29: SHA256 Encrypted, Key 'bjrqlipr'
+Line 48: XOR Encrypted, Key '57320'
 Affected file: lua\glorifiedleveling\modules\integrations\sh_glorifiedleveling_darkrp.lua
-Line 34: SHA256 Encrypted, Key 'ltfeyrdv'
-Line 60: XOR Encrypted, Key '85341'
+Line 29: SHA256 Encrypted, Key 'zmituaxz'
+Line 56: XOR Encrypted, Key '28025'
 Affected file: lua\glorifiedleveling\modules\integrations\sv_glorifiedleveling_vrondakis.lua
-Line 2: SHA256 Encrypted, Key 'tfwnsfvb'
-Line 9: XOR Encrypted, Key '32648'
+Line 30: SHA256 Encrypted, Key 'urjiqroy'
+Line 22: XOR Encrypted, Key '87923'
 Affected file: lua\glorifiedleveling\modules\integrations\sv_glorifiedleveling_vrondakis_importer.lua
-Line 13: SHA256 Encrypted, Key 'dnvfdsxj'
-Line 7: XOR Encrypted, Key '26012'
+Line 5: SHA256 Encrypted, Key 'stcilqbg'
+Line 2: XOR Encrypted, Key '54746'
 Affected file: lua\glorifiedleveling\modules\integrations\xpgain\sv_glorifiedleveling_xpgain_base.lua
-Line 11: SHA256 Encrypted, Key 'anonigno'
-Line 21: XOR Encrypted, Key '67390'
+Line 19: SHA256 Encrypted, Key 'smaecviu'
+Line 11: XOR Encrypted, Key '57612'
 Affected file: lua\glorifiedleveling\modules\integrations\xpgain\sv_glorifiedleveling_xpgain_darkrp.lua
-Line 14: SHA256 Encrypted, Key 'ftavdypd'
-Line 10: XOR Encrypted, Key '61997'
+Line 14: SHA256 Encrypted, Key 'yudbbbog'
+Line 20: XOR Encrypted, Key '7239'
 Affected file: lua\glorifiedleveling\modules\integrations\xpgain\sv_glorifiedleveling_xpgain_murder.lua
-Line 9: SHA256 Encrypted, Key 'vazkyyfk'
-Line 16: XOR Encrypted, Key '81663'
+Line 20: SHA256 Encrypted, Key 'ustvbhad'
+Line 18: XOR Encrypted, Key '11051'
 Affected file: lua\glorifiedleveling\modules\integrations\xpgain\sv_glorifiedleveling_xpgain_ttt.lua
-Line 4: SHA256 Encrypted, Key 'nqcknkam'
-Line 25: XOR Encrypted, Key '72415'
+Line 3: SHA256 Encrypted, Key 'whhsssjq'
+Line 4: XOR Encrypted, Key '50305'
 Affected file: lua\glorifiedleveling\modules\sql\sv_glorifiedleveling_playersql.lua
-Line 13: SHA256 Encrypted, Key 'olabgjtk'
-Line 14: XOR Encrypted, Key '60346'
+Line 16: SHA256 Encrypted, Key 'xyisvhcb'
+Line 28: XOR Encrypted, Key '56788'
 Affected file: lua\glorifiedleveling\modules\ui\cl_glorifiedleveling_hud.lua
-Line 39: SHA256 Encrypted, Key 'gyfozxnf'
-Line 45: XOR Encrypted, Key '3097'
+Line 95: SHA256 Encrypted, Key 'fqtytlkz'
+Line 25: XOR Encrypted, Key '3680'
 Affected file: lua\glorifiedleveling\modules\ui\adminpanel\cl_glorifiedleveling_addxpconfirmation.lua
-Line 84: SHA256 Encrypted, Key 'rmkmpoes'
-Line 53: XOR Encrypted, Key '81484'
+Line 48: SHA256 Encrypted, Key 'usacjvgh'
+Line 66: XOR Encrypted, Key '3543'
 Affected file: lua\glorifiedleveling\modules\ui\adminpanel\cl_glorifiedleveling_adminmenu.lua
-Line 4: SHA256 Encrypted, Key 'bbcnqidk'
-Line 86: XOR Encrypted, Key '64019'
+Line 48: SHA256 Encrypted, Key 'ttjqriko'
+Line 1: XOR Encrypted, Key '74881'
 Affected file: lua\glorifiedleveling\modules\ui\adminpanel\cl_glorifiedleveling_adminnavbar.lua
-Line 13: SHA256 Encrypted, Key 'rbcpmwjd'
-Line 83: XOR Encrypted, Key '63929'
+Line 8: SHA256 Encrypted, Key 'gwqzcpst'
+Line 16: XOR Encrypted, Key '91330'
 Affected file: lua\glorifiedleveling\modules\ui\adminpanel\cl_glorifiedleveling_circleavatar.lua
-Line 61: SHA256 Encrypted, Key 'pynmtjpe'
-Line 45: XOR Encrypted, Key '27689'
+Line 71: SHA256 Encrypted, Key 'jezldfaj'
+Line 17: XOR Encrypted, Key '78632'
 Affected file: lua\glorifiedleveling\modules\ui\adminpanel\cl_glorifiedleveling_player.lua
-Line 17: SHA256 Encrypted, Key 'mhkmpzgo'
-Line 13: XOR Encrypted, Key '75068'
+Line 97: SHA256 Encrypted, Key 'rnlxtzjn'
+Line 12: XOR Encrypted, Key '87814'
 Affected file: lua\glorifiedleveling\modules\ui\adminpanel\cl_glorifiedleveling_players.lua
-Line 4: SHA256 Encrypted, Key 'nwdeerob'
-Line 36: XOR Encrypted, Key '24468'
+Line 8: SHA256 Encrypted, Key 'vyjjjtlg'
+Line 16: XOR Encrypted, Key '37809'
 Affected file: lua\glorifiedleveling\modules\ui\adminpanel\cl_glorifiedleveling_resetlevelconfirmation.lua
-Line 35: SHA256 Encrypted, Key 'zfwmcuak'
-Line 40: XOR Encrypted, Key '48922'
+Line 97: SHA256 Encrypted, Key 'arzbtfza'
+Line 11: XOR Encrypted, Key '96405'
 Affected file: lua\glorifiedleveling\modules\ui\adminpanel\cl_glorifiedleveling_scrollpanel.lua
-Line 27: SHA256 Encrypted, Key 'znkdmajc'
-Line 24: XOR Encrypted, Key '25065'
+Line 19: SHA256 Encrypted, Key 'rhzazuir'
+Line 8: XOR Encrypted, Key '10527'
 Affected file: lua\glorifiedleveling\modules\ui\adminpanel\cl_glorifiedleveling_setlevelconfirmation.lua
-Line 56: SHA256 Encrypted, Key 'pukwnhwj'
-Line 48: XOR Encrypted, Key '37568'
+Line 84: SHA256 Encrypted, Key 'qqadkvcb'
+Line 49: XOR Encrypted, Key '80047'
 Affected file: lua\glorifiedleveling\themes\cl_glorifiedleveling_dark.lua
-Line 54: SHA256 Encrypted, Key 'xhyzoigw'
-Line 15: XOR Encrypted, Key '27714'
+Line 65: SHA256 Encrypted, Key 'cktrhgyh'
+Line 20: XOR Encrypted, Key '20528'

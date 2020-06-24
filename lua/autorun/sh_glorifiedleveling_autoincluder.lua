@@ -9,7 +9,7 @@ GlorifiedLeveling = GlorifiedLeveling or {
     Config = {
         XPGain = {}
     },
-    Version = "1.2.0"
+    Version = "1.2.1"
 }
 
 print( "[GlorifiedLeveling] This server is running version " .. GlorifiedLeveling.Version .. "." )
@@ -35,7 +35,7 @@ if not GlorifiedInclude or GlorifiedInclude.Version < giVersion then
             Client = 1,
             Shared = 2
         }
-    }
+    } -- {{ user_id | 296 }}
 
     local _include = include
     local _AddCSLuaFile = AddCSLuaFile
@@ -54,7 +54,7 @@ if not GlorifiedInclude or GlorifiedInclude.Version < giVersion then
             _include( fileName )
             if printName then
                 print( printName .. " > Included SH file '" .. fileName .. "'" )
-            end -- {{ user_id | 5466 }}
+            end
         elseif realm == _GlorifiedInclude_Realm.Server or ( _SERVER and fileName:find( "sv_" ) ) then
             _include( fileName )
             if printName then
@@ -98,7 +98,7 @@ end
         GlorifiedInclude.IncludeFolder( "modules/" )
         GlorifiedInclude.IncludeFile( "sh_config.lua" )
     -- Remember that files load in the order you include them in.
-]]--
+]]-- -- {{ user_id sha256 ieftpwaf }}
 local function gbIncludeFile( fileName ) GlorifiedInclude.IncludeFile( fileName, nil, nil, nil, "GlorifiedLeveling" ) end
 local function gbIncludeFolder( folderName ) GlorifiedInclude.IncludeFolder( folderName, nil, nil, nil, "GlorifiedLeveling" ) end
 gbIncludeFile( "glorifiedleveling/sh_glorifiedleveling_compatibility.lua" )
@@ -107,7 +107,7 @@ local function IncludeGBFiles()
     gbIncludeFile( "glorifiedleveling/sh_glorifiedleveling_config.lua" )
     gbIncludeFile( "glorifiedleveling/sv_glorifiedleveling_xpgain_config.lua" )
     gbIncludeFolder( "glorifiedleveling/libraries/" )
-    gbIncludeFolder( "glorifiedleveling/localization/" ) -- {{ user_id sha256 qhonhxdn }}
+    gbIncludeFolder( "glorifiedleveling/localization/" )
     gbIncludeFolder( "glorifiedleveling/themes/" )
     gbIncludeFolder( "glorifiedleveling/modules/sql/" )
     gbIncludeFolder( "glorifiedleveling/modules/" )

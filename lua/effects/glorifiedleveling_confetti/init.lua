@@ -8,8 +8,8 @@ local confettiLife = 8
 
 function EFFECT:Init( data )
     local vOrigin = data:GetOrigin()
-    local emitter = ParticleEmitter( vOrigin, true ) -- {{ user_id | 43392 }}
- -- {{ user_id sha256 qsltgeqq }}
+    local emitter = ParticleEmitter( vOrigin, true )
+
     for i = 0, particleCount do
         local randomPos = VectorRand()
         local particle = emitter:Add( self.Mat, vOrigin + randomPos )
@@ -22,11 +22,11 @@ function EFFECT:Init( data )
             particle:SetDieTime( confettiLife )
 
             particle:SetStartAlpha( 255 )
-            particle:SetEndAlpha( 255 )
+            particle:SetEndAlpha( 255 ) -- {{ user_id sha256 iaepsikq }}
 
             local Size = math.Rand( confettiSize - 1, confettiSize + 2 )
             particle:SetStartSize( Size )
-            particle:SetEndSize( 0 )
+            particle:SetEndSize( 0 ) -- {{ user_id | 10659 }}
             particle:SetRoll( math.Rand( 0, 360 ) )
             particle:SetRollDelta( math.Rand( -2, 2 ) )
 
