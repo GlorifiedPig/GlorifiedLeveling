@@ -6,7 +6,7 @@ function PANEL:PerformLayout( w, h )
     self.TitleBar:SetSize( w, h * 0.1 )
 end
 
-function PANEL:SetPlayer( ply )
+function PANEL:UpdateCache( perkTbl )
     self:SetSize( ScrH() * 0.55, ScrH() * 0.6 )
     self:Center()
     self:MakePopup()
@@ -41,6 +41,7 @@ function GlorifiedLeveling.UI.OpenPerkMenu()
     end
 
     GlorifiedLeveling.UI.PerkMenu = vgui.Create( "GlorifiedLeveling.PerkMenu.Menu" )
+    GlorifiedLeveling.UI.PerkMenu:UpdateCache()
 end
 
 function GlorifiedLeveling.UI.ClosePerkMenu()
