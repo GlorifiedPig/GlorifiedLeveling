@@ -2,7 +2,7 @@
 GlorifiedLeveling.Themes = {}
 
 local registeredThemes = {}
-local defaultTheme = "Dark"
+local defaultTheme = "Default"
 local selectedTheme
 
 function GlorifiedLeveling.Themes.Register( id, name, data )

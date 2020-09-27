@@ -1,5 +1,5 @@
 
-GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "glDarkTheme" ), {
+GlorifiedLeveling.Themes.Register( "Default", GlorifiedLeveling.i18n.GetPhrase( "glDarkTheme" ), {
     Colors = {
         xpBarBackgroundDrawColor = Color( 31, 31, 31, 230 ),
         xpBarXPDrawColor = Color( 233, 5, 60 ),
@@ -42,7 +42,12 @@ GlorifiedLeveling.Themes.Register( "Dark", GlorifiedLeveling.i18n.GetPhrase( "gl
         resetLevelYesButtonBackgroundCol = Color( 87, 168, 50 ),
         resetLevelYesButtonBackgroundHoverCol = Color( 62, 123, 32 ),
         resetLevelNoButtonBackgroundCol = Color( 205, 57, 57 ),
-        resetLevelNoButtonBackgroundHoverCol = Color( 158, 41, 41 )
+        resetLevelNoButtonBackgroundHoverCol = Color( 158, 41, 41 ),
+
+        perkMenuBackgroundColor = Color( 51, 51, 51 ),
+        perkMenuTitleBarBackgroundColor = Color( 34, 34, 34 ),
+        perkMenuCloseButtonBackgroundColor = Color( 201, 60, 63 ),
+        perkMenuCloseButtonHoverColor = Color( 134, 35, 37 ),
     },
     Fonts = {
         ["HUD.Level"] = {

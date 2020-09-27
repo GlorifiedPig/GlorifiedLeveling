@@ -116,7 +116,7 @@ CLASS.__index = CLASS
 AccessorFunc( CLASS, "m_player", "Player" )
 
 function plyMeta:GlorifiedLeveling()
-    if ( not self.GlorifiedLeveling_Internal ) then
+    if not self.GlorifiedLeveling_Internal then
         self.GlorifiedLeveling_Internal = table.Copy( CLASS )
         self.GlorifiedLeveling_Internal:SetPlayer( self )
     end
