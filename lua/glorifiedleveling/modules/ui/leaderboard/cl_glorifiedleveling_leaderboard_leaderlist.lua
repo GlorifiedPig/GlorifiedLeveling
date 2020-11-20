@@ -89,7 +89,14 @@ function PANEL:Paint( w, h )
             draw.RoundedBoxEx( 8, 4, tblY, firstBoxW, tblHeight, Color( 51, 51, 51 ), true, false, true, false )
             draw.RoundedBoxEx( 8, 8 + firstBoxW, tblY, w - firstBoxW - 12, tblHeight, Color( 51, 51, 51 ), false, true, false, true )
 
-            draw.SimpleText( k, "GlorifiedLeveling.Leaderboard.LeaderboardPositionText", self.PositionPos - self.PositionWidth / 2, tblY + tblHeight / 2, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+            local positionColor = Color( 145, 145, 145 )
+            if k == 1 then positionColor = Color( 255, 223, 0 )
+            elseif k == 2 then positionColor = Color( 219, 228, 235 )
+            elseif k == 3 then positionColor = Color( 224, 139, 55 ) end
+
+            local positionText = k .. "."
+            draw.SimpleText( positionText, "GlorifiedLeveling.Leaderboard.LeaderboardPositionText", self.PositionPos - self.PositionWidth / 2, tblY + tblHeight / 2, positionColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+
             local name = string.sub( v.Name, 1, string.len( v.Name ) >= 28 and 28 or string.len( v.Name ) )
             draw.SimpleText( name, "GlorifiedLeveling.Leaderboard.LeaderboardText", self.NamePos - self.NameWidth + 8, tblY + tblHeight / 2, Color( 255, 255, 255 ), TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
 
