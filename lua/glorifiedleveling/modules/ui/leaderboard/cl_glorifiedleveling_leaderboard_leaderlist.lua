@@ -90,21 +90,29 @@ function PANEL:Paint( w, h )
             draw.RoundedBoxEx( 8, 8 + firstBoxW, tblY, w - firstBoxW - 12, tblHeight, Color( 51, 51, 51 ), false, true, false, true )
 
             draw.SimpleText( k, "GlorifiedLeveling.Leaderboard.LeaderboardPositionText", self.PositionPos - self.PositionWidth / 2, tblY + tblHeight / 2, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
-            local name = string.sub( v.Name, 1, string.len( v.Name ) >= 26 and 26 or string.len( v.Name ) )
+            local name = string.sub( v.Name, 1, string.len( v.Name ) >= 28 and 28 or string.len( v.Name ) )
             draw.SimpleText( name, "GlorifiedLeveling.Leaderboard.LeaderboardText", self.NamePos - self.NameWidth + 8, tblY + tblHeight / 2, Color( 255, 255, 255 ), TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
 
-            draw.RoundedBox( 4, self.XPPos - self.XPWidth + 8, tblY + 6, self.XPWidth - 16, tblHeight - 12, Color( 89, 175, 63 ) )
+            local xpBoxX = self.XPPos - self.XPWidth + 6
+            local xpBoxWidth = self.XPWidth - 12
+            draw.RoundedBox( 4, xpBoxX, tblY + 6, xpBoxWidth, tblHeight - 12, Color( 89, 175, 63 ) )
+            draw.SimpleText( string.Comma( v.XP ), "GlorifiedLeveling.Leaderboard.LeaderboardBoxText", xpBoxX + xpBoxWidth / 2, tblY + tblHeight / 2, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
-            draw.RoundedBox( 4, self.LevelPos - self.LevelWidth + 12, tblY + 6, self.LevelWidth - 24, tblHeight - 12, Color( 89, 175, 63 ) )
+            local levelBoxX = self.LevelPos - self.LevelWidth + 8
+            local levelBoxWidth = self.LevelWidth - 20
+            draw.RoundedBox( 4, levelBoxX, tblY + 6, levelBoxWidth, tblHeight - 12, Color( 89, 175, 63 ) )
+            draw.SimpleText( string.Comma( v.Level ), "GlorifiedLeveling.Leaderboard.LeaderboardBoxText", levelBoxX + levelBoxWidth / 2, tblY + tblHeight / 2, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
         end
     else
         draw.SimpleText( "There is nobody here :(", "DermaDefault", 5, titleBarHeight + 5, Color( 255, 255, 255 ) )
     end
 
-    -- Let's draw some invisible lines just to help visualize where the labels will be placed.
-    draw.RoundedBox( 0, self.PositionPos, 0, 1, h, Color( 255, 255, 255 ) ) -- Place indicator.
-    draw.RoundedBox( 0, self.NamePos, 0, 1, h, Color( 255, 255, 255 ) ) -- Name indicator.
-    draw.RoundedBox( 0, self.XPPos, 0, 1, h, Color( 255, 255, 255 ) ) -- XP indicator.
+    --[[
+        -- Let's draw some debug lines just to help visualize where the labels will be placed.
+        draw.RoundedBox( 0, self.PositionPos, 0, 1, h, Color( 255, 255, 255 ) ) -- Place indicator.
+        draw.RoundedBox( 0, self.NamePos, 0, 1, h, Color( 255, 255, 255 ) ) -- Name indicator.
+        draw.RoundedBox( 0, self.XPPos, 0, 1, h, Color( 255, 255, 255 ) ) -- XP indicator.
+    ]]--
 end
 
 vgui.Register( "GlorifiedLeveling.Leaderboard.LeaderList", PANEL, "Panel" )

@@ -163,6 +163,13 @@ GlorifiedLeveling.Themes.Register( "Default", GlorifiedLeveling.i18n.GetPhrase( 
             weight = 500,
             antialias = true
         },
+        ["Leaderboard.LeaderboardBoxText"] = {
+            font = "Roboto",
+            size = function() return ScrW() * 0.013 end,
+            weight = 500,
+            bold = true,
+            antialias = true
+        },
     },
     Materials = {
         close = Material( "glorifiedleveling/close.png", "noclamp smooth" ),
