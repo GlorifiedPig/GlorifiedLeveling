@@ -20,5 +20,33 @@ GlorifiedLeveling.i18n.RegisterPhrases( "en", {
     glEnterXP = "Enter how much XP you want to add.",
     glEnter = "Enter",
     glInvalidAmount = "Invalid amount selected.",
-    glMaxLevel = "Max Level"
+    glMaxLevel = "Max Level",
+
+    -- Leaderboard localization.
+    glLeaderboard = "Leaderboard",
+    glName = "Name",
+    glXP = "XP",
+    glLevel = "Level",
+    glNobodyHere = "There is nobody here :(",
+    glSkills = "Skills",
+    glPoints = "%s Points",
+
+    -- Perk localization.
+    glHasteBoots = "Boots of Haste",
+    glHasteBootsDescription = "Extra Speed",
+
+    glFeralLeaping = "Boots of Feral Leaping",
+    glFeralLeapingDescription = "Higher Jump Height, Less Fall Damage",
+
+    glIronSkin = "Iron Skin",
+    glIronSkinDescription = "Extra Armor on Spawn",
+
+    glJuggernaut = "Juggernaut",
+    glJuggernautDescription = "Extra Health on Spawn",
+
+    glBulletAbsorption = "Bullet Absorption",
+    glBulletAbsorptionDescription = "Less Damage Taken",
+
+    glHighGradeBullets = "High Grade Bullets",
+    glHighGradeBulletsDescription = "More Damage Given",
 } )

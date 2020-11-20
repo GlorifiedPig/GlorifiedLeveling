@@ -5,6 +5,21 @@
     GlorifiedLeveling.Config.CARRY_OVER_XP = true -- Should XP be carried over or set to zero?
 --[[ Leveling Configuration ]]--
 
+--[[ Leaderboard Settings ]]--
+    GlorifiedLeveling.Config.LEADERBOARD_CACHE_TIME = 120 -- How often should we call the network message to cache the leaderboard on every client?
+    GlorifiedLeveling.Config.LEADERBOARD_OPEN_COMMANDS = {
+        ["leaderboard"] = true,
+        ["levels"] = true
+    } -- Which commands should open the leaderboard?
+    GlorifiedLeveling.Config.LEADERBOARD_OPEN_KEY = KEY_F9 -- Which key should open the leaderboard?
+    GlorifiedLeveling.Config.PERK_MENU_OPEN_COMMANDS = {
+        ["perks"] = true,
+        ["perk"] = true,
+        ["perkmenu"] = true
+    } -- Which commands should open the perk menu?
+    GlorifiedLeveling.Config.PERK_MENU_OPEN_KEY = KEY_H -- Which key should open the perk menu?
+--[[ Leaderboard Settings End ]]--
+
 --[[ Integrations Config ]]--
     GlorifiedLeveling.Config.SUPPORT_DARKRP = true -- Should we enable support for DarkRP?
         GlorifiedLeveling.Config.DARKRP_LEVEL_NAME_AT_END = true -- Should we add "- Level x" to the end of job and entity names?
@@ -45,7 +60,7 @@
             ["donator"] = 1.5,
             ["superadmin"] = 2
         }
-        if specialGroups[ply:GetUserGroup()] then highestMultiplier = specialGroups[ply:GetUserGroup()] end
+        if specialGroups[ply:GetUserGroup()] then highestMultiplier = specialGroups[ply:GetUserGroup()] end -- Give certain multipliers to certain usergroups.
         if os.date( "%A" ) == "Friday" and highestMultiplier < 2 then highestMultiplier = 2 end -- Give x2 on Fridays.
 
         return highestMultiplier

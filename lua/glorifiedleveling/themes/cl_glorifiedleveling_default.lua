@@ -53,6 +53,16 @@ GlorifiedLeveling.Themes.Register( "Default", GlorifiedLeveling.i18n.GetPhrase( 
         leaderboardTitleBarBackgroundColor = Color( 34, 34, 34 ),
         leaderboardCloseButtonBackgroundColor = Color( 201, 60, 63 ),
         leaderboardCloseButtonHoverColor = Color( 134, 35, 37 ),
+        leaderboardLeaderListBackgroundColor = Color( 73, 73, 73 ),
+        leaderboardLeaderListTopBarColor = Color( 34, 34, 34 ),
+        leaderboardLeaderListTitlesColor = Color( 255, 255, 255 ),
+        leaderboardLeaderListEntryBackgroundColor = Color( 51, 51, 51 ),
+        leaderboardLeaderListEntryGeneralPositionColor = Color( 145, 145, 145 ),
+        leaderboardLeaderListEntryFirstPositionColor = Color( 255, 223, 0 ),
+        leaderboardLeaderListEntrySecondPositionColor = Color( 219, 228, 235 ),
+        leaderboardLeaderListEntryThirdPositionColor = Color( 224, 139, 55 ),
+        leaderboardLeaderListEntryTextColor = Color( 255, 255, 255 ),
+        leaderboardLeaderListEntrySecondaryBackgroundColor = Color( 68, 145, 45 ),
     },
     Fonts = {
         ["HUD.Level"] = {

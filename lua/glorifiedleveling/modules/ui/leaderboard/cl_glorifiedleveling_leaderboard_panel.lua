@@ -59,3 +59,12 @@ function GlorifiedLeveling.UI.CloseLeaderboard()
 end
 
 concommand.Add( "glorifiedleveling_leaderboard", GlorifiedLeveling.UI.OpenLeaderboard )
+
+hook.Add( "OnPlayerChat", "GlorifiedLeveling.LeaderboardPanel.OnPlayerChat", function( ply, text )
+    if ply ~= LocalPlayer() or not text or text == "" then return end
+    text = string.lower( text )
+    local firstCharacter = string.sub( text, 1, 1 )
+    if ( firstCharacter == "!" or firstCharacter == "/" ) and GlorifiedLeveling.Config.LEADERBOARD_OPEN_COMMANDS[string.sub( text, 2 )] and not GlorifiedLeveling.UI.Leaderboard then
+        GlorifiedLeveling.UI.OpenLeaderboard()
+    end
+end )
