@@ -6,51 +6,51 @@ function PANEL:Init()
     self.PlayerTable = {
         [1] = {
             Name = "GlorifiedPig",
-            XP = 5214,
-            Level = 2
+            XP = 1575410,
+            Level = 96
         },
         [2] = {
-            Name = "SomeBruh",
-            XP = 4631,
-            Level = 2
+            Name = "Mike Oxlong",
+            XP = 935175,
+            Level = 80
         },
         [3] = {
-            Name = "Doctor Internet",
-            XP = 3413,
-            Level = 2
+            Name = "Hugh Jass",
+            XP = 342640,
+            Level = 74
         },
         [4] = {
-            Name = "Someone",
-            XP = 2312,
-            Level = 2
+            Name = "Moe Lester",
+            XP = 56430,
+            Level = 50
         },
         [5] = {
-            Name = "The Dinkster",
-            XP = 1246,
-            Level = 2
+            Name = "Ben Dover",
+            XP = 35570,
+            Level = 27
         },
         [6] = {
-            Name = "Who's moms is this?",
-            XP = 450,
-            Level = 2
+            Name = "Mike Hawk",
+            XP = 45330,
+            Level = 24
         },
         [7] = {
-            Name = "TESTING THE CHARACTER LIMIT",
+            Name = "Hugh G. Rection",
             XP = 550,
-            Level = 1
+            Level = 12
         },
         [8] = {
-            Name = "I like to break things at it's core",
-            XP = 450,
-            Level = 1
+            Name = "Duncan McOkiner",
+            XP = 1360,
+            Level = 10
         },
         [9] = {
-            Name = "Aeiou",
+            Name = "Jenna Taylor",
             XP = 350,
-            Level = 1
+            Level = 5
         },
         [10] = {
-            Name = "Lorem Ipsum",
+            Name = "Oliver Klozoff",
             XP = 200,
             Level = 1
         }
@@ -102,12 +102,12 @@ function PANEL:Paint( w, h )
 
             local xpBoxX = self.XPPos - self.XPWidth + 6
             local xpBoxWidth = self.XPWidth - 12
-            draw.RoundedBox( 4, xpBoxX, tblY + 6, xpBoxWidth, tblHeight - 12, Color( 89, 175, 63 ) )
+            draw.RoundedBox( 4, xpBoxX, tblY + 6, xpBoxWidth, tblHeight - 12, Color( 68, 145, 45 ) )
             draw.SimpleText( string.Comma( v.XP ), "GlorifiedLeveling.Leaderboard.LeaderboardBoxText", xpBoxX + xpBoxWidth / 2, tblY + tblHeight / 2, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
             local levelBoxX = self.LevelPos - self.LevelWidth + 8
             local levelBoxWidth = self.LevelWidth - 20
-            draw.RoundedBox( 4, levelBoxX, tblY + 6, levelBoxWidth, tblHeight - 12, Color( 89, 175, 63 ) )
+            draw.RoundedBox( 4, levelBoxX, tblY + 6, levelBoxWidth, tblHeight - 12, Color( 68, 145, 45 ) )
             draw.SimpleText( string.Comma( v.Level ), "GlorifiedLeveling.Leaderboard.LeaderboardBoxText", levelBoxX + levelBoxWidth / 2, tblY + tblHeight / 2, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
         end
     else
