@@ -87,43 +87,43 @@ GlorifiedLeveling.Themes.Register( "Default", GlorifiedLeveling.i18n.GetPhrase( 
         },
         ["AdminMenu.PlayersOnline"] = {
             font = "Montserrat",
-            size = function() return ScrH() * .021 end,
+            size = function() return ScrH() * 0.021 end,
             weight = 500,
             antialias = true
         },
         ["AdminMenu.PlayerInfo"] = {
             font = "Montserrat",
-            size = function() return ScrH() * .0175 end,
+            size = function() return ScrH() * 0.0175 end,
             weight = 500,
             antialias = true
         },
         ["AdminMenu.PlayerLevel"] = {
             font = "Montserrat",
-            size = function() return ScrH() * .024 end,
+            size = function() return ScrH() * 0.024 end,
             weight = 500,
             antialias = true
         },
         ["AdminMenu.PlayerSetLevel"] = {
             font = "Montserrat",
-            size = function() return ScrH() * .017 end,
+            size = function() return ScrH() * 0.017 end,
             weight = 500,
             antialias = true
         },
         ["AdminMenu.SetLevelTitle"] = {
             font = "Montserrat",
-            size = function() return ScrH() * .028 end,
+            size = function() return ScrH() * 0.028 end,
             weight = 500,
             antialias = true
         },
         ["AdminMenu.SetLevelDescription"] = {
             font = "Montserrat",
-            size = function() return ScrH() * .024 end,
+            size = function() return ScrH() * 0.024 end,
             weight = 500,
             antialias = true
         },
         ["AdminMenu.SetLevelEntry"] = {
             font = "Montserrat",
-            size = function() return ScrH() * .022 end,
+            size = function() return ScrH() * 0.022 end,
             weight = 500,
             antialias = true
         },
