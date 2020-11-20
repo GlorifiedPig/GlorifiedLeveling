@@ -48,6 +48,11 @@ GlorifiedLeveling.Themes.Register( "Default", GlorifiedLeveling.i18n.GetPhrase( 
         perkMenuTitleBarBackgroundColor = Color( 34, 34, 34 ),
         perkMenuCloseButtonBackgroundColor = Color( 201, 60, 63 ),
         perkMenuCloseButtonHoverColor = Color( 134, 35, 37 ),
+
+        leaderboardBackgroundColor = Color( 51, 51, 51 ),
+        leaderboardTitleBarBackgroundColor = Color( 34, 34, 34 ),
+        leaderboardCloseButtonBackgroundColor = Color( 201, 60, 63 ),
+        leaderboardCloseButtonHoverColor = Color( 134, 35, 37 ),
     },
     Fonts = {
         ["HUD.Level"] = {
@@ -129,6 +134,12 @@ GlorifiedLeveling.Themes.Register( "Default", GlorifiedLeveling.i18n.GetPhrase( 
             antialias = true
         },
         ["PerkMenu.TitleBar"] = {
+            font = "Roboto",
+            size = function() return ScrW() * 0.015 end,
+            weight = 500,
+            antialias = true
+        },
+        ["Leaderboard.TitleBar"] = {
             font = "Roboto",
             size = function() return ScrW() * 0.015 end,
             weight = 500,
