@@ -19,3 +19,7 @@ function GlorifiedLeveling.GetPlayerMaxXP()
     local level = GlorifiedLeveling.GetPlayerLevel()
     return ( 100 + ( level * ( level + 1 ) * 75 ) ) * GlorifiedLeveling.Config.MAX_XP_MULTIPLIER
 end
+
+net.Receive( "GlorifiedLeveling.CacheTopTen", function()
+    GlorifiedLeveling.TopTen = net.ReadTableAsString()
+end )

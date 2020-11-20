@@ -1,6 +1,6 @@
 
 --[[ SQL Configuration ]]--
-    GlorifiedLeveling.Config.SQL_TYPE = "sqlite" -- 'sqlite' or 'mysqloo'
+    GlorifiedLeveling.Config.SQL_TYPE = "mysqloo" -- 'sqlite' or 'mysqloo'
     GlorifiedLeveling.Config.SQL_DETAILS = {
         [ "host" ] = "localhost",
         [ "user" ] = "root",
@@ -19,6 +19,7 @@
 
 --[[ Miscellanous Settings ]]--
     GlorifiedLeveling.Config.USE_FASTDL = false -- Set this to true if you would like to use FastDL.
+    GlorifiedLeveling.Config.LEADERBOARD_CACHE_TIME = 120 -- How often should we call the network message to cache the leaderboard on every client?
 --[[ Miscellanous Settings End ]]--
 
 --[[ CAMI Permissions Settings ]]--

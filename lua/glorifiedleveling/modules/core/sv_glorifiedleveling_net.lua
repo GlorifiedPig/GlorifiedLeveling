@@ -1,5 +1,6 @@
 
 util.AddNetworkString( "GlorifiedLeveling.PlayerLeveledUp" )
+util.AddNetworkString( "GlorifiedLeveling.CacheTopTen" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.OpenAdminPanel" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.SetLockdownStatus" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.SetPlayerLevel" )
@@ -12,6 +13,14 @@ hook.Add( "GlorifiedLeveling.LevelUp", "GlorifiedLeveling.Networking.LevelUp", f
     net.Start( "GlorifiedLeveling.PlayerLeveledUp" )
     net.Send( ply )
 end )
+
+function GlorifiedLeveling.CacheTopTenOnClient( ply )
+    net.Start( "GlorifiedLeveling.CacheTopTen" )
+    net.WriteTableAsString( GlorifiedLeveling.TopTen )
+    net.Send( ply )
+end
+
+hook.Add( "PlayerInitialSpawn", "GlorifiedLeveling.Networking.PlayerSpawn.CacheTopTen", GlorifiedLeveling.CacheTopTenOnClient )
 
 net.Receive( "GlorifiedLeveling.AdminPanel.SetLockdownStatus", function( len, ply )
     if GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_togglelockdown" ) then

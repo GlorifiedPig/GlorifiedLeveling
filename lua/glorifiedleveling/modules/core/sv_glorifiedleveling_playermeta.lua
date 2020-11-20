@@ -108,6 +108,27 @@ function GlorifiedLeveling.AddPlayerXP( ply, xp, ignoreMultiplier, showNotificat
     return xp or 0
 end
 
+function GlorifiedLeveling.FetchTopTen( returnFunc )
+    GlorifiedLeveling.SQL.Query( "SELECT * FROM `gl_players` ORDER BY `Level`, `XP` LIMIT 10", function( queryResults )
+        local topTen = {}
+        for k, v in ipairs( queryResults ) do
+            topTen[k] = {
+                SteamID64 = v["SteamID64"],
+                Level = v["Level"],
+                XP = v["XP"]
+            }
+        end
+        returnFunc( topTen )
+    end )
+end
+
+timer.Create( "GlorifiedLeveling.TopTenCacheTimer", GlorifiedLeveling.Config.LEADERBOARD_CACHE_TIME, 0, function()
+    GlorifiedLeveling.FetchTopTen( function( topTen )
+        GlorifiedLeveling.TopTen = topTen
+        for k, v in ipairs( player.GetAll() ) do GlorifiedLeveling.CacheTopTenOnClient( v ) end
+    end )
+end )
+
 local plyMeta = FindMetaTable( "Player" )
 
 local CLASS = {}

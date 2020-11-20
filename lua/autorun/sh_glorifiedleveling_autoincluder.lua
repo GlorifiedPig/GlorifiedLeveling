@@ -9,6 +9,7 @@ GlorifiedLeveling = GlorifiedLeveling or {
     Config = {
         XPGain = {}
     },
+    TopTen = {},
     Version = "1.2.1"
 }
 

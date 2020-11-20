@@ -3,58 +3,14 @@ local PANEL = {}
 
 function PANEL:Init()
     self.Theme = self:GetParent().Theme
-    self.PlayerTable = {
-        [1] = {
-            Name = "GlorifiedPig",
-            XP = 1575410,
-            Level = 96
-        },
-        [2] = {
-            Name = "Mike Oxlong",
-            XP = 935175,
-            Level = 80
-        },
-        [3] = {
-            Name = "Hugh Jass",
-            XP = 342640,
-            Level = 74
-        },
-        [4] = {
-            Name = "Moe Lester",
-            XP = 56430,
-            Level = 50
-        },
-        [5] = {
-            Name = "Ben Dover",
-            XP = 35570,
-            Level = 27
-        },
-        [6] = {
-            Name = "Mike Hawk",
-            XP = 45330,
-            Level = 24
-        },
-        [7] = {
-            Name = "Hugh G. Rection",
-            XP = 550,
-            Level = 12
-        },
-        [8] = {
-            Name = "Duncan McOkiner",
-            XP = 1360,
-            Level = 10
-        },
-        [9] = {
-            Name = "Jenna Taylor",
-            XP = 350,
-            Level = 5
-        },
-        [10] = {
-            Name = "Oliver Klozoff",
-            XP = 200,
-            Level = 1
-        }
-    }
+    self.PlayerTable = GlorifiedLeveling.TopTen or {}
+
+    for k, v in ipairs( self.PlayerTable ) do
+        self.PlayerTable[k].Name = ""
+        steamworks.RequestPlayerInfo( v.SteamID64, function( playerName )
+            self.PlayerTable[k].Name = playerName
+        end )
+    end
 end
 
 function PANEL:PerformLayout( w, h )
