@@ -59,7 +59,8 @@ function PANEL:Paint( w, h )
             local xpBoxX = self.XPPos - self.XPWidth + 6
             local xpBoxWidth = self.XPWidth - 12
             draw.RoundedBox( 4, xpBoxX, tblY + 6, xpBoxWidth, tblHeight - 12, Color( 68, 145, 45 ) )
-            draw.SimpleText( string.Comma( v.XP ), "GlorifiedLeveling.Leaderboard.LeaderboardBoxText", xpBoxX + xpBoxWidth / 2, tblY + tblHeight / 2, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+            local xpText = tonumber( v.Level ) >= GlorifiedLeveling.Config.MAX_LEVEL and "MAX" or string.Comma( v.XP )
+            draw.SimpleText( xpText, "GlorifiedLeveling.Leaderboard.LeaderboardBoxText", xpBoxX + xpBoxWidth / 2, tblY + tblHeight / 2, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
             local levelBoxX = self.LevelPos - self.LevelWidth + 8
             local levelBoxWidth = self.LevelWidth - 20

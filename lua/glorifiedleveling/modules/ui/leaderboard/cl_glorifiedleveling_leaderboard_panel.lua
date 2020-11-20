@@ -58,13 +58,4 @@ function GlorifiedLeveling.UI.CloseLeaderboard()
     end )
 end
 
-local debugMode = true
-
-if debugMode then
-    concommand.Add( "testleaderboard", GlorifiedLeveling.UI.OpenLeaderboard )
-
-    if GlorifiedLeveling.UI.Leaderboard then -- So we can Lua refresh and automatically reload the panel.
-        GlorifiedLeveling.UI.CloseLeaderboard()
-        GlorifiedLeveling.UI.OpenLeaderboard()
-    end
-end
+concommand.Add( "glorifiedleveling_leaderboard", GlorifiedLeveling.UI.OpenLeaderboard )
