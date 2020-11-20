@@ -129,7 +129,7 @@ GlorifiedLeveling.Themes.Register( "Default", GlorifiedLeveling.i18n.GetPhrase( 
         },
         ["AdminMenu.SetLevelButton"] = {
             font = "Montserrat",
-            size = function() return ScrH() * .03 end,
+            size = function() return ScrH() * 0.03 end,
             weight = 500,
             antialias = true
         },
@@ -142,6 +142,12 @@ GlorifiedLeveling.Themes.Register( "Default", GlorifiedLeveling.i18n.GetPhrase( 
         ["Leaderboard.TitleBar"] = {
             font = "Roboto",
             size = function() return ScrW() * 0.015 end,
+            weight = 500,
+            antialias = true
+        },
+        ["Leaderboard.LeaderboardTitleBar"] = {
+            font = "Roboto",
+            size = function() return ScrW() * 0.012 end,
             weight = 500,
             antialias = true
         },

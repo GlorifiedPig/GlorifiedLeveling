@@ -6,7 +6,7 @@ function PANEL:PerformLayout( w, h )
     self.TitleBar:SetSize( w, h * 0.1 )
 
     self.LeaderList:Dock( FILL )
-    self.LeaderList:DockMargin( 5, 5, 5, 5 )
+    self.LeaderList:DockMargin( 10, 10, 10, 10 )
 end
 
 function PANEL:UpdateCache( leaderboardTbl )
