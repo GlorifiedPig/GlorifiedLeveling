@@ -35,9 +35,13 @@
             MinAccess = "superadmin",
             Description = "Permission for whether or not the player can toggle lockdown."
         },
-        ["gglorifiedleveling_restorebackups"] = {
+        ["glorifiedleveling_restorebackups"] = {
             MinAccess = "superadmin",
             Description = "Permission for which usergroups are able to restore to a previous backup."
+        },
+        ["glorifiedleveling_importvrondakis"] = {
+            MinAccess = "superadmin",
+            Description = "Permission for which usergroups are able to import data from Vrondakis' leveling system."
         },
     }
 --[[ CAMI Permissions Settings End ]]--

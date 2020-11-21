@@ -11,7 +11,7 @@ function GlorifiedLeveling.ImportDataFromVrondakis()
 end
 
 concommand.Add( "glorifiedleveling_importvrondakisdata", function( ply )
-    if ply:EntIndex() == 0 or ply:IsSuperAdmin() then
+    if ply == NULL or GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_importvrondakis" ) then
         GlorifiedLeveling.ImportDataFromVrondakis()
         print( "[GlorifiedLeveling] Imported data successfully. Please restart your server immediately." )
     end

@@ -61,8 +61,9 @@ hook.Add( "InitPostEntity", "GlorifiedLeveling.Backups.InitPostEntity", function
     end )
 end )
 
-concommand.Add( "GlorifiedLeveling_restorebackup", function( ply, args )
-    if ply == NULL or GlorifiedLeveling.HasPermission( ply, "GlorifiedLeveling_restorebackups" ) then
+concommand.Add( "glorifiedleveling_restorebackup", function( ply, args )
+    if ply == NULL or GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_restorebackups" ) then
         GlorifiedLeveling.LoadBackupFile( args[1] )
+        print( "[GlorifiedLeveling] Restore backup command called. Please restart your server." )
     end
 end )
