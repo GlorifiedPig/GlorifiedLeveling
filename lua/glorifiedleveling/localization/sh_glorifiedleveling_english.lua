@@ -28,10 +28,11 @@ GlorifiedLeveling.i18n.RegisterPhrases( "en", {
     glXP = "XP",
     glLevel = "Level",
     glNobodyHere = "There is nobody here :(",
+
+    -- Perk localization.
     glSkills = "Skills",
     glPoints = "%s Points",
 
-    -- Perk localization.
     glHasteBoots = "Boots of Haste",
     glHasteBootsDescription = "Extra Speed",
 

@@ -6,7 +6,7 @@ function PANEL:Init()
 
     self.TitleLabel = vgui.Create( "DLabel", self )
     self.TitleLabel:SetFont( "GlorifiedLeveling.Leaderboard.TitleBar" )
-    self.TitleLabel:SetText( "Leaderboard" )
+    self.TitleLabel:SetText( GlorifiedLeveling.i18n.GetPhrase( "glLeaderboard" ) )
     self.TitleLabel:SizeToContents()
     self.TitleLabel:DockMargin( 10, 0, 0, 0 )
     self.TitleLabel:Dock( LEFT )

@@ -33,9 +33,9 @@ function PANEL:Paint( w, h )
     draw.RoundedBoxEx( 8, 0, 0, w, titleBarHeight, theme.Data.Colors.leaderboardLeaderListTopBarColor, true, true )
 
     draw.SimpleText( "#", "GlorifiedLeveling.Leaderboard.LeaderboardTitleBar", self.PositionPos / 2, titleBarHeight / 2, theme.Data.Colors.leaderboardLeaderListTitlesColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
-    draw.SimpleText( "Name", "GlorifiedLeveling.Leaderboard.LeaderboardTitleBar", ( self.PositionPos + self.NamePos ) / 2, titleBarHeight / 2, theme.Data.Colors.leaderboardLeaderListTitlesColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
-    draw.SimpleText( "XP", "GlorifiedLeveling.Leaderboard.LeaderboardTitleBar", ( self.NamePos + self.XPPos ) / 2, titleBarHeight / 2, theme.Data.Colors.leaderboardLeaderListTitlesColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
-    draw.SimpleText( "Level", "GlorifiedLeveling.Leaderboard.LeaderboardTitleBar", ( self.XPPos + self.LevelPos ) / 2, titleBarHeight / 2, theme.Data.Colors.leaderboardLeaderListTitlesColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+    draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glName" ), "GlorifiedLeveling.Leaderboard.LeaderboardTitleBar", ( self.PositionPos + self.NamePos ) / 2, titleBarHeight / 2, theme.Data.Colors.leaderboardLeaderListTitlesColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+    draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glXP" ), "GlorifiedLeveling.Leaderboard.LeaderboardTitleBar", ( self.NamePos + self.XPPos ) / 2, titleBarHeight / 2, theme.Data.Colors.leaderboardLeaderListTitlesColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+    draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glLevel" ), "GlorifiedLeveling.Leaderboard.LeaderboardTitleBar", ( self.XPPos + self.LevelPos ) / 2, titleBarHeight / 2, theme.Data.Colors.leaderboardLeaderListTitlesColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
     if #self.PlayerTable > 0 then
         local gapSize = h / 135
@@ -70,7 +70,7 @@ function PANEL:Paint( w, h )
             draw.SimpleText( string.Comma( v.Level ), "GlorifiedLeveling.Leaderboard.LeaderboardBoxText", levelBoxX + levelBoxWidth / 2, tblY + tblHeight / 2, theme.Data.Colors.leaderboardLeaderListEntryTextColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
         end
     else
-        draw.SimpleText( "There is nobody here :(", "DermaDefault", 5, titleBarHeight + 5, theme.Data.Colors.leaderboardLeaderListEntryTextColor )
+        draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glNobodyHere" ), "DermaDefault", 5, titleBarHeight + 5, theme.Data.Colors.leaderboardLeaderListEntryTextColor )
     end
 
     --[[
