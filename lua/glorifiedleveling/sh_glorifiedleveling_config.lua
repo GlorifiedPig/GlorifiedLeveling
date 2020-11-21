@@ -12,13 +12,16 @@
         ["levels"] = true
     } -- Which commands should open the leaderboard?
     GlorifiedLeveling.Config.LEADERBOARD_OPEN_KEY = KEY_F9 -- Which key should open the leaderboard?
+--[[ Leaderboard Settings End ]]--
+
+--[[ Perk Settings ]]--
     GlorifiedLeveling.Config.PERK_MENU_OPEN_COMMANDS = {
         ["perks"] = true,
         ["perk"] = true,
         ["perkmenu"] = true
     } -- Which commands should open the perk menu?
     GlorifiedLeveling.Config.PERK_MENU_OPEN_KEY = KEY_H -- Which key should open the perk menu?
---[[ Leaderboard Settings End ]]--
+--[[ Perk Settings End ]]--
 
 --[[ Integrations Config ]]--
     GlorifiedLeveling.Config.SUPPORT_DARKRP = true -- Should we enable support for DarkRP?
