@@ -117,7 +117,7 @@ function GlorifiedLeveling.AddPlayerXP( ply, xp, ignoreMultiplier, showNotificat
     return xp or 0
 end
 
-function GlorifiedLeveling.UpdatePlayerPerkTable( ply, perkTable )
+function GlorifiedLeveling.SetPlayerPerkTable( ply, perkTable )
     if not PerkValidationChecks( ply, perkTable ) then return end
     hook.Run( "GlorifiedLeveling.PerkTableUpdated", ply, perkTable )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `PerkTable` = '" .. GlorifiedLeveling.SQL.EscapeString( util.TableToJSON( perkTable ) ) .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
@@ -125,16 +125,37 @@ function GlorifiedLeveling.UpdatePlayerPerkTable( ply, perkTable )
     ply:SetNW2Int( "GlorifiedLeveling.PerkTable", perkTable )
 end
 
+function GlorifiedLeveling.GetPlayerPerkTable( ply )
+    return ply:GlorifiedLeveling():GetInternalPerkTable()
+end
+
 function GlorifiedLeveling.SetPlayerPerkLevel( ply, perk, level )
     if not ValidationChecks( ply, level ) then return end
     hook.Run( "GlorifiedLeveling.PerkLevelUpdated", ply, perk, level )
-    local perkTbl = ply:GlorifiedLeveling():GetInternalPerkTable()
+    local perkTbl = GlorifiedLeveling.GetPlayerPerkTable( ply )
     perkTbl[perk] = level
-    GlorifiedLeveling.UpdatePlayerPerkTable( ply, perkTbl )
+    GlorifiedLeveling.SetPlayerPerkTable( ply, perkTbl )
+end
+
+function GlorifiedLeveling.ResetPlayerPerks( ply )
+    GlorifiedLeveling.SetPlayerPerkTable( ply, GlorifiedLeveling.Perks.Enum.DEFAULT_PERK_TABLE )
 end
 
 function GlorifiedLeveling.GetPlayerPerkLevel( ply, perk )
     return ply:GlorifiedLeveling():GetInternalPerkTable()[perk] or 0
+end
+
+function GlorifiedLeveling.GetTotalPerkPoints( ply )
+    return math.Round( math.floor( GlorifiedLeveling.GetPlayerLevel( ply ) / GlorifiedLeveling.Config.LEVELS_UNTIL_GAIN ) * GlorifiedLeveling.Config.POINTS_PER_GAIN )
+end
+
+function GlorifiedLeveling.GetTotalFreePerkPoints( ply )
+    local totalPoints = GlorifiedLeveling.GetTotalPerkPoints( ply )
+    local freePoints = totalPoints
+    for k, v in ipairs( GlorifiedLeveling.GetPlayerPerkTable( ply ) ) do
+        freePoints = freePoints - v
+    end
+    return math.min( freePoints, 0 )
 end
 
 function GlorifiedLeveling.FetchTopTen( returnFunc )

@@ -31,7 +31,11 @@ end )
 net.Receive( "GlorifiedLeveling.AdminPanel.SetPlayerLevel", function( len, ply )
     if GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_manipulateplayerlevel" ) then
         local plyFromSteamID = player.GetBySteamID( net.ReadString() )
+        if not plyFromSteamID then return end
         local newLevel = net.ReadUInt( 32 )
+        if newLevel < GlorifiedLeveling.GetPlayerLevel( plyFromSteamID ) then
+            GlorifiedLeveling.ResetPlayerPerks( plyFromSteamID ) -- Always reset the perks first if the new level is lower than the original one.
+        end
         GlorifiedLeveling.SetPlayerXP( plyFromSteamID, 0 )
         GlorifiedLeveling.SetPlayerLevel( plyFromSteamID, newLevel )
     end
@@ -40,6 +44,8 @@ end )
 net.Receive( "GlorifiedLeveling.AdminPanel.ResetPlayerLevel", function( len, ply )
     if GlorifiedLeveling.HasPermission( ply, "glorifiedleveling_manipulateplayerlevel" ) then
         local plyFromSteamID = player.GetBySteamID( net.ReadString() )
+        if not plyFromSteamID then return end
+        GlorifiedLeveling.ResetPlayerPerks( plyFromSteamID )
         GlorifiedLeveling.SetPlayerXP( plyFromSteamID, 0 )
         GlorifiedLeveling.SetPlayerLevel( plyFromSteamID, 1 )
     end
