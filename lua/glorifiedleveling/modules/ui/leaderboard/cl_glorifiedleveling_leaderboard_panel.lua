@@ -66,6 +66,7 @@ hook.Add( "OnPlayerChat", "GlorifiedLeveling.LeaderboardPanel.OnPlayerChat", fun
     local firstCharacter = string.sub( text, 1, 1 )
     if ( firstCharacter == "!" or firstCharacter == "/" ) and GlorifiedLeveling.Config.LEADERBOARD_OPEN_COMMANDS[string.sub( text, 2 )] and not GlorifiedLeveling.UI.Leaderboard then
         GlorifiedLeveling.UI.OpenLeaderboard()
+        return true
     end
 end )
 

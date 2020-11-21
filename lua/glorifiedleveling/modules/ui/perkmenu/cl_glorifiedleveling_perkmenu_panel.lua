@@ -62,6 +62,7 @@ hook.Add( "OnPlayerChat", "GlorifiedLeveling.PerkMenuPanel.OnPlayerChat", functi
     local firstCharacter = string.sub( text, 1, 1 )
     if ( firstCharacter == "!" or firstCharacter == "/" ) and GlorifiedLeveling.Config.PERK_MENU_OPEN_COMMANDS[string.sub( text, 2 )] and not GlorifiedLeveling.UI.PerkMenu then
         GlorifiedLeveling.UI.OpenPerkMenu()
+        return true
     end
 end )
 

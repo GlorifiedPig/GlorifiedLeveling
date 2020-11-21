@@ -8,8 +8,17 @@ local function ValidationChecks( ply, level )
     level = tonumber( level )
     return not ( GlorifiedLeveling.LockdownEnabled
     or not level
-    or level == nil
     or level < 0
+    or not ply:IsValid()
+    or ply:IsBot()
+    or not ply:IsFullyAuthenticated()
+    or not ply:IsConnected() )
+end
+
+local function PerkValidationChecks( ply, perkTbl )
+    return not ( GlorifiedLeveling.LockdownEnabled
+    or not perkTbl
+    or not istable( perkTbl )
     or not ply:IsValid()
     or ply:IsBot()
     or not ply:IsFullyAuthenticated()
@@ -108,24 +117,36 @@ function GlorifiedLeveling.AddPlayerXP( ply, xp, ignoreMultiplier, showNotificat
     return xp or 0
 end
 
+function GlorifiedLeveling.UpdatePlayerPerkTable( ply, perkTable )
+    if not PerkValidationChecks( ply, perkTable ) then return end
+    hook.Run( "GlorifiedLeveling.PerkTableUpdated", ply, perkTable )
+    GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `PerkTable` = '" .. GlorifiedLeveling.SQL.EscapeString( util.TableToJSON( perkTable ) ) .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
+    ply:GlorifiedLeveling():SetInternalPerkTable( perkTable )
+    ply:SetNW2Int( "GlorifiedLeveling.PerkTable", perkTable )
+end
+
+function GlorifiedLeveling.SetPlayerPerkLevel( ply, perk, level )
+    if not ValidationChecks( ply, level ) then return end
+    hook.Run( "GlorifiedLeveling.PerkLevelUpdated", ply, perk, level )
+    local perkTbl = ply:GlorifiedLeveling():GetInternalPerkTable()
+    perkTbl[perk] = level
+    GlorifiedLeveling.UpdatePlayerPerkTable( ply, perkTbl )
+end
+
+function GlorifiedLeveling.GetPlayerPerkLevel( ply, perk )
+    return ply:GlorifiedLeveling():GetInternalPerkTable()[perk] or 0
+end
+
 function GlorifiedLeveling.FetchTopTen( returnFunc )
     GlorifiedLeveling.SQL.Query( "SELECT * FROM `gl_players` ORDER BY `Level` DESC, `XP` DESC LIMIT 10", function( queryResults )
         local topTen = {}
-        for k, v in ipairs( queryResults ) do
-            topTen[k] = {
-                SteamID64 = v["SteamID64"],
-                Level = v["Level"],
-                XP = v["XP"]
-            }
-        end
+        for k, v in ipairs( queryResults ) do topTen[k] = { SteamID64 = v["SteamID64"], Level = v["Level"], XP = v["XP"] } end
         returnFunc( topTen )
     end )
 end
 
 hook.Add( "GlorifiedLeveling.FinishedLoading", "GlorifiedLeveling.PlayerMeta.FinishedLoading", function()
-    GlorifiedLeveling.FetchTopTen( function( topTen )
-        GlorifiedLeveling.TopTen = topTen
-    end )
+    GlorifiedLeveling.FetchTopTen( function( topTen ) GlorifiedLeveling.TopTen = topTen end )
 end )
 
 timer.Create( "GlorifiedLeveling.TopTenCacheTimer", GlorifiedLeveling.Config.LEADERBOARD_CACHE_TIME, 0, function()
@@ -155,6 +176,8 @@ function CLASS:SetInternalLevel( level ) self.Level = level return self end
 function CLASS:GetInternalLevel( level ) return self.Level end
 function CLASS:SetInternalXP( xp ) self.XP = xp return self end
 function CLASS:GetInternalXP( level ) return self.XP end
+function CLASS:SetInternalPerkTable( perkTable ) self.PerkTable = perkTable return self end
+function CLASS:GetInternalPerkTable( perkTable ) return self.PerkTable end
 
 function CLASS:GetLevel()
     return GlorifiedLeveling.GetPlayerLevel( self )

@@ -10,6 +10,9 @@ GlorifiedLeveling = GlorifiedLeveling or {
         XPGain = {}
     },
     TopTen = {},
+    Perks = {
+        Enum = {}
+    },
     Version = "1.2.1"
 }
 
@@ -28,7 +31,6 @@ local IsAddon = true -- Set this to 'true' if you're running from an addon, set 
 local giVersion = 1.2
 
 if not GlorifiedInclude or GlorifiedInclude.Version < giVersion then
-
     GlorifiedInclude = {
         Version = giVersion,
         Realm = {
@@ -91,7 +93,6 @@ if not GlorifiedInclude or GlorifiedInclude.Version < giVersion then
             end
         end
     end
-
 end
 
 --[[
@@ -110,7 +111,9 @@ local function IncludeGBFiles()
     gbIncludeFolder( "glorifiedleveling/libraries/" )
     gbIncludeFolder( "glorifiedleveling/localization/" )
     gbIncludeFolder( "glorifiedleveling/themes/" )
+    gbIncludeFolder( "glorifiedleveling/modules/enum/" )
     gbIncludeFolder( "glorifiedleveling/modules/sql/" )
+    gbIncludeFolder( "glorifiedleveling/modules/core/" )
     gbIncludeFolder( "glorifiedleveling/modules/" )
     hook.Run( "GlorifiedLeveling.FinishedLoading" )
 end
