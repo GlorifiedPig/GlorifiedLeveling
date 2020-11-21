@@ -68,3 +68,9 @@ hook.Add( "OnPlayerChat", "GlorifiedLeveling.LeaderboardPanel.OnPlayerChat", fun
         GlorifiedLeveling.UI.OpenLeaderboard()
     end
 end )
+
+hook.Add( "PlayerButtonDown", "GlorifiedLeveling.LeaderboardPanel.PlayerButtonDown", function( ply, button )
+    if ply == LocalPlayer() and GlorifiedLeveling.Config.LEADERBOARD_KEY_ENABLED and button == GlorifiedLeveling.Config.LEADERBOARD_OPEN_KEY and not GlorifiedLeveling.UI.Leaderboard then
+        GlorifiedLeveling.UI.OpenLeaderboard()
+    end
+end )

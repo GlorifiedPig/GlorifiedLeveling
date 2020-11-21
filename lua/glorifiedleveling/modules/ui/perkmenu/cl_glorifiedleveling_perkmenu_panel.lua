@@ -54,4 +54,19 @@ function GlorifiedLeveling.UI.ClosePerkMenu()
     end )
 end
 
-concommand.Add( "testperks", GlorifiedLeveling.UI.OpenPerkMenu )
+concommand.Add( "glorifiedleveling_perks", GlorifiedLeveling.UI.OpenPerkMenu )
+
+hook.Add( "OnPlayerChat", "GlorifiedLeveling.PerkMenuPanel.OnPlayerChat", function( ply, text )
+    if ply ~= LocalPlayer() or not text or text == "" then return end
+    text = string.lower( text )
+    local firstCharacter = string.sub( text, 1, 1 )
+    if ( firstCharacter == "!" or firstCharacter == "/" ) and GlorifiedLeveling.Config.PERK_MENU_OPEN_COMMANDS[string.sub( text, 2 )] and not GlorifiedLeveling.UI.PerkMenu then
+        GlorifiedLeveling.UI.OpenPerkMenu()
+    end
+end )
+
+hook.Add( "PlayerButtonDown", "GlorifiedLeveling.PerkMenuPanel.PlayerButtonDown", function( ply, button )
+    if ply == LocalPlayer() and GlorifiedLeveling.Config.PERK_MENU_KEY_ENABLED and button == GlorifiedLeveling.Config.PERK_MENU_OPEN_KEY and not GlorifiedLeveling.UI.PerkMenu then
+        GlorifiedLeveling.UI.OpenPerkMenu()
+    end
+end )
