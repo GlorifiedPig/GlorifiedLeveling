@@ -32,6 +32,7 @@ GlorifiedLeveling.i18n.RegisterPhrases( "fr", {
     -- Perk localization.
     glSkills = "Compétences",
     glPoints = "%s Points",
+    glComplete = "Finir",
 
     glHasteBoots = "Bottes de hâte",
     glHasteBootsDescription = "Vitesse accrue",

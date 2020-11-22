@@ -7,7 +7,7 @@ function PANEL:PerformLayout( w, h )
 end
 
 function PANEL:UpdateCache( perkTbl )
-    local panelW, panelH = ScrH() * 0.9, ScrH() * 0.7
+    local panelW, panelH = ScrH() * 0.8, ScrH() * 0.7
     local titleBarSize = panelH * 0.1
 
     self:SetSize( panelW, panelH )
