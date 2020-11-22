@@ -7,10 +7,10 @@ function PANEL:PerformLayout( w, h )
 end
 
 function PANEL:UpdateCache( perkTbl )
-    local panelSize = ScrH() * 0.7
-    local titleBarSize = panelSize * 0.1
+    local panelW, panelH = ScrH() * 0.9, ScrH() * 0.7
+    local titleBarSize = panelH * 0.1
 
-    self:SetSize( panelSize, panelSize )
+    self:SetSize( panelW, panelH )
     self:Center()
     self:MakePopup()
 
@@ -22,9 +22,9 @@ function PANEL:UpdateCache( perkTbl )
     for k, v in ipairs( GlorifiedLeveling.Perks.PERK_INFO ) do
         local perkEntry = vgui.Create( "GlorifiedLeveling.PerkMenu.PerkEntry", self )
         perkEntry:SetPerk( k )
-        local perkEntryHeight = panelSize / 8
-        perkEntry:SetSize( panelSize - 30, perkEntryHeight )
-        perkEntry:SetPos( 15, titleBarSize + ( ( k - 1 ) * perkEntryHeight ) + ( k * ( panelSize / 48 ) ) )
+        local perkEntryHeight = panelH / 8
+        perkEntry:SetSize( panelW - 30, perkEntryHeight )
+        perkEntry:SetPos( 15, titleBarSize + ( ( k - 1 ) * perkEntryHeight ) + ( k * ( panelH / 48 ) ) )
         self.Perks[k] = perkEntry
     end
 

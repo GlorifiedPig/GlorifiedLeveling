@@ -188,7 +188,7 @@ GlorifiedLeveling.Themes.Register( "Default", GlorifiedLeveling.i18n.GetPhrase( 
         },
         ["PerkMenu.PerkDescriptionText"] = {
             font = "Roboto",
-            size = function() return ScrW() * 0.013 end,
+            size = function() return ScrW() * 0.011 end,
             weight = 500,
             antialias = true
         },
