@@ -205,6 +205,13 @@ GlorifiedLeveling.Themes.Register( "Default", GlorifiedLeveling.i18n.GetPhrase( 
             weight = 0,
             antialias = true
         },
+        ["PerkMenu.PerkModifyText"] = {
+            font = "Roboto",
+            size = function() return ScrW() * 0.018 end,
+            weight = 1000,
+            bold = true,
+            antialias = true
+        },
     },
     Materials = {
         close = Material( "glorifiedleveling/close.png", "noclamp smooth" ),
