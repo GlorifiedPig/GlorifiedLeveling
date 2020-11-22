@@ -43,12 +43,12 @@ function GlorifiedLeveling.SetPlayerLevel( ply, level )
     level = math.Clamp( level, 1, GlorifiedLeveling.Config.MAX_LEVEL )
     hook.Run( "GlorifiedLeveling.LevelUpdated", ply, GlorifiedLeveling.GetPlayerLevel( ply ), level )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `Level` = '" .. level .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
-    ply:GlorifiedLeveling():SetInternalLevel( level )
+    ply:GlorifiedLeveling().Level = level
     ply:SetNW2Int( "GlorifiedLeveling.Level", level )
 end
 
 function GlorifiedLeveling.GetPlayerLevel( ply )
-    return tonumber( ply:GlorifiedLeveling():GetInternalLevel() ) or 1
+    return tonumber( ply:GlorifiedLeveling().Level ) or 1
 end
 
 function GlorifiedLeveling.PlayerHasLevel( ply, level )
@@ -62,12 +62,12 @@ function GlorifiedLeveling.SetPlayerXP( ply, xp )
     xp = minClamp( xp, 0 )
     hook.Run( "GlorifiedLeveling.XPUpdated", ply, GlorifiedLeveling.GetPlayerXP( ply ), xp )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `XP` = '" .. xp .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
-    ply:GlorifiedLeveling():SetInternalXP( xp )
+    ply:GlorifiedLeveling().XP = xp
     ply:SetNW2Int( "GlorifiedLeveling.XP", xp )
 end
 
 function GlorifiedLeveling.GetPlayerXP( ply )
-    return tonumber( ply:GlorifiedLeveling():GetInternalXP() ) or 0
+    return tonumber( ply:GlorifiedLeveling().XP ) or 0
 end
 
 function GlorifiedLeveling.GetPlayerMaxXP( ply )
@@ -121,12 +121,12 @@ function GlorifiedLeveling.SetPlayerPerkTable( ply, perkTable )
     if not PerkValidationChecks( ply, perkTable ) then return end
     hook.Run( "GlorifiedLeveling.PerkTableUpdated", ply, perkTable )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `PerkTable` = '" .. GlorifiedLeveling.SQL.EscapeString( util.TableToJSON( perkTable ) ) .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
-    ply:GlorifiedLeveling():SetInternalPerkTable( perkTable )
+    ply:GlorifiedLeveling().PerkTable = perkTable
     ply:SetNW2Int( "GlorifiedLeveling.PerkTable", perkTable )
 end
 
 function GlorifiedLeveling.GetPlayerPerkTable( ply )
-    return ply:GlorifiedLeveling():GetInternalPerkTable()
+    return ply:GlorifiedLeveling().PerkTable
 end
 
 function GlorifiedLeveling.SetPlayerPerkLevel( ply, perk, level )
@@ -142,7 +142,7 @@ function GlorifiedLeveling.ResetPlayerPerks( ply )
 end
 
 function GlorifiedLeveling.GetPlayerPerkLevel( ply, perk )
-    return ply:GlorifiedLeveling():GetInternalPerkTable()[perk] or 0
+    return ply:GlorifiedLeveling().PerkTable[perk] or 0
 end
 
 function GlorifiedLeveling.GetTotalPerkPoints( ply )
@@ -192,13 +192,6 @@ function plyMeta:GlorifiedLeveling()
 
     return self.GlorifiedLeveling_Internal
 end
-
-function CLASS:SetInternalLevel( level ) self.Level = level return self end
-function CLASS:GetInternalLevel( level ) return self.Level end
-function CLASS:SetInternalXP( xp ) self.XP = xp return self end
-function CLASS:GetInternalXP( level ) return self.XP end
-function CLASS:SetInternalPerkTable( perkTable ) self.PerkTable = perkTable return self end
-function CLASS:GetInternalPerkTable( perkTable ) return self.PerkTable end
 
 function CLASS:GetLevel()
     return GlorifiedLeveling.GetPlayerLevel( self )

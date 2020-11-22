@@ -114,6 +114,7 @@ local function IncludeGBFiles()
     gbIncludeFolder( "glorifiedleveling/themes/" )
     gbIncludeFolder( "glorifiedleveling/modules/sql/" )
     gbIncludeFolder( "glorifiedleveling/modules/core/" )
+    gbIncludeFile( "glorifiedleveling/sh_glorifiedleveling_perkdefaults.lua" )
     gbIncludeFolder( "glorifiedleveling/modules/" )
     hook.Run( "GlorifiedLeveling.FinishedLoading" )
 end

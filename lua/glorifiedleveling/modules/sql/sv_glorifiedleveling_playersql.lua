@@ -10,16 +10,16 @@ hook.Add( "PlayerInitialSpawn", "GlorifiedLeveling.SQLPlayer.PlayerInitialSpawn"
             local plyLevel = queryResult[1]["Level"]
             local plyXP = queryResult[1]["XP"]
             local plyPerks = util.JSONToTable( queryResult[1]["PerkTable"] ) or defaultPerkTable
-            ply:GlorifiedLeveling():SetInternalLevel( plyLevel )
-            ply:GlorifiedLeveling():SetInternalXP( plyXP )
-            ply:GlorifiedLeveling():SetInternalPerkTable( plyPerks )
+            ply:GlorifiedLeveling().Level = plyLevel
+            ply:GlorifiedLeveling().XP = plyXP
+            ply:GlorifiedLeveling().PerkTable = plyPerks
             ply:SetNW2Int( "GlorifiedLeveling.Level", plyLevel )
             ply:SetNW2Int( "GlorifiedLeveling.XP", plyXP )
             ply:SetNW2Int( "GlorifiedLeveling.PerkTable", plyPerks )
         else
-            ply:GlorifiedLeveling():SetInternalLevel( 1 )
-            ply:GlorifiedLeveling():SetInternalXP( 0 )
-            ply:GlorifiedLeveling():SetInternalPerkTable( defaultPerkTable )
+            ply:GlorifiedLeveling().Level = 1
+            ply:GlorifiedLeveling().XP = 0
+            ply:GlorifiedLeveling().PerkTable = defaultPerkTable
             ply:SetNW2Int( "GlorifiedLeveling.Level", 1 )
             ply:SetNW2Int( "GlorifiedLeveling.XP", 0 )
             ply:SetNW2Int( "GlorifiedLeveling.PerkTable", defaultPerkTable )
