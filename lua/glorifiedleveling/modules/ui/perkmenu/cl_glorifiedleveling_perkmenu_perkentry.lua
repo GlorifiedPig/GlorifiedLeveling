@@ -10,6 +10,7 @@ end
 
 function PANEL:PerformLayout( w, h )
     local parent = self:GetParent()
+    local themeColors = self.Theme.Data.Colors
 
     self.SideOffset = w / 50
     self.SliderBoxW = w / 2.5
@@ -23,7 +24,7 @@ function PANEL:PerformLayout( w, h )
     self.AddButton:SetText( "+" )
     self.AddButton:SetVisible( self.Progress < 10 )
     self.AddButton.Think = function()
-        self.AddButton:SetTextColor( self.AddButton:IsHovered() and Color( 0, 155, 0 ) or Color( 0, 200, 0 ) )
+        self.AddButton:SetTextColor( self.AddButton:IsHovered() and themeColors.perkMenuEntryAddButtonColorHovered or themeColors.perkMenuEntryAddButtonColor )
     end
     self.AddButton.DoClick = function()
         if parent.CachedFreePoints <= 0 then return end
@@ -42,7 +43,7 @@ function PANEL:PerformLayout( w, h )
     self.RemoveButton:SetText( "-" )
     self.RemoveButton:SetVisible( self.Progress > 0 )
     self.RemoveButton.Think = function()
-        self.RemoveButton:SetTextColor( self.RemoveButton:IsHovered() and Color( 200, 0, 0 ) or Color( 255, 0, 0 ) )
+        self.RemoveButton:SetTextColor( self.RemoveButton:IsHovered() and themeColors.perkMenuEntryRemoveButtonColorHovered or themeColors.perkMenuEntryRemoveButtonColor )
     end
     self.RemoveButton.DoClick = function()
         self.Progress = math.Clamp( self.Progress - 1, 0, 10 )
@@ -63,30 +64,30 @@ function PANEL:SetPerk( perk )
 end
 
 function PANEL:Paint( w, h )
-    draw.RoundedBox( 8, 0, 0, w, h, Color( 73, 73, 73 ) )
+    local themeColors = self.Theme.Data.Colors
+    draw.RoundedBox( 8, 0, 0, w, h, themeColors.perkMenuEntryBackgroundColor )
     if not self.Perk or not self.LayoutInitialized then return end
-    local theme = self.Theme
     local perkInfo = GlorifiedLeveling.Perks.PERK_INFO[self.Perk]
 
-    draw.SimpleText( perkInfo.Name, "GlorifiedLeveling.PerkMenu.PerkText", self.SideOffset, h / 2 - h / 8, Color( 255, 255, 255 ), TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
-    draw.SimpleText( perkInfo.Description, "GlorifiedLeveling.PerkMenu.PerkDescriptionText", self.SideOffset + 1, h / 2 + h / 7, Color( 155, 155, 155 ), TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
+    draw.SimpleText( perkInfo.Name, "GlorifiedLeveling.PerkMenu.PerkText", self.SideOffset, h / 2 - h / 8, themeColors.perkMenuEntryPerkName, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
+    draw.SimpleText( perkInfo.Description, "GlorifiedLeveling.PerkMenu.PerkDescriptionText", self.SideOffset + 1, h / 2 + h / 7, themeColors.perkMenuEntryPerkDescription, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
 
-    draw.RoundedBox( 8, self.SliderBoxX, self.SliderBoxY, self.SliderBoxW, self.SliderBoxH, Color( 51, 51, 51 ) )
+    draw.RoundedBox( 8, self.SliderBoxX, self.SliderBoxY, self.SliderBoxW, self.SliderBoxH, themeColors.perkMenuEntrySliderBackgroundColor )
 
     if self.Progress < 10 then
         local progressW = ( self.SliderBoxW / 10 ) * self.Progress
         render.SetScissorRect( self.SliderBoxX, 0, self:LocalToScreen( self.SliderBoxX ) + progressW, ScrH(), true )
-        draw.RoundedBox( 8, self.SliderBoxX, self.SliderBoxY, self.SliderBoxW, self.SliderBoxH, Color( 89, 175, 63 ) )
+        draw.RoundedBox( 8, self.SliderBoxX, self.SliderBoxY, self.SliderBoxW, self.SliderBoxH, themeColors.perkMenuEntrySliderProgressedColor )
         render.SetScissorRect( 0, 0, ScrW(), ScrH(), false )
 
         for i = 1, 9 do
-            draw.RoundedBox( 0, self.SliderBoxX + ( ( self.SliderBoxW / 10 ) * i ) - 1, self.SliderBoxY, 1, self.SliderBoxH, Color( 0, 0, 0, 100 ) )
+            draw.RoundedBox( 0, self.SliderBoxX + ( ( self.SliderBoxW / 10 ) * i ) - 1, self.SliderBoxY, 1, self.SliderBoxH, themeColors.perkMenuEntrySliderLiningColor )
         end
     else
-        draw.RoundedBox( 8, self.SliderBoxX, self.SliderBoxY, self.SliderBoxW, self.SliderBoxH, Color( 89, 175, 63 ) )
-        draw.SimpleText( "Complete", "GlorifiedLeveling.PerkMenu.PerkCompleteText", self.SliderBoxX + ( self.SliderBoxW / 2 ), self.SliderBoxY + ( self.SliderBoxH / 2 ) - 1, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+        draw.RoundedBox( 8, self.SliderBoxX, self.SliderBoxY, self.SliderBoxW, self.SliderBoxH, themeColors.perkMenuEntrySliderProgressedColor )
+        draw.SimpleText( "Complete", "GlorifiedLeveling.PerkMenu.PerkCompleteText", self.SliderBoxX + ( self.SliderBoxW / 2 ), self.SliderBoxY + ( self.SliderBoxH / 2 ) - 1, themeColors.perkMenuEntrySliderTexts, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
     end
-    draw.SimpleText( "(" .. self.Progress .. "/10)", "GlorifiedLeveling.PerkMenu.PerkAmountText", self.SliderBoxX + ( self.SliderBoxW / 2 ), self.SliderBoxY + self.SliderBoxH + ( self.SliderBoxH / 2.5 ), Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+    draw.SimpleText( "(" .. self.Progress .. "/10)", "GlorifiedLeveling.PerkMenu.PerkAmountText", self.SliderBoxX + ( self.SliderBoxW / 2 ), self.SliderBoxY + self.SliderBoxH + ( self.SliderBoxH / 2.5 ), themeColors.perkMenuEntrySliderTexts, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 end
 
 vgui.Register( "GlorifiedLeveling.PerkMenu.PerkEntry", PANEL, "EditablePanel" )

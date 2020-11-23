@@ -56,6 +56,17 @@ local function rainbowColor( speed, alpha )
     else return rainbowCol end
 end
 
+local rainbowPhysgunEnabled = GlorifiedLeveling.Config.MAX_LEVEL_RAINBOW_PHYSGUN
+hook.Add( "Think", "GlorifiedLeveling.RainbowPhysgun.Think", function()
+    if not rainbowPhysgunEnabled then return end
+    if not ply then ply = LocalPlayer() end
+
+    if ply and ply:Alive() and ply:GetActiveWeapon():IsValid() and ply:GetActiveWeapon():GetClass() == "weapon_physgun" then
+        local rainbowCol = rainbowColor( 20 )
+        ply:SetWeaponColor( Vector( rainbowCol.r / 255, rainbowCol.g / 255, rainbowCol.b / 255 ) )
+    end
+end )
+
 local levelUpAlpha = 0
 local plyLeveledUp = false
 hook.Add( "GlorifiedLeveling.LevelUp", "GlorifiedLeveling.HUD.PlayerLeveledUp", function()

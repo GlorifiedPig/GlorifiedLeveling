@@ -4,10 +4,11 @@ local PANEL = {}
 function PANEL:Init()
     local parent = self:GetParent()
     self.Theme = parent.Theme
+    local theme = self.Theme
 
     self.TitleLabel = vgui.Create( "DLabel", self )
     self.TitleLabel:SetFont( "GlorifiedLeveling.PerkMenu.TitleBar" )
-    self.TitleLabel:SetText( "Perk Menu » " )
+    self.TitleLabel:SetText( GlorifiedLeveling.i18n.GetPhrase( "glSkills" ) .. " » " )
     self.TitleLabel:SizeToContents()
     self.TitleLabel:DockMargin( 10, 0, 0, 0 )
     self.TitleLabel:Dock( LEFT )
@@ -15,8 +16,8 @@ function PANEL:Init()
     self.FreePointsLabel = vgui.Create( "DLabel", self )
     self.FreePointsLabel:SetFont( "GlorifiedLeveling.PerkMenu.TitleBar" )
     self.FreePointsLabel.FreePointsChanged = function()
-        self.FreePointsLabel:SetText( parent.CachedFreePoints .. " Free Points" )
-        self.FreePointsLabel:SetTextColor( parent.CachedFreePoints > 0 and Color( 0, 255, 0 ) or Color( 255, 0, 0 ) )
+        self.FreePointsLabel:SetText( GlorifiedLeveling.i18n.GetPhrase( "glPoints", parent.CachedFreePoints ) )
+        self.FreePointsLabel:SetTextColor( parent.CachedFreePoints > 0 and theme.Data.Colors.perkMenuFreePointsColor or theme.Data.Colors.perkMenuNoFreePointsColor )
         self.FreePointsLabel:SizeToContents()
     end
     self.FreePointsLabel:Dock( LEFT )

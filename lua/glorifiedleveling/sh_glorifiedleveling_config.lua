@@ -51,6 +51,7 @@
 
     GlorifiedLeveling.Config.MAX_LEVEL_RAINBOW_XP_BAR = true -- Set to true to make the XP bar a rainbow when the player hits the max level.
     GlorifiedLeveling.Config.MAX_LEVEL_RAINBOW_LEVEL_TEXT = true -- Set to true to make the XP bar a rainbow when the player hits the max level.
+    GlorifiedLeveling.Config.MAX_LEVEL_RAINBOW_PHYSGUN = true -- Set to true if you want to enable the rainbow physgun for a player that is max level.
 
     GlorifiedLeveling.Config.XP_BAR_WIDTH = function()
         return ScrH() * 0.7
