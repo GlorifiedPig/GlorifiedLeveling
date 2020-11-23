@@ -61,8 +61,8 @@ hook.Add( "Think", "GlorifiedLeveling.RainbowPhysgun.Think", function()
     if not rainbowPhysgunEnabled then return end
     if not ply then ply = LocalPlayer() end
 
-    if ply and ply:Alive() and ply:GetActiveWeapon():IsValid() and ply:GetActiveWeapon():GetClass() == "weapon_physgun" then
-        local rainbowCol = rainbowColor( 20 )
+    if ply and ply:Alive() and GlorifiedLeveling.GetPlayerLevel() >= GlorifiedLeveling.Config.MAX_LEVEL and ply:GetActiveWeapon():IsValid() and ply:GetActiveWeapon():GetClass() == "weapon_physgun" then
+        local rainbowCol = rainbowColor( 15 )
         ply:SetWeaponColor( Vector( rainbowCol.r / 255, rainbowCol.g / 255, rainbowCol.b / 255 ) )
     end
 end )

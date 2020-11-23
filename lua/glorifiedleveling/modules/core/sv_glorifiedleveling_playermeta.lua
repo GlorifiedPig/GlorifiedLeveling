@@ -142,6 +142,7 @@ function GlorifiedLeveling.ResetPlayerPerks( ply )
 end
 
 function GlorifiedLeveling.GetPlayerPerkLevel( ply, perk )
+    if ply:IsBot() then return 0 end
     return ply:GlorifiedLeveling().PerkTable[perk] or 0
 end
 
