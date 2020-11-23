@@ -13,7 +13,7 @@ GlorifiedLeveling = GlorifiedLeveling or {
     Perks = {
         Enum = {}
     },
-    Version = "1.2.1"
+    Version = "2.0.0"
 }
 
 print( "[GlorifiedLeveling] This server is running version " .. GlorifiedLeveling.Version .. "." )
