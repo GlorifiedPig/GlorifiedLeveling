@@ -19,10 +19,10 @@
     GlorifiedLeveling.Config.LEVELS_UNTIL_GAIN = 5 -- How many levels until the next gain of perks?
     GlorifiedLeveling.Config.POINTS_PER_GAIN = 1 -- How many points should we gain when we obtain new points?
     GlorifiedLeveling.Config.PERK_CONFIG = {
-        [GlorifiedLeveling.Perks.Enum.SPEED] = 2, -- What percentage speed should we gain per point in it?
-        [GlorifiedLeveling.Perks.Enum.LEAPING] = 2, -- What percentage jump height & fall reduction should we gain per point in it?
-        [GlorifiedLeveling.Perks.Enum.ARMOR] = 5, -- How much extra armour should we get on spawn per point in it?
-        [GlorifiedLeveling.Perks.Enum.HEALTH] = 5, -- How much extra health should we get on spawn per point in it?
+        [GlorifiedLeveling.Perks.Enum.SPEED] = 6, -- What percentage speed should we gain per point in it?
+        [GlorifiedLeveling.Perks.Enum.LEAPING] = 3, -- What percentage gravity reduction should we gain per point in it?
+        [GlorifiedLeveling.Perks.Enum.ARMOR] = 10, -- How much extra armour should we get on spawn per point in it?
+        [GlorifiedLeveling.Perks.Enum.HEALTH] = 10, -- How much extra health should we get on spawn per point in it?
         [GlorifiedLeveling.Perks.Enum.LESS_DAMAGE_TAKEN] = 2, -- What percentage less damage should we take per level in it?
         [GlorifiedLeveling.Perks.Enum.MORE_DAMAGE_GIVEN] = 2, -- What percentage more damage should we give per level in it?
     }
