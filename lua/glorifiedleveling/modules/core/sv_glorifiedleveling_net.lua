@@ -8,6 +8,7 @@ util.AddNetworkString( "GlorifiedLeveling.AdminPanel.ResetPlayerLevel" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.AddPlayerXP" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.PlayerListOpened" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.PlayerListOpened.SendInfo" )
+util.AddNetworkString( "GlorifiedLeveling.Perks.UpdatePerkInfo" )
 
 hook.Add( "GlorifiedLeveling.LevelUp", "GlorifiedLeveling.Networking.LevelUp", function( ply )
     net.Start( "GlorifiedLeveling.PlayerLeveledUp" )
@@ -70,6 +71,27 @@ net.Receive( "GlorifiedLeveling.AdminPanel.PlayerListOpened", function( len, ply
         net.WriteLargeString( util.TableToJSON( playerList ) )
         net.Send( ply )
     end
+end )
+
+local resetDelayIdentifier = "GlorifiedLeveling.NetUpdatePerkInfo.ResetDelay"
+hook.Add( "PlayerSpawn", "GlorifiedLeveling.NetUpdatePerkInfo.PlayerSpawn", function( ply )
+    ply:GlorifiedLeveling().AwaitingPerkUpdate = true
+
+    if timer.Exists( resetDelayIdentifier ) then
+        timer.Start( resetDelayIdentifier )
+    else
+        timer.Create( resetDelayIdentifier, 5, 1, function()
+            if ply then ply:GlorifiedLeveling().AwaitingPerkUpdate = nil end
+        end )
+    end
+end )
+
+net.Receive( "GlorifiedLeveling.Perks.UpdatePerkInfo", function( len, ply )
+    if not ply:GlorifiedLeveling().AwaitingPerkUpdate then return end
+    ply:GlorifiedLeveling().AwaitingPerkUpdate = nil
+    local newPerkTbl = util.JSONToTable( net.ReadString() )
+    if GlorifiedLeveling.GetTotalLevelsFromPerkTable( newPerkTbl ) > GlorifiedLeveling.GetTotalPerkPoints( ply ) then return end
+    GlorifiedLeveling.SetPlayerPerkTable( ply, newPerkTbl )
 end )
 
 concommand.Add( "glorifiedleveling_admin", function( ply )

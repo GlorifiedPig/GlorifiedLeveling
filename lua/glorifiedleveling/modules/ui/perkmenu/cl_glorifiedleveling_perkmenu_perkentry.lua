@@ -3,12 +3,14 @@ local PANEL = {}
 
 function PANEL:Init()
     self.Theme = self:GetParent().Theme
-    self.Progress = math.random( 0, 10 )
+    self.Progress = 0
     self.AddButton = vgui.Create( "DButton", self )
     self.RemoveButton = vgui.Create( "DButton", self )
 end
 
 function PANEL:PerformLayout( w, h )
+    local parent = self:GetParent()
+
     self.SideOffset = w / 50
     self.SliderBoxW = w / 2.5
     self.SliderBoxH = h / 3.2
@@ -24,9 +26,13 @@ function PANEL:PerformLayout( w, h )
         self.AddButton:SetTextColor( self.AddButton:IsHovered() and Color( 0, 155, 0 ) or Color( 0, 200, 0 ) )
     end
     self.AddButton.DoClick = function()
+        if parent.CachedFreePoints <= 0 then return end
         self.Progress = math.Clamp( self.Progress + 1, 0, 10 )
         self.AddButton:SetVisible( self.Progress < 10 )
         self.RemoveButton:SetVisible( self.Progress > 0 )
+        GlorifiedLeveling.PerkTableCache[self.Perk] = GlorifiedLeveling.PerkTableCache[self.Perk] + 1
+        parent.CachedFreePoints = parent.CachedFreePoints - 1
+        parent.TitleBar.FreePointsLabel.FreePointsChanged()
     end
     self.AddButton.Paint = function() end
 
@@ -42,6 +48,9 @@ function PANEL:PerformLayout( w, h )
         self.Progress = math.Clamp( self.Progress - 1, 0, 10 )
         self.AddButton:SetVisible( self.Progress < 10 )
         self.RemoveButton:SetVisible( self.Progress > 0 )
+        GlorifiedLeveling.PerkTableCache[self.Perk] = GlorifiedLeveling.PerkTableCache[self.Perk] - 1
+        parent.CachedFreePoints = parent.CachedFreePoints + 1
+        parent.TitleBar.FreePointsLabel.FreePointsChanged()
     end
     self.RemoveButton.Paint = function() end
 
@@ -50,6 +59,7 @@ end
 
 function PANEL:SetPerk( perk )
     self.Perk = perk
+    self.Progress = GlorifiedLeveling.PerkTableCache[perk]
 end
 
 function PANEL:Paint( w, h )

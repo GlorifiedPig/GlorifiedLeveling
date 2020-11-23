@@ -14,7 +14,10 @@ function PANEL:UpdateCache( perkTbl )
     self:Center()
     self:MakePopup()
 
+    print(GlorifiedLeveling.PerkTableCache)
+    if not GlorifiedLeveling.PerkTableCache then GlorifiedLeveling.PerkTableCache = GlorifiedLeveling.GetPlayerPerkTable() end
     self.Theme = GlorifiedLeveling.Themes.GetCurrent()
+    self.CachedFreePoints = GlorifiedLeveling.GetTotalFreePerkPoints( true )
 
     self.TitleBar = vgui.Create( "GlorifiedLeveling.PerkMenu.TitleBar", self )
     self.Perks = {}

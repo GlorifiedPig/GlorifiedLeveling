@@ -13,7 +13,7 @@ end
 
 if moduleSettings.KILL_REWARD then
     hook.Add( "PlayerDeath", "GlorifiedLeveling.XPGain.PlayerDeath", function( victim, inflictor, attacker )
-        if attacker:IsPlayer() then
+        if attacker:IsPlayer() and attacker ~= victim then
             GlorifiedLeveling.AddPlayerXP( attacker, moduleSettings.KILL_AMOUNT, nil, false, GlorifiedLeveling.i18n.GetPhrase( "glYouReceivedXPKill", moduleSettings.KILL_AMOUNT, victim:Nick() ) )
         end
     end )

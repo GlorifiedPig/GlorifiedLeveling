@@ -16,7 +16,7 @@
 --[[ Leaderboard Settings End ]]--
 
 --[[ Perk Settings ]]--
-    GlorifiedLeveling.Config.LEVELS_UNTIL_GAIN = 5 -- How many levels until the next gain of perks?
+    GlorifiedLeveling.Config.LEVELS_UNTIL_GAIN = 2 -- How many levels until the next gain of perks?
     GlorifiedLeveling.Config.POINTS_PER_GAIN = 1 -- How many points should we gain when we obtain new points?
     GlorifiedLeveling.Config.PERK_CONFIG = {
         [GlorifiedLeveling.Perks.Enum.SPEED] = 6, -- What percentage speed should we gain per point in it?

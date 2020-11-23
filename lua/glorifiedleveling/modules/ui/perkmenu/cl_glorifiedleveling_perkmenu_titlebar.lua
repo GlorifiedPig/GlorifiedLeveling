@@ -2,14 +2,25 @@
 local PANEL = {}
 
 function PANEL:Init()
-    self.Theme = self:GetParent().Theme
+    local parent = self:GetParent()
+    self.Theme = parent.Theme
 
     self.TitleLabel = vgui.Create( "DLabel", self )
     self.TitleLabel:SetFont( "GlorifiedLeveling.PerkMenu.TitleBar" )
-    self.TitleLabel:SetText( "Perk Menu" )
+    self.TitleLabel:SetText( "Perk Menu » " )
     self.TitleLabel:SizeToContents()
     self.TitleLabel:DockMargin( 10, 0, 0, 0 )
     self.TitleLabel:Dock( LEFT )
+
+    self.FreePointsLabel = vgui.Create( "DLabel", self )
+    self.FreePointsLabel:SetFont( "GlorifiedLeveling.PerkMenu.TitleBar" )
+    self.FreePointsLabel.FreePointsChanged = function()
+        self.FreePointsLabel:SetText( parent.CachedFreePoints .. " Free Points" )
+        self.FreePointsLabel:SetTextColor( parent.CachedFreePoints > 0 and Color( 0, 255, 0 ) or Color( 255, 0, 0 ) )
+        self.FreePointsLabel:SizeToContents()
+    end
+    self.FreePointsLabel:Dock( LEFT )
+    self.FreePointsLabel.FreePointsChanged()
 
     self.CloseButton = vgui.Create( "DButton", self )
     self.CloseButton:SetText( "" )

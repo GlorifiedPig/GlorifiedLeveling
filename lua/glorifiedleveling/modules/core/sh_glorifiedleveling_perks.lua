@@ -12,11 +12,18 @@ end
 local perksEnum = GlorifiedLeveling.Perks.Enum
 
 if CLIENT then
-    GlorifiedLeveling.PerkTable = perksEnum.DEFAULT_PERK_TABLE
-    GlorifiedLeveling.PerkTableCache = {}
+    gameevent.Listen( "player_spawn" )
+
+    hook.Add( "player_spawn", "GlorifiedLeveling.Perks.player_spawn", function( data )
+        if Player( data.userid ) ~= LocalPlayer() or not GlorifiedLeveling.PerkTableCache or table.IsEmpty( GlorifiedLeveling.PerkTableCache ) then return end
+        net.Start( "GlorifiedLeveling.Perks.UpdatePerkInfo" )
+        net.WriteString( util.TableToJSON( GlorifiedLeveling.PerkTableCache ) ) -- I know. I have no idea how else to do it.
+        net.SendToServer()
+        GlorifiedLeveling.PerkTableCache = nil
+    end )
 
     hook.Add( "Move", "GlorifiedLeveling.Perks.Move", function( ply, mv, usrcmd )
-        local speed = mv:GetMaxSpeed() * ( 1 + ( getPerkCountPerLevel( perksEnum.SPEED ) * GlorifiedLeveling.PerkTable[perksEnum.SPEED] / 100 ) )
+        local speed = mv:GetMaxSpeed() * ( 1 + ( getPerkCountPerLevel( perksEnum.SPEED ) * GlorifiedLeveling.GetPlayerPerkLevel( perksEnum.SPEED ) / 100 ) )
         mv:SetMaxSpeed( speed )
         mv:SetMaxClientSpeed( speed )
     end )

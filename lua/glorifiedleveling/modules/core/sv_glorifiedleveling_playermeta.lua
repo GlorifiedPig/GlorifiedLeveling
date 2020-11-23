@@ -122,7 +122,7 @@ function GlorifiedLeveling.SetPlayerPerkTable( ply, perkTable )
     hook.Run( "GlorifiedLeveling.PerkTableUpdated", ply, perkTable )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `PerkTable` = '" .. GlorifiedLeveling.SQL.EscapeString( util.TableToJSON( perkTable ) ) .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
     ply:GlorifiedLeveling().PerkTable = perkTable
-    ply:SetNW2Int( "GlorifiedLeveling.PerkTable", perkTable )
+    ply:SetNW2String( "GlorifiedLeveling.PerkTable", util.TableToJSON( perkTable ) )
 end
 
 function GlorifiedLeveling.GetPlayerPerkTable( ply )
@@ -155,7 +155,8 @@ function GlorifiedLeveling.GetTotalFreePerkPoints( ply )
     for k, v in ipairs( GlorifiedLeveling.GetPlayerPerkTable( ply ) ) do
         freePoints = freePoints - v
     end
-    return math.min( freePoints, 0 )
+    if freePoints < 0 then GlorifiedLeveling.ResetPlayerPerks( ply ) return totalPoints end
+    return math.max( freePoints, 0 )
 end
 
 function GlorifiedLeveling.FetchTopTen( returnFunc )
