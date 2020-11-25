@@ -57,10 +57,11 @@ function PANEL:AddPlayer( ply, level )
 
     local function drawPlayerInfo( playerno, x, containerh, align )
         local centerh = containerh / 2
-        local spacing = containerh * .1
+        local spacing = containerh * 0.1
+        local wSpacing = containerh * 0.25
 
-        draw.SimpleText( self.Player:Name(), "GlorifiedLeveling.AdminMenu.PlayerInfo", x, centerh - spacing, self.Theme.Data.Colors.playerNameTextCol, align, TEXT_ALIGN_CENTER )
-        draw.SimpleText( self.Player:SteamID(), "GlorifiedLeveling.AdminMenu.PlayerInfo", x, centerh + spacing, self.Theme.Data.Colors.playerSteamIDTextCol, align, TEXT_ALIGN_CENTER )
+        draw.SimpleText( self.Player:Name(), "GlorifiedLeveling.AdminMenu.PlayerInfo", x + wSpacing, centerh - spacing, self.Theme.Data.Colors.playerNameTextCol, align, TEXT_ALIGN_CENTER )
+        draw.SimpleText( self.Player:SteamID(), "GlorifiedLeveling.AdminMenu.PlayerInfo", x + wSpacing, centerh + spacing, self.Theme.Data.Colors.playerSteamIDTextCol, align, TEXT_ALIGN_CENTER )
     end
 
     function self:Paint( w, h )
@@ -77,7 +78,7 @@ function PANEL:PerformLayout( w, h )
 
     self.Avatar:SetSize( avatarsize, avatarsize )
     self.Avatar:SetMaskSize( avatarsize * 0.5 )
-    self.Avatar:SetPos( h * 0.08, h * 0.18 )
+    self.Avatar:SetPos( h * 0.25, h * 0.18 )
     self.Avatar:SetSteamID( self.Player:SteamID64(), avatarsize )
 
     self.SetLevel:SetSize( w * 0.12, h * 0.4 )

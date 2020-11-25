@@ -83,9 +83,9 @@ function PANEL:Think()
     self:MoveToFront()
 end
 
-function PANEL:Paint(w, h)
-    draw.RoundedBox( 6, 0, 0, w, h, self.Theme.Data.Colors.adminMenuBackgroundCol )
-    draw.RoundedBoxEx( 6, 0, 0, w, h * .18, self.Theme.Data.Colors.adminMenuNavbarBackgroundCol, true, true )
+function PANEL:Paint( w, h )
+    draw.RoundedBox( 6, 0, 0, w, h, self.Theme.Data.Colors.adminMenuConfirmationBackgroundCol )
+    draw.RoundedBoxEx( 6, 0, 0, w, h * 0.18, self.Theme.Data.Colors.adminMenuConfirmationTopBackgroundCol, true, true )
 
     draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glSetLevel" ), "GlorifiedLeveling.AdminMenu.SetLevelTitle", w * .021, h * .08, self.Theme.Data.Colors.adminMenuNavbarItemCol, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
     draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glEnterLevel", self.Username and self.Username or self.SteamID or "undefined" ), "GlorifiedLeveling.AdminMenu.SetLevelDescription", w * 0.021, h * 0.23, self.Theme.Data.Colors.adminMenuNavbarItemCol )

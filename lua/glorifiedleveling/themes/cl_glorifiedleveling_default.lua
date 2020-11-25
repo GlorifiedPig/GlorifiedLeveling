@@ -9,6 +9,8 @@ GlorifiedLeveling.Themes.Register( "Default", GlorifiedLeveling.i18n.GetPhrase( 
         xpBarMultiplierTextDrawColor = Color( 255, 255, 255 ),
 
         adminMenuBackgroundCol = Color( 50, 50, 50 ),
+        adminMenuConfirmationBackgroundCol = Color( 65, 65, 65 ),
+        adminMenuConfirmationTopBackgroundCol = Color( 38, 38, 38 ),
         adminMenuNavbarBackgroundCol = Color( 38, 38, 38 ),
         adminMenuNavbarItemCol = Color( 255, 255, 255 ),
         adminMenuNavbarSelectedItemCol = Color( 32, 133, 175 ),

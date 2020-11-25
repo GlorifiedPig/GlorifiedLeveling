@@ -126,6 +126,7 @@ function GlorifiedLeveling.SetPlayerPerkTable( ply, perkTable )
 end
 
 function GlorifiedLeveling.GetPlayerPerkTable( ply )
+    if not ply:GlorifiedLeveling().PerkTable then ply:GlorifiedLeveling().PerkTable = GlorifiedLeveling.Perks.Enum.DEFAULT_PERK_TABLE end
     return ply:GlorifiedLeveling().PerkTable
 end
 
@@ -143,7 +144,7 @@ end
 
 function GlorifiedLeveling.GetPlayerPerkLevel( ply, perk )
     if ply:IsBot() then return 0 end
-    return ply:GlorifiedLeveling().PerkTable[perk] or 0
+    return GlorifiedLeveling.GetPlayerPerkTable( ply )[perk] or 0
 end
 
 function GlorifiedLeveling.GetTotalPerkPoints( ply )
@@ -162,6 +163,7 @@ end
 
 function GlorifiedLeveling.FetchTopTen( returnFunc )
     GlorifiedLeveling.SQL.Query( "SELECT * FROM `gl_players` ORDER BY `Level` DESC, `XP` DESC LIMIT 10", function( queryResults )
+        if not queryResults then return end
         local topTen = {}
         for k, v in ipairs( queryResults ) do topTen[k] = { SteamID64 = v["SteamID64"], Level = v["Level"], XP = v["XP"] } end
         returnFunc( topTen )

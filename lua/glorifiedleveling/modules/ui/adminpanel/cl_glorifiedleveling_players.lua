@@ -10,7 +10,7 @@ function PANEL:Init()
     self.TopBar = vgui.Create( "Panel", self )
     self.TopBar.Theme = self:GetParent().Theme
     self.TopBar.Paint = function( s, w, h )
-        draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glPlayersOnline", #self.Players ), "GlorifiedLeveling.AdminMenu.PlayersOnline", w * 0.024, h * 0.46, self.Theme.Data.Colors.playerTopBarColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
+        draw.SimpleText( GlorifiedLeveling.i18n.GetPhrase( "glPlayersOnline", #self.Players ), "GlorifiedLeveling.AdminMenu.PlayersOnline", w * 0.026, w * 0.026 + 3, self.Theme.Data.Colors.playerTopBarColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )
     end
 
     self.ScrollPanel = vgui.Create( "GlorifiedLeveling.ScrollPanel", self )
