@@ -69,7 +69,8 @@ end )
 
 local levelUpAlpha = 0
 local plyLeveledUp = false
-hook.Add( "GlorifiedLeveling.LevelUp", "GlorifiedLeveling.HUD.PlayerLeveledUp", function()
+hook.Add( "GlorifiedLeveling.LevelUp", "GlorifiedLeveling.HUD.PlayerLeveledUp", function( leveldPly )
+    if leveldPly ~= LocalPlayer() then return end
     plyLeveledUp = true
     timer.Simple( 10, function()
         plyLeveledUp = false

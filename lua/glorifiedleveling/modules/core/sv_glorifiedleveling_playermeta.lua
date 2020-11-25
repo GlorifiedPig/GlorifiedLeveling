@@ -122,7 +122,10 @@ function GlorifiedLeveling.SetPlayerPerkTable( ply, perkTable )
     hook.Run( "GlorifiedLeveling.PerkTableUpdated", ply, perkTable )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `PerkTable` = '" .. GlorifiedLeveling.SQL.EscapeString( util.TableToJSON( perkTable ) ) .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
     ply:GlorifiedLeveling().PerkTable = perkTable
-    ply:SetNW2String( "GlorifiedLeveling.PerkTable", util.TableToJSON( perkTable ) )
+
+    net.Start( "GlorifiedLeveling.Perks.SendPerkTableToClient" )
+    net.WriteTableAsString( perkTable )
+    net.Send( ply )
 end
 
 function GlorifiedLeveling.GetPlayerPerkTable( ply )

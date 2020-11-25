@@ -9,10 +9,12 @@ util.AddNetworkString( "GlorifiedLeveling.AdminPanel.AddPlayerXP" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.PlayerListOpened" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.PlayerListOpened.SendInfo" )
 util.AddNetworkString( "GlorifiedLeveling.Perks.UpdatePerkInfo" )
+util.AddNetworkString( "GlorifiedLeveling.Perks.SendPerkTableToClient" )
 
 hook.Add( "GlorifiedLeveling.LevelUp", "GlorifiedLeveling.Networking.LevelUp", function( ply )
     net.Start( "GlorifiedLeveling.PlayerLeveledUp" )
-    net.Send( ply )
+    net.WriteEntity( ply )
+    net.Broadcast()
 end )
 
 function GlorifiedLeveling.CacheTopTenOnClient( ply )

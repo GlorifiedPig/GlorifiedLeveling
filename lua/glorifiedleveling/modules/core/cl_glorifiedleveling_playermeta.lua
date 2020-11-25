@@ -1,11 +1,14 @@
 
 local defaultPerkTbl = GlorifiedLeveling.Perks.Enum.DEFAULT_PERK_TABLE
-local timeSinceLastUpdate = 0
 
 GlorifiedLeveling.PerkTable = defaultPerkTbl
 GlorifiedLeveling.PerkTableCache = nil
 
 local ply
+
+net.Receive( "GlorifiedLeveling.Perks.SendPerkTableToClient", function()
+    GlorifiedLeveling.PerkTable = net.ReadTableAsString() or defaultPerkTbl
+end )
 
 function GlorifiedLeveling.GetPlayerLevel()
     if not ply then ply = LocalPlayer() end
@@ -29,7 +32,6 @@ end
 function GlorifiedLeveling.GetPlayerPerkTable()
     if not ply then ply = LocalPlayer() end
 
-    GlorifiedLeveling.PerkTable = util.JSONToTable( ply:GetNW2String( "GlorifiedLeveling.PerkTable" ) )
     return GlorifiedLeveling.PerkTable or defaultPerkTbl
 end
 
