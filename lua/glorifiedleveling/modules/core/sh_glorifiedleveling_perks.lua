@@ -34,7 +34,7 @@ else
         mv:SetMaxClientSpeed( speed )
     end )
 
-    hook.Add( "PlayerSpawn", "GlorifiedLeveling.Perks.PlayerSpawn", function( ply )
+    local function applyPlayerPerks( ply )
         timer.Simple( 0, function()
             -- I don't usually put things in small timers, but I'm willing to bet there's some gamemodes with retarded practice that set health/armour on spawn instead of adding.
             local shouldApplyPerks = hook.Run( "GlorifiedLeveling.SpawnPerksApplied" )
@@ -44,6 +44,12 @@ else
             ply:SetArmor( ply:Armor() + ( getPerkCountPerLevel( perksEnum.ARMOR ) * GlorifiedLeveling.GetPlayerPerkLevel( ply, perksEnum.ARMOR ) ) )
             ply:SetHealth( ply:Health() + ( getPerkCountPerLevel( perksEnum.HEALTH ) * GlorifiedLeveling.GetPlayerPerkLevel( ply, perksEnum.HEALTH ) ) )
         end )
+    end
+
+    hook.Add( "PlayerSpawn", "GlorifiedLeveling.Perks.PlayerSpawn", applyPlayerPerks )
+
+    hook.Add( "OnPlayerChangedTeam", "GlorifiedLeveling.Perks.OnPlayerChangedTeam", function( ply )
+        if GlorifiedLeveling.Config.APPLY_PERKS_ON_TEAM_CHANGE then applyPlayerPerks( ply ) end
     end )
 
     hook.Add( "ScalePlayerDamage", "GlorifiedLeveling.Perks.ScalePlayerDamage", function( ply, hitgroup, dmginfo )

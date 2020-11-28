@@ -19,6 +19,7 @@
 
 --[[ Miscellanous Settings ]]--
     GlorifiedLeveling.Config.USE_FASTDL = false -- Set this to true if you would like to use FastDL.
+    GlorifiedLeveling.Config.APPLY_PERKS_ON_TEAM_CHANGE = false -- Set this to true if you want the perks to apply on team change. For example, if you have respawn on DarkRP job changed off, set this to true.
 --[[ Miscellanous Settings End ]]--
 
 --[[ CAMI Permissions Settings ]]--
