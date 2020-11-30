@@ -85,7 +85,7 @@ end
 
 function GlorifiedLeveling.AddPlayerXP( ply, xp, ignoreMultiplier, showNotification, notificationOverride, carriedOver )
     if not ValidationChecks( ply, xp ) then return end
-    if not ignoreMultiplier then xp = xp * GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) end
+    if not ignoreMultiplier then xp = xp * ( GlorifiedLeveling.Config.MULTIPLIER_AMOUNT_CUSTOMFUNC( ply ) or 1 ) end
     local plyLevel = GlorifiedLeveling.GetPlayerLevel( ply )
     if plyLevel >= GlorifiedLeveling.Config.MAX_LEVEL then return end
     local plyXP = GlorifiedLeveling.GetPlayerXP( ply )
