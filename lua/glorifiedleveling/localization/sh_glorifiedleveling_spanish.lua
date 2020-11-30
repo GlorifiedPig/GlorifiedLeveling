@@ -1,0 +1,48 @@
+
+GlorifiedLeveling.i18n.RegisterPhrases( "es-ES", {
+    glDarkTheme = "Oscuro",
+    glLevelNotHighEnough = "No eres un nivel lo suficientemente alto para eso.",
+    glYouReceivedXP = "Has recibido %s XP.",
+    glYouReceivedXPKill = "Has recibido %s XP por asesinar a %s.",
+    glLevelX = "Nivel %s",
+    glLevelUp = "¡Has subido de nivel!",
+    glAdminMenuLockdown = "EMERGENCIA",
+    glAdminMenuPlayers = "JUGADORES",
+    glPlayersOnline = "Jugadores en Línea: %s",
+    glSetLevel = "Establecer Nivel",
+    glResetLevel = "Reiniciar Nivel",
+    glAddXP = "Añadir XP",
+    glConfirmation = "Confirmación",
+    glYes = "Sí",
+    glNo = "No",
+    glConfirmationResetLevel = "¿Quieres reiniciar el nivel de ese jugador?",
+    glEnterLevel = "Ingresa debajo el nuevo nivel del jugador.",
+    glEnterXP = "Ingresa cuanta XP deseas agregar.",
+    glEnter = "Aceptar",
+    glInvalidAmount = "Cantidad ingresada inválida.",
+    glMaxLevel = "Nivel Máximo",
+
+    -- Leaderboard localization.
+    glLeaderboard = "Clasificación",
+    glName = "Nombre",
+    glXP = "XP",
+    glLevel = "Nivel",
+    glNobodyHere = "Aquí no hay nadie :(",
+
+    -- Perk localization.
+    glSkills = "Habilidades",
+    glPoints = "%s Puntos",
+    glComplete = "Completo",
+    glHasteBoots = "Botas Veloces",
+    glHasteBootsDescription = "Velocidad Extra",
+    glFeralLeaping = "Botas de Salto Salvaje",
+    glFeralLeapingDescription = "Mayor altura de salto, menos daño de caída",
+    glIronSkin = "Piel de Hierro",
+    glIronSkinDescription = "Armadura Extra al aparecer",
+    glJuggernaut = "Titán",
+    glJuggernautDescription = "Salud Extra al aparecer",
+    glBulletAbsorption = "Absorción de Balas",
+    glBulletAbsorptionDescription = "Recibes menos daño",
+    glHighGradeBullets = "Balas de Alto Grado",
+    glHighGradeBulletsDescription = "Realizas más daño"
+} )

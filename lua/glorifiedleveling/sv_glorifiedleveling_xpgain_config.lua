@@ -90,14 +90,6 @@
     }
 --[[ ONEPRINT'S ADDONS MODULE SETTINGS END ]]--
 
---[[ ONEPRINT'S MODULE SETTINGS ]]--
-    GlorifiedLeveling.Config.XPGain.ONEPRINT_MODULE_ENABLED = false
-    GlorifiedLeveling.Config.XPGain.ONEPRINT_MODULE_SETTINGS = {
-        PRINTER_WITHDRAWAL_REWARD = true,
-        PRINTER_WITHDRAWAL_MULTIPLIER = 0.1
-    }
---[[ ONEPRINT'S ADDONS MODULE SETTINGS END ]]--
-
 --[[ SPRINTER'S MODULE SETTINGS ]]--
     GlorifiedLeveling.Config.XPGain.SPRINTER_MODULE_ENABLED = false
     GlorifiedLeveling.Config.XPGain.SPRINTER_MODULE_SETTINGS = {
