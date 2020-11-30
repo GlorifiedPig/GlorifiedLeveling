@@ -32,8 +32,8 @@ local function spawnConfettiParticles( ply )
 end
 
 local function levelUpEffects( ply )
-    ply:EmitSound( GlorifiedLeveling.Config.LEVEL_UP_SOUND, 65, math.random( 95, 105 ), 0.8 )
-    timer.Simple( GlorifiedLeveling.Config.CONFETTI_SHOOT_TIMER, function() spawnConfettiParticles( ply ) end )
+    if GlorifiedLeveling.Config.LEVEL_UP_SOUND_ENABLED then ply:EmitSound( GlorifiedLeveling.Config.LEVEL_UP_SOUND, 65, math.random( 95, 105 ), 0.8 ) end
+    if GlorifiedLeveling.Config.CONFETTI_ENABLED then timer.Simple( GlorifiedLeveling.Config.CONFETTI_SHOOT_TIMER, function() spawnConfettiParticles( ply ) end ) end
 end
 
 function GlorifiedLeveling.SetPlayerLevel( ply, level )

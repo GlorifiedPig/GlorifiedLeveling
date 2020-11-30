@@ -10,6 +10,14 @@ net.Receive( "GlorifiedLeveling.Perks.SendPerkTableToClient", function()
     GlorifiedLeveling.PerkTable = net.ReadTableAsString() or defaultPerkTbl
 end )
 
+net.Receive( "GlorifiedLeveling.PlayerLeveledUp", function()
+    hook.Run( "GlorifiedLeveling.LevelUp", net.ReadEntity() )
+end )
+
+net.Receive( "GlorifiedLeveling.PlayerXPUpdated", function()
+    hook.Run( "GlorifiedLeveling.XPUpdated", net.ReadEntity(), net.ReadUInt( 64 ), net.ReadUInt( 64 ) )
+end )
+
 function GlorifiedLeveling.GetPlayerLevel()
     if not ply then ply = LocalPlayer() end
     return ply:GetNW2Int( "GlorifiedLeveling.Level" )

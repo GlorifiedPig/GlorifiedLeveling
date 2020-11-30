@@ -1,5 +1,6 @@
 
 util.AddNetworkString( "GlorifiedLeveling.PlayerLeveledUp" )
+util.AddNetworkString( "GlorifiedLeveling.PlayerXPUpdated" )
 util.AddNetworkString( "GlorifiedLeveling.CacheTopTen" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.OpenAdminPanel" )
 util.AddNetworkString( "GlorifiedLeveling.AdminPanel.SetLockdownStatus" )
@@ -14,6 +15,14 @@ util.AddNetworkString( "GlorifiedLeveling.Perks.SendPerkTableToClient" )
 hook.Add( "GlorifiedLeveling.LevelUp", "GlorifiedLeveling.Networking.LevelUp", function( ply )
     net.Start( "GlorifiedLeveling.PlayerLeveledUp" )
     net.WriteEntity( ply )
+    net.Broadcast()
+end )
+
+hook.Add( "GlorifiedLeveling.XPUpdated", "GlorifiedLeveling.Networking.XPUpdated", function( ply, oldXP, newXP )
+    net.Start( "GlorifiedLeveling.PlayerXPUpdated" )
+    net.WriteEntity( ply )
+    net.WriteUInt( oldXP, 64 )
+    net.WriteUInt( newXP, 64 )
     net.Broadcast()
 end )
 
