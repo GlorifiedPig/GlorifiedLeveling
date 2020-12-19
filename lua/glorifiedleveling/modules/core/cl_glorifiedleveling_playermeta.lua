@@ -18,7 +18,7 @@ end )
 
 function GlorifiedLeveling.GetPlayerLevel( ply )
     if not ply then ply = LocalPlayer() end
-    return ply:GetNWInt( "GlorifiedLeveling.Level" )
+    return tonumber( ply:GetNWInt( "GlorifiedLeveling.Level", 1 ) )
 end
 
 function GlorifiedLeveling.PlayerHasLevel( ply, level )
@@ -28,7 +28,7 @@ end
 
 function GlorifiedLeveling.GetPlayerXP( ply )
     if not ply then ply = LocalPlayer() end
-    return ply:GetNWInt( "GlorifiedLeveling.XP" )
+    return tonumber( ply:GetNWInt( "GlorifiedLeveling.XP", 0 ) )
 end
 
 function GlorifiedLeveling.GetPlayerMaxXP( ply )
