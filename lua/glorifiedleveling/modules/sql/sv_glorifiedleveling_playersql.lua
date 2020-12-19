@@ -12,14 +12,14 @@ hook.Add( "PlayerInitialSpawn", "GlorifiedLeveling.SQLPlayer.PlayerInitialSpawn"
             local plyPerks = util.JSONToTable( queryResult[1]["PerkTable"] ) or defaultPerkTable
             ply:GlorifiedLeveling().Level = plyLevel
             ply:GlorifiedLeveling().XP = plyXP
-            ply:SetNW2Int( "GlorifiedLeveling.Level", plyLevel )
-            ply:SetNW2Int( "GlorifiedLeveling.XP", plyXP )
+            ply:SetNWInt( "GlorifiedLeveling.Level", plyLevel )
+            ply:SetNWInt( "GlorifiedLeveling.XP", plyXP )
             GlorifiedLeveling.SetPlayerPerkTable( ply, plyPerks )
         else
             ply:GlorifiedLeveling().Level = 1
             ply:GlorifiedLeveling().XP = 0
-            ply:SetNW2Int( "GlorifiedLeveling.Level", 1 )
-            ply:SetNW2Int( "GlorifiedLeveling.XP", 0 )
+            ply:SetNWInt( "GlorifiedLeveling.Level", 1 )
+            ply:SetNWInt( "GlorifiedLeveling.XP", 0 )
             GlorifiedLeveling.SetPlayerPerkTable( ply, defaultPerkTable )
             GlorifiedLeveling.SQL.Query( "INSERT INTO `gl_players` ( `SteamID64`, `Level`, `XP`, `PerkTable` ) VALUES ( '" .. ply:SteamID64() .. "', '1', '0', '" .. GlorifiedLeveling.SQL.EscapeString( util.TableToJSON( defaultPerkTable ) ) .. "' )" )
         end

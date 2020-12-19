@@ -44,7 +44,7 @@ function GlorifiedLeveling.SetPlayerLevel( ply, level )
     hook.Run( "GlorifiedLeveling.LevelUpdated", ply, GlorifiedLeveling.GetPlayerLevel( ply ), level )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `Level` = '" .. level .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
     ply:GlorifiedLeveling().Level = level
-    ply:SetNW2Int( "GlorifiedLeveling.Level", level )
+    ply:SetNWInt( "GlorifiedLeveling.Level", level )
 end
 
 function GlorifiedLeveling.GetPlayerLevel( ply )
@@ -63,7 +63,7 @@ function GlorifiedLeveling.SetPlayerXP( ply, xp )
     hook.Run( "GlorifiedLeveling.XPUpdated", ply, GlorifiedLeveling.GetPlayerXP( ply ), xp )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `XP` = '" .. xp .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
     ply:GlorifiedLeveling().XP = xp
-    ply:SetNW2Int( "GlorifiedLeveling.XP", xp )
+    ply:SetNWInt( "GlorifiedLeveling.XP", xp )
 end
 
 function GlorifiedLeveling.GetPlayerXP( ply )
