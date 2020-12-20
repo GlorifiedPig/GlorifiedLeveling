@@ -58,7 +58,7 @@ end
 function GlorifiedLeveling.SetPlayerSteamIDLevel( steamID, level )
     if not ValidationChecksSteamID( steamID, level ) then return end
     local ply = player.GetBySteamID64( steamID )
-    if ply then GlorifiedLeveling.SetPlayerLevel( ply, level ) end
+    if ply then GlorifiedLeveling.SetPlayerLevel( ply, level ) return end
     level = tonumber( level )
     level = math.Round( level )
     level = math.Clamp( level, 1, GlorifiedLeveling.Config.MAX_LEVEL )
@@ -104,7 +104,7 @@ end
 function GlorifiedLeveling.AddPlayerSteamIDLevels( steamID, levels )
     if not ValidationChecksSteamID( steamID, levels ) then return end
     local ply = player.GetBySteamID64( steamID )
-    if ply then GlorifiedLeveling.AddPlayerLevels( ply, levels ) end
+    if ply then GlorifiedLeveling.AddPlayerLevels( ply, levels ) return end
     levels = tonumber( levels )
     levels = math.Round( levels )
     levels = math.Clamp( levels, 1, GlorifiedLeveling.Config.MAX_LEVEL )
