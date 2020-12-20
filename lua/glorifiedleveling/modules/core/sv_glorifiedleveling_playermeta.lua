@@ -15,6 +15,14 @@ local function ValidationChecks( ply, level )
     or not ply:IsConnected() )
 end
 
+local function ValidationChecksSteamID( steamID, level )
+    level = tonumber( level )
+    return not ( GlorifiedLeveling.LockdownEnabled
+    or not level
+    or level < 0
+    or not isstring( steamID ) )
+end
+
 local function PerkValidationChecks( ply, perkTbl )
     return not ( GlorifiedLeveling.LockdownEnabled
     or not perkTbl
@@ -45,6 +53,16 @@ function GlorifiedLeveling.SetPlayerLevel( ply, level )
     GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `Level` = '" .. level .. "' WHERE `SteamID64` = '" .. ply:SteamID64() .. "'" )
     ply:GlorifiedLeveling().Level = level
     ply:SetNWInt( "GlorifiedLeveling.Level", level )
+end
+
+function GlorifiedLeveling.SetPlayerSteamIDLevel( steamID, level )
+    if not ValidationChecksSteamID( steamID, level ) then return end
+    local ply = player.GetBySteamID64( steamID )
+    if ply then GlorifiedLeveling.SetPlayerLevel( ply, level ) end
+    level = tonumber( level )
+    level = math.Round( level )
+    level = math.Clamp( level, 1, GlorifiedLeveling.Config.MAX_LEVEL )
+    GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `Level` = '" .. level .. "' WHERE `SteamID64` = '" .. steamID .. "'" )
 end
 
 function GlorifiedLeveling.GetPlayerLevel( ply )
@@ -81,6 +99,16 @@ function GlorifiedLeveling.AddPlayerLevels( ply, levels )
     if plyLevel >= GlorifiedLeveling.Config.MAX_LEVEL then return end
     GlorifiedLeveling.SetPlayerLevel( ply, plyLevel + levels )
     GlorifiedLeveling.SetPlayerXP( ply, 0 )
+end
+
+function GlorifiedLeveling.AddPlayerSteamIDLevels( steamID, levels )
+    if not ValidationChecksSteamID( steamID, levels ) then return end
+    local ply = player.GetBySteamID64( steamID )
+    if ply then GlorifiedLeveling.AddPlayerLevels( ply, levels ) end
+    levels = tonumber( levels )
+    levels = math.Round( levels )
+    levels = math.Clamp( levels, 1, GlorifiedLeveling.Config.MAX_LEVEL )
+    GlorifiedLeveling.SQL.Query( "UPDATE `gl_players` SET `Level` = `Level` + '" .. levels .. "' WHERE `SteamID64` = '" .. steamID .. "'" )
 end
 
 function GlorifiedLeveling.AddPlayerXP( ply, xp, ignoreMultiplier, showNotification, notificationOverride, carriedOver )
