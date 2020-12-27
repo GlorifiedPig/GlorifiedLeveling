@@ -9,7 +9,7 @@ local function ValidationChecks( ply, level )
     return not ( GlorifiedLeveling.LockdownEnabled
     or not level
     or level < 0
-    or not ply:IsValid()
+    or not IsValid( ply )
     or ply:IsBot()
     or not ply:IsFullyAuthenticated()
     or not ply:IsConnected() )
@@ -27,7 +27,7 @@ local function PerkValidationChecks( ply, perkTbl )
     return not ( GlorifiedLeveling.LockdownEnabled
     or not perkTbl
     or not istable( perkTbl )
-    or not ply:IsValid()
+    or not IsValid( ply )
     or ply:IsBot()
     or not ply:IsFullyAuthenticated()
     or not ply:IsConnected() )
