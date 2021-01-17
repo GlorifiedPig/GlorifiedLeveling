@@ -22,16 +22,18 @@ if CLIENT then
         GlorifiedLeveling.PerkTableCache = nil
     end )
 
-    hook.Add( "Move", "GlorifiedLeveling.Perks.Move", function( ply, mv, usrcmd )
+    hook.Add( "SetupMove", "GlorifiedLeveling.Perks.SetupMove", function( ply, mv, usrcmd )
+        if ply.IsProne and ply:IsProne() then return end
         local speed = mv:GetMaxSpeed() * ( 1 + ( getPerkCountPerLevel( perksEnum.SPEED ) * GlorifiedLeveling.GetPlayerPerkLevel( perksEnum.SPEED ) / 100 ) )
-        mv:SetMaxSpeed( speed )
         mv:SetMaxClientSpeed( speed )
+        mv:SetMaxSpeed( speed )
     end )
 else
-    hook.Add( "Move", "GlorifiedLeveling.Perks.Move", function( ply, mv, usrcmd )
+    hook.Add( "SetupMove", "GlorifiedLeveling.Perks.SetupMove", function( ply, mv, usrcmd )
+        if ply.IsProne and ply:IsProne() then return end
         local speed = mv:GetMaxSpeed() * ( 1 + ( getPerkCountPerLevel( perksEnum.SPEED ) * GlorifiedLeveling.GetPlayerPerkLevel( ply, perksEnum.SPEED ) / 100 ) )
-        mv:SetMaxSpeed( speed )
         mv:SetMaxClientSpeed( speed )
+        mv:SetMaxSpeed( speed )
     end )
 
     local function applyPlayerPerks( ply )
