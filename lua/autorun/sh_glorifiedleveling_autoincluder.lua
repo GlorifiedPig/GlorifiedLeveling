@@ -13,7 +13,7 @@ GlorifiedLeveling = GlorifiedLeveling or {
     Perks = {
         Enum = {}
     },
-    Version = "2.2.7"
+    Version = "2.3.0"
 }
 
 print( "[GlorifiedLeveling] This server is running version " .. GlorifiedLeveling.Version .. "." )
@@ -120,10 +120,3 @@ local function IncludeGBFiles()
 end
 
 hook.Add( GlorifiedLeveling.HookRunName, "GlorifiedLeveling.AutoIncluder.IncludeGBFiles", IncludeGBFiles )
-
-hook.Add( "libgmodstore_init", "GlorifiedLeveling.AutoIncluder.InitializeLibGModStore",function()
-    libgmodstore:InitScript( 7254, "GlorifiedLeveling",{
-        version = "{{ script_version_name }}",
-        licensee = "{{ user_id }}"
-    } )
-end)
