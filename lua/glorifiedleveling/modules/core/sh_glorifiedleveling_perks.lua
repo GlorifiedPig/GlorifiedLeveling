@@ -22,18 +22,18 @@ if CLIENT then
         GlorifiedLeveling.PerkTableCache = nil
     end )
 
-    hook.Add( "SetupMove", "GlorifiedLeveling.Perks.SetupMove", function( ply, mv, usrcmd )
+    hook.Add( "Move", "GlorifiedLeveling.Perks.Move", function( ply, mv, usrcmd )
         if ply.IsProne and ply:IsProne() then return end
         local speed = mv:GetMaxSpeed() * ( 1 + ( getPerkCountPerLevel( perksEnum.SPEED ) * GlorifiedLeveling.GetPlayerPerkLevel( perksEnum.SPEED ) / 100 ) )
-        mv:SetMaxClientSpeed( speed )
         mv:SetMaxSpeed( speed )
+        mv:SetMaxClientSpeed( speed )
     end )
 else
-    hook.Add( "SetupMove", "GlorifiedLeveling.Perks.SetupMove", function( ply, mv, usrcmd )
+    hook.Add( "Move", "GlorifiedLeveling.Perks.Move", function( ply, mv, usrcmd )
         if ply.IsProne and ply:IsProne() then return end
         local speed = mv:GetMaxSpeed() * ( 1 + ( getPerkCountPerLevel( perksEnum.SPEED ) * GlorifiedLeveling.GetPlayerPerkLevel( ply, perksEnum.SPEED ) / 100 ) )
-        mv:SetMaxClientSpeed( speed )
         mv:SetMaxSpeed( speed )
+        mv:SetMaxClientSpeed( speed )
     end )
 
     local function applyPlayerPerks( ply )
@@ -55,7 +55,7 @@ else
     end )
 
     hook.Add( "ScalePlayerDamage", "GlorifiedLeveling.Perks.ScalePlayerDamage", function( ply, hitgroup, dmginfo )
-        if not ply:IsValid() then return end
+        if not IsValid( ply ) then return end
         local scaleCount = 1
         local attacker = dmginfo:GetAttacker()
         if attacker:IsValid() and attacker:IsPlayer() then scaleCount = scaleCount + ( getPerkCountPerLevel( perksEnum.MORE_DAMAGE_GIVEN ) * GlorifiedLeveling.GetPlayerPerkLevel( ply, perksEnum.MORE_DAMAGE_GIVEN ) / 100 ) end
