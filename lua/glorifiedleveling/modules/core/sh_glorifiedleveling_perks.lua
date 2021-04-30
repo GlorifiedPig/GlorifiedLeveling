@@ -17,7 +17,7 @@ if CLIENT then
     hook.Add( "player_spawn", "GlorifiedLeveling.Perks.player_spawn", function( data )
         if Player( data.userid ) ~= LocalPlayer() or not GlorifiedLeveling.PerkTableCache or table.IsEmpty( GlorifiedLeveling.PerkTableCache ) then return end
         net.Start( "GlorifiedLeveling.Perks.UpdatePerkInfo" )
-        net.WriteString( util.TableToJSON( GlorifiedLeveling.PerkTableCache ) ) -- I know. I have no idea how else to do it.
+        net.WriteTableAsString( GlorifiedLeveling.PerkTableCache )
         net.SendToServer()
         GlorifiedLeveling.PerkTableCache = nil
     end )

@@ -100,7 +100,7 @@ end )
 net.Receive( "GlorifiedLeveling.Perks.UpdatePerkInfo", function( len, ply )
     if not ply:GlorifiedLeveling().AwaitingPerkUpdate then return end
     ply:GlorifiedLeveling().AwaitingPerkUpdate = nil
-    local newPerkTbl = util.JSONToTable( net.ReadString() )
+    local newPerkTbl = net.ReadTableAsString()
     if GlorifiedLeveling.GetTotalLevelsFromPerkTable( newPerkTbl ) > GlorifiedLeveling.GetTotalPerkPoints( ply ) then return end
     GlorifiedLeveling.SetPlayerPerkTable( ply, newPerkTbl )
 end )
