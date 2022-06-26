@@ -142,6 +142,10 @@ function GlorifiedLeveling.AddPlayerXP( ply, xp, ignoreMultiplier, showNotificat
         GlorifiedLeveling.SetPlayerXP( ply, totalXP )
     end
 
+    if not carriedOver then
+        hook.Run( "GlorifiedLeveling.XPAdded", ply, xp )
+    end
+
     return xp or 0
 end
 
