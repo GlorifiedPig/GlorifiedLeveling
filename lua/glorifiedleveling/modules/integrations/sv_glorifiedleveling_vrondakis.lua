@@ -1,35 +1,34 @@
-
 local plyMeta = FindMetaTable( "Player" )
 
 function plyMeta:setLevel( level )
-    return self:GlorifiedLeveling():SetLevel( level )
+    return GlorifiedLeveling.SetPlayerLevel( self, level )
 end
 
 function plyMeta:setXP( xp )
-    return self:GlorifiedLeveling():SetXP( xp )
+    return GlorifiedLeveling.SetPlayerXP( self, xp )
 end
 
 function plyMeta:addXP( xp )
-    return self:GlorifiedLeveling():AddXP( xp )
+    return GlorifiedLeveling.AddPlayerXP( self, xp )
 end
 plyMeta.AddXP = plyMeta.addXP
 
 function plyMeta:getLevel()
-    return self:GlorifiedLeveling():GetLevel()
+    return GlorifiedLeveling.GetPlayerLevel( self )
 end
 
 function plyMeta:getXP()
-    return self:GlorifiedLeveling():GetXP()
+    return GlorifiedLeveling.GetPlayerXP( self )
 end
 
 function plyMeta:getMaxXP()
-    return self:GlorifiedLeveling():GetMaxXP()
+    return GlorifiedLeveling.GetPlayerMaxXP( self )
 end
 
 function plyMeta:addLevels( levels )
-    return self:GlorifiedLeveling():AddLevels( levels )
+    return GlorifiedLeveling.AddPlayerLevels( self, levels )
 end
 
 function plyMeta:hasLevel( level )
-    return self:GlorifiedLeveling():HasLevel( level )
+    return GlorifiedLeveling.PlayerHasLevel( self, level )
 end
